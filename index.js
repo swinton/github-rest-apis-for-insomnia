@@ -1,13 +1,20 @@
 #!/usr/bin/env node
 const routes = require('@octokit/routes/routes/api.github.com/repos');
 
-const normalizePath = path => {
-  // Replace paths like /repos/:owner/:repo with /repos/{{ owner }}/{{ repo }}
+const pathNormalizer = function pathNormalizer() {
+  const capturedEnvironmentVars = new Set();
+  pathNormalizer.capturedEnvironmentVars = capturedEnvironmentVars;
   const re = /:([^/]+)/g;
-  return path.replace(re, (match, captured) => {
-    return `{{ ${captured} }}`;
-  });
+  return path => {
+    // Replace paths like /repos/:owner/:repo with /repos/{{ owner }}/{{ repo }}
+    return path.replace(re, (match, captured) => {
+      // Capture this environment variable
+      capturedEnvironmentVars.add(captured);
+      return `{{ ${captured} }}`;
+    });
+  };
 };
+const normalizePath = pathNormalizer();
 
 const environment = {
   parentId: '__WORKSPACE_ID__',
@@ -48,6 +55,14 @@ const resources = routes.map((route, index) => {
     parameters: []
   };
 });
+
+// Add captured environment variables to environment
+// eslint-disable-next-line no-restricted-syntax
+for (const env of pathNormalizer.capturedEnvironmentVars) {
+  if (env.match(/^([a-zA-Z_]+)$/) !== null) {
+    Object.assign(environment.data, { [env]: env });
+  }
+}
 
 resources.unshift(environment);
 resources.unshift(reposRequestGroup);
