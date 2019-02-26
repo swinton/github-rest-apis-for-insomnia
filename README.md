@@ -35,3 +35,14 @@
   }
 }
 ```
+
+### Request group
+
+```json
+{
+  "parentId": "__WORKSPACE_ID__",
+  "_id": "fld_7681ba70932443838af757976e6fd92b",
+  "_type": "request_group",
+  "name": "GitHub REST v3 API"
+}
+```

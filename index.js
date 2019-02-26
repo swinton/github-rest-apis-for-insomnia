@@ -9,9 +9,33 @@ const normalizePath = path => {
   });
 };
 
+const environment = {
+  parentId: '__WORKSPACE_ID__',
+  _id: `__ENV_1__`,
+  _type: 'environment',
+  name: 'Base Environment',
+  data: {
+    github_api_root: 'https://api.github.com'
+  }
+};
+
+const rootRequestGroup = {
+  parentId: '__WORKSPACE_ID__',
+  _id: '__FLD_1__',
+  _type: 'request_group',
+  name: 'GitHub REST v3 API'
+};
+
+const reposRequestGroup = {
+  parentId: '__FLD_1__',
+  _id: '__FLD_2__',
+  _type: 'request_group',
+  name: 'Repos'
+};
+
 const resources = routes.map((route, index) => {
   return {
-    parentId: '__WORKSPACE_ID__',
+    parentId: '__FLD_2__',
     _id: `__REQ_${index}__`,
     _type: 'request',
     name: route.name,
@@ -25,15 +49,9 @@ const resources = routes.map((route, index) => {
   };
 });
 
-resources.unshift({
-  parentId: '__WORKSPACE_ID__',
-  _id: `__ENV_1__`,
-  _type: 'environment',
-  name: 'Base Environment',
-  data: {
-    github_api_root: 'https://api.github.com'
-  }
-});
+resources.unshift(environment);
+resources.unshift(reposRequestGroup);
+resources.unshift(rootRequestGroup);
 
 const data = {
   _type: 'export',
