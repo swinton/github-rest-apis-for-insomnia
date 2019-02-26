@@ -22,7 +22,8 @@ const environment = {
   _type: 'environment',
   name: 'Base Environment',
   data: {
-    github_api_root: 'https://api.github.com'
+    github_api_root: 'https://api.github.com',
+    github_token: process.env.GITHUB_TOKEN || ''
   }
 };
 
@@ -48,7 +49,10 @@ const resources = routes.map((route, index) => {
     name: route.name,
     description: `${route.description}\n\n${route.documentationUrl}`,
     headers: [],
-    authentication: {},
+    authentication: {
+      token: '{{ github_token  }}',
+      type: 'bearer'
+    },
     method: route.method,
     url: `{{ github_api_root  }}${normalizePath(route.path)}`,
     body: {},
