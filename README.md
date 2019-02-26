@@ -21,3 +21,17 @@
   "parameters": []
 }
 ```
+
+### Environment
+
+```json
+{
+  "parentId": "__WORKSPACE_ID__",
+  "_id": "__ENV_1__",
+  "_type": "environment",
+  "name": "Base Environment",
+  "data": {
+    "github_api_root": "https://api.github.com"
+  }
+}
+```

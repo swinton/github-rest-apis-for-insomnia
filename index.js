@@ -25,6 +25,16 @@ const resources = routes.map((route, index) => {
   };
 });
 
+resources.unshift({
+  parentId: '__WORKSPACE_ID__',
+  _id: `__ENV_1__`,
+  _type: 'environment',
+  name: 'Base Environment',
+  data: {
+    github_api_root: 'https://api.github.com'
+  }
+});
+
 const data = {
   _type: 'export',
   __export_format: 3,
