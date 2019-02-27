@@ -1,31 +1,7 @@
 #!/usr/bin/env node
-const routes = require('@octokit/routes/routes/api.github.com/repos');
-
-const pathNormalizer = function pathNormalizer() {
-  const capturedEnvironmentVars = new Set();
-  pathNormalizer.capturedEnvironmentVars = capturedEnvironmentVars;
-  const re = /:([^/]+)/g;
-  return path => {
-    // Replace paths like /repos/:owner/:repo with /repos/{{ owner }}/{{ repo }}
-    return path.replace(re, (match, captured) => {
-      // Capture this environment variable
-      capturedEnvironmentVars.add(captured);
-      return `{{ ${captured} }}`;
-    });
-  };
-};
-const normalizePath = pathNormalizer();
-
-const environment = {
-  parentId: '__WORKSPACE_ID__',
-  _id: `__ENV_1__`,
-  _type: 'environment',
-  name: 'Base Environment',
-  data: {
-    github_api_root: 'https://api.github.com',
-    github_token: process.env.GITHUB_TOKEN || ''
-  }
-};
+const api = require('@octokit/routes/routes/api.github.com');
+const meta = require('./package');
+const { pathNormalizer } = require('./lib/utils');
 
 const rootRequestGroup = {
   parentId: '__WORKSPACE_ID__',
@@ -34,30 +10,56 @@ const rootRequestGroup = {
   name: 'GitHub REST v3 API'
 };
 
-const reposRequestGroup = {
-  parentId: '__FLD_1__',
-  _id: '__FLD_2__',
-  _type: 'request_group',
-  name: 'Repos'
+const environment = {
+  // eslint-disable-next-line no-underscore-dangle
+  parentId: '__WORKSPACE_ID__',
+  _id: '__ENV_1__',
+  _type: 'environment',
+  name: 'Base Environment',
+  data: {
+    github_api_root: 'https://api.github.com',
+    github_token: process.env.GITHUB_TOKEN || ''
+  }
 };
 
-const resources = routes.map((route, index) => {
-  return {
-    parentId: '__FLD_2__',
-    _id: `__REQ_${index}__`,
-    _type: 'request',
-    name: route.name,
-    description: `${route.description}\n\n${route.documentationUrl}`,
-    headers: [],
-    authentication: {
-      token: '{{ github_token  }}',
-      type: 'bearer'
-    },
-    method: route.method,
-    url: `{{ github_api_root  }}${normalizePath(route.path)}`,
-    body: {},
-    parameters: []
-  };
+const requestGroups = [];
+const resources = [];
+
+let reqCounter = 0;
+const normalizePath = pathNormalizer();
+Object.keys(api).forEach((group, index) => {
+  // Add a new request group
+  const parentId = `__FLD_${index + 2}__`;
+  requestGroups.push({
+    // eslint-disable-next-line no-underscore-dangle
+    parentId: rootRequestGroup._id,
+    _id: parentId,
+    _type: 'request_group',
+    name: group
+  });
+
+  // Add all routes within this group
+  const routes = api[group];
+  routes.forEach(route => {
+    const id = `__REQ_${reqCounter}__`;
+    resources.push({
+      parentId,
+      _id: id,
+      _type: 'request',
+      name: route.name,
+      description: `${route.description}\n\n${route.documentationUrl}`,
+      headers: [],
+      authentication: {
+        token: '{{ github_token  }}',
+        type: 'bearer'
+      },
+      method: route.method,
+      url: `{{ github_api_root  }}${normalizePath(route.path)}`,
+      body: {},
+      parameters: []
+    });
+    reqCounter += 1;
+  });
 });
 
 // Add captured environment variables to environment
@@ -68,16 +70,15 @@ for (const env of pathNormalizer.capturedEnvironmentVars) {
   }
 }
 
-resources.unshift(environment);
-resources.unshift(reposRequestGroup);
-resources.unshift(rootRequestGroup);
-
 const data = {
   _type: 'export',
   __export_format: 3,
   __export_date: new Date(),
-  __export_source: 'insomnia.importers:v0.1.0',
-  resources
+  __export_source: `${meta.name}:${meta.version}`,
+  resources: [rootRequestGroup]
+    .concat(environment)
+    .concat(requestGroups)
+    .concat(resources)
 };
 
 console.log(JSON.stringify(data, null, 2));
