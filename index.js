@@ -81,4 +81,5 @@ const data = {
     .concat(resources)
 };
 
+// eslint-disable-next-line no-console
 console.log(JSON.stringify(data, null, 2));
