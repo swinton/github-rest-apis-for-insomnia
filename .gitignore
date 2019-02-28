@@ -80,7 +80,7 @@ typings/
 .dynamodb/
 
 # Insomnia files
-.insomnia/*
+.insomnia/
 
 # Apple Desktop Services Store
 .DS_Store

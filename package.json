@@ -1,7 +1,7 @@
 {
   "name": "github-rest-apis-for-insomnia",
   "version": "0.0.1",
-  "description": "",
+  "description": "A complete set of GitHub REST API route specifications that can be imported straight into Insomnia REST Client",
   "main": "index.js",
   "scripts": {
     "start": "node ./index.js",
