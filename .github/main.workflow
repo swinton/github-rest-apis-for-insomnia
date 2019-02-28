@@ -7,7 +7,7 @@ action "Regenerate" {
   uses = "./"
 }
 
-Action "Inspect" {
+action "Inspect" {
   needs = ["Regenerate"]
   uses = "actions/bin/sh"
   runs = ["git diff"]
