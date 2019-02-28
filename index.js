@@ -11,7 +11,6 @@ const rootRequestGroup = {
 };
 
 const environment = {
-  // eslint-disable-next-line no-underscore-dangle
   parentId: '__WORKSPACE_ID__',
   _id: '__ENV_1__',
   _type: 'environment',
