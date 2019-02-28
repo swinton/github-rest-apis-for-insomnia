@@ -9,6 +9,6 @@ action "Regenerate" {
 
 action "Inspect" {
   needs = ["Regenerate"]
-  uses = "actions/bin/sh"
+  uses = "actions/bin/sh@master"
   runs = ["git diff"]
 }
