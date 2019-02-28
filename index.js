@@ -17,7 +17,7 @@ const environment = {
   name: 'Base Environment',
   data: {
     github_api_root: 'https://api.github.com',
-    github_token: process.env.GITHUB_TOKEN || ''
+    github_token: ''
   }
 };
 
