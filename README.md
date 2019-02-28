@@ -4,7 +4,7 @@
 
 ## Usage
 
-Import directly into Insomnia, via `Workspace` :arrow_right: `Import/Export` :arrow_right: `Import Data` :arrow_right: `From URL` and entering <kbd>https://raw.githubusercontent.com/swinton/github-rest-apis-for-insomnia/master/routes/api.github.com/github-rest-apis-for-insomnia.json</kbd>:
+Import directly into Insomnia, via `Workspace` :arrow_right: `Import/Export` :arrow_right: `Import Data` :arrow_right: `From URL` and entering <kbd>https://git.io/github-rest-apis-for-insomnia</kbd>:
 
 ![github-rest-apis-for-insomnia](https://user-images.githubusercontent.com/27806/53533284-ea904a00-3abf-11e9-8b0a-0bfe8358369c.gif)
 
