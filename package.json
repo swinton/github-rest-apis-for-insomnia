@@ -1,5 +1,5 @@
 {
-  "name": "octokit-routes-insomnia",
+  "name": "github-rest-apis-for-insomnia",
   "version": "0.0.1",
   "description": "",
   "main": "index.js",
@@ -10,15 +10,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/swinton/octokit-routes-insomnia.git"
+    "url": "git+https://github.com/swinton/github-rest-apis-for-insomnia.git"
   },
-  "keywords": [],
+  "keywords": [
+    "insomnia",
+    "github"
+  ],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/swinton/octokit-routes-insomnia/issues"
+    "url": "https://github.com/swinton/github-rest-apis-for-insomnia/issues"
   },
-  "homepage": "https://github.com/swinton/octokit-routes-insomnia#readme",
+  "homepage": "https://github.com/swinton/github-rest-apis-for-insomnia#readme",
   "dependencies": {
     "@octokit/routes": "^18.6.2",
     "insomnia-importers": "^2.0.14"
