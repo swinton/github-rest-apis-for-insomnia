@@ -10,5 +10,5 @@ action "Regenerate" {
 action "Diff" {
   needs = ["Regenerate"]
   uses = "docker://alpine/git"
-  runs = "diff"
+  args = "diff"
 }
