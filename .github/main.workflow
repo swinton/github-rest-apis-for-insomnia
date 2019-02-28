@@ -4,5 +4,5 @@ workflow "Regenerate github-rest-apis-for-insomnia.json" {
 }
 
 action "Regenerate" {
-  uses = "swinton/github-rest-apis-for-insomnia"
+  uses = "./"
 }
