@@ -1,14 +1,14 @@
 workflow "Regenerate github-rest-apis-for-insomnia.json" {
   on = "push"
-  resolves = "Inspect"
+  resolves = "Diff"
 }
 
 action "Regenerate" {
   uses = "./"
 }
 
-action "Inspect" {
+action "Diff" {
   needs = ["Regenerate"]
-  uses = "actions/bin/sh@master"
-  runs = ["git diff"]
+  uses = "docker://alpine/git"
+  runs = "diff"
 }
