@@ -3,12 +3,13 @@ workflow "Regenerate github-rest-apis-for-insomnia.json" {
   resolves = "Diff"
 }
 
-action "Regenerate" {
-  uses = "./"
+action "Install" {
+  uses = "actions/npm@master"
+  args = "install --only=production"
 }
 
 action "Diff" {
-  needs = ["Regenerate"]
+  needs = ["Install"]
   uses = "docker://alpine/git"
   args = "diff"
 }
