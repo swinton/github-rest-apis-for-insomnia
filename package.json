@@ -26,8 +26,7 @@
   },
   "homepage": "https://github.com/swinton/github-rest-apis-for-insomnia#readme",
   "dependencies": {
-    "@octokit/routes": "^18.6.2",
-    "insomnia-importers": "^2.0.14"
+    "@octokit/routes": "18.6.2"
   },
   "devDependencies": {
     "eslint": "^5.14.1",
