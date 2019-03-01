@@ -5,7 +5,7 @@ workflow "Regenerate github-rest-apis-for-insomnia.json" {
 
 action "Install" {
   uses = "actions/npm@master"
-  args = "ci"
+  args = "install --only=production"
 }
 
 action "Run" {
@@ -14,10 +14,16 @@ action "Run" {
   args = "start"
 }
 
-action "Commit changes" {
+action "Add changes" {
   needs = ["Run"]
   uses = "docker://alpine/git"
-  args = "commit -am ':repeat: Regenerate github-rest-apis-for-insomnia.json'"
+  args = "add ."
+}
+
+action "Commit changes" {
+  needs = ["Add changes"]
+  uses = "docker://alpine/git"
+  args = "commit -m ':repeat: Regenerate github-rest-apis-for-insomnia.json'"
 }
 
 action "Push changes" {
