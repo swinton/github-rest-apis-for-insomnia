@@ -22,4 +22,5 @@ action "Validate" {
 action "Commit, and push changes" {
   needs = ["Validate"]
   uses = "./.github/actions/commit-and-push"
+  secrets = ["GITHUB_TOKEN"]
 }
