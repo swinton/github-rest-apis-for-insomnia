@@ -1,6 +1,6 @@
 workflow "Regenerate github-rest-apis-for-insomnia.json" {
   on = "push"
-  resolves = "Push changes"
+  resolves = "Commit, and push changes"
 }
 
 action "Install" {
@@ -19,19 +19,7 @@ action "Validate" {
   uses = "./.github/actions/validate-json"
 }
 
-action "Commit changes" {
+action "Commit, and push changes" {
   needs = ["Validate"]
-  uses = "docker://alpine/git"
-  args = ["commit", "-am", "':repeat: Regenerate github-rest-apis-for-insomnia.json'"]
-  env = {
-    "GIT_COMMITTER_NAME" = "GitHub Actions"
-    "GIT_COMMITTER_EMAIL" = "actions@github.com"
-  }
-}
-
-action "Push changes" {
-  needs = ["Commit changes"]
-  uses = "docker://alpine/git"
-  args = "push"
-  secrets = ["GITHUB_TOKEN"]
+  uses = "./.github/actions/commit-and-push"
 }
