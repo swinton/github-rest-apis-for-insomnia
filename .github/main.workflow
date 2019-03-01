@@ -24,6 +24,10 @@ action "Commit changes" {
   needs = ["Add changes"]
   uses = "docker://alpine/git"
   args = ["commit", "-m", "':repeat: Regenerate github-rest-apis-for-insomnia.json'"]
+  env = {
+    "GIT_COMMITTER_NAME" = "GitHub Actions"
+    "GIT_COMMITTER_EMAIL" = "actions@github.com"
+  }
 }
 
 action "Push changes" {
