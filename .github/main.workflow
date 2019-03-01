@@ -5,7 +5,7 @@ workflow "Regenerate github-rest-apis-for-insomnia.json" {
 
 action "Install" {
   uses = "actions/npm@master"
-  args = "install --only=production"
+  args = "ci"
 }
 
 action "Diff" {
