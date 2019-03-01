@@ -1,7 +1,14 @@
 #!/usr/bin/env node
+const path = require('path');
+const fs = require('fs');
 const api = require('@octokit/routes/routes/api.github.com');
 const meta = require('./package');
 const { pathNormalizer } = require('./lib/utils');
+
+// Destination for output
+const destination = path.normalize(
+  path.join(__dirname, 'routes', 'api.github.com', 'github-rest-apis-for-insomnia.json')
+);
 
 const rootRequestGroup = {
   parentId: '__WORKSPACE_ID__',
@@ -11,14 +18,13 @@ const rootRequestGroup = {
 };
 
 const environment = {
-  // eslint-disable-next-line no-underscore-dangle
   parentId: '__WORKSPACE_ID__',
   _id: '__ENV_1__',
   _type: 'environment',
   name: 'Base Environment',
   data: {
     github_api_root: 'https://api.github.com',
-    github_token: process.env.GITHUB_TOKEN || ''
+    github_token: ''
   }
 };
 
@@ -81,5 +87,6 @@ const data = {
     .concat(resources)
 };
 
-// eslint-disable-next-line no-console
-console.log(JSON.stringify(data, null, 2));
+// Write output straight to file
+const output = JSON.stringify(data, null, 2);
+fs.writeFileSync(destination, output);
