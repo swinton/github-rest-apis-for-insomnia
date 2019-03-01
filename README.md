@@ -1,8 +1,8 @@
 # `github-rest-apis-for-insomnia`
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/swinton/github-rest-apis-for-insomnia.svg)](https://greenkeeper.io/)
-
 > :100: A complete set of [GitHub REST API](https://developer.github.com/v3/) route specifications that can be imported straight into [Insomnia REST Client](https://insomnia.rest/).
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/swinton/github-rest-apis-for-insomnia.svg)](https://greenkeeper.io/)
 
 ## Usage
 
