@@ -1,6 +1,6 @@
 workflow "Regenerate github-rest-apis-for-insomnia.json" {
   on = "push"
-  resolves = "Diff"
+  resolves = "Commit"
 }
 
 action "Install" {
@@ -14,8 +14,9 @@ action "Run" {
   args = "start"
 }
 
-action "Diff" {
+action "Commit" {
   needs = ["Run"]
   uses = "docker://alpine/git"
-  args = "diff"
+  args = "commit -am 'Regenerate' && git push"
+  secrets = [ "GITHUB_TOKEN" ]
 }
