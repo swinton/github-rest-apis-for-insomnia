@@ -19,8 +19,14 @@ action "Validate" {
   uses = "./.github/actions/validate-json"
 }
 
-action "Commit, and push changes" {
+action "Greenkeeper filter" {
   needs = ["Validate"]
+  uses = "actions/bin/filter@master"
+  args = "branch greenkeeper/@octokit/routes\\*"
+}
+
+action "Commit, and push changes" {
+  needs = ["Greenkeeper filter"]
   uses = "./.github/actions/commit-and-push"
   secrets = ["GITHUB_TOKEN"]
 }
