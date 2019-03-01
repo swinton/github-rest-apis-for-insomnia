@@ -2,6 +2,8 @@
 
 > :100: A complete set of [GitHub REST API](https://developer.github.com/v3/) route specifications that can be imported straight into [Insomnia REST Client](https://insomnia.rest/).
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/swinton/github-rest-apis-for-insomnia.svg)](https://greenkeeper.io/)
+
 ## Usage
 
 Import directly into Insomnia, via `Workspace` :arrow_right: `Import/Export` :arrow_right: `Import Data` :arrow_right: `From URL` and entering **`https://git.io/github-rest-apis-for-insomnia`**:
