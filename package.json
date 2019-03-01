@@ -36,6 +36,7 @@
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-react": "^7.12.4",
+    "insomnia-importers": "^2.0.14",
     "jest": "^24.1.0",
     "nodemon": "^1.18.10",
     "prettier": "^1.16.4"

@@ -3,7 +3,7 @@ const path = require('path');
 const fs = require('fs');
 const api = require('@octokit/routes/routes/api.github.com');
 const meta = require('./package');
-const { pathNormalizer } = require('./lib/utils');
+const { pathNormalizer, mapPreviewsToHeaders } = require('./lib/utils');
 
 // Destination for output
 const destination = path.normalize(
@@ -54,7 +54,7 @@ Object.keys(api).forEach((group, index) => {
       _type: 'request',
       name: route.name,
       description: `${route.description}\n\n${route.documentationUrl}`,
-      headers: [],
+      headers: mapPreviewsToHeaders(route.previews),
       authentication: {
         token: '{{ github_token  }}',
         type: 'bearer'
