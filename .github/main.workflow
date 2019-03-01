@@ -17,18 +17,18 @@ action "Run" {
 action "Add changes" {
   needs = ["Run"]
   uses = "docker://alpine/git"
-  args = "add ."
+  args = ["add", "."]
 }
 
 action "Commit changes" {
   needs = ["Add changes"]
   uses = "docker://alpine/git"
-  args = "commit -m ':repeat: Regenerate github-rest-apis-for-insomnia.json'"
+  args = ["commit", "-m", "':repeat: Regenerate github-rest-apis-for-insomnia.json'"]
 }
 
 action "Push changes" {
   needs = ["Commit changes"]
   uses = "docker://alpine/git"
   args = "push"
-  secrets = [ "GITHUB_TOKEN" ]
+  secrets = ["GITHUB_TOKEN"]
 }
