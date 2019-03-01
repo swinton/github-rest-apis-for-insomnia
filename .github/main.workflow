@@ -8,8 +8,14 @@ action "Install" {
   args = "ci"
 }
 
-action "Diff" {
+action "Run" {
   needs = ["Install"]
+  uses = "actions/npm@master"
+  args = "start"
+}
+
+action "Diff" {
+  needs = ["Run"]
   uses = "docker://alpine/git"
   args = "diff"
 }
