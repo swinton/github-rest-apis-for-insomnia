@@ -1,8 +1,8 @@
 {
   "_type": "export",
   "__export_format": 3,
-  "__export_date": "2019-03-01T20:53:08.199Z",
-  "__export_source": "github-rest-apis-for-insomnia:0.0.1",
+  "__export_date": "2019-03-06T16:11:51.201Z",
+  "__export_source": "github-rest-apis-for-insomnia:0.1.0",
   "resources": [
     {
       "parentId": "__WORKSPACE_ID__",
@@ -642,7 +642,7 @@
       "_id": "__REQ_25__",
       "_type": "request",
       "name": "List your notifications",
-      "description": "List all notifications for the current user, sorted by most recently updated.\n\nhttps://developer.github.com/v3/activity/notifications/#list-your-notifications",
+      "description": "List all notifications for the current user, sorted by most recently updated.\n\nThe following example uses the `since` parameter to list notifications that have been updated after the specified time.\n\nhttps://developer.github.com/v3/activity/notifications/#list-your-notifications",
       "headers": [],
       "authentication": {
         "token": "{{ github_token  }}",
@@ -1625,7 +1625,7 @@
       "_id": "__REQ_83__",
       "_type": "request",
       "name": "Create a commit",
-      "description": "Creates a new Git [commit object](https://git-scm.com/book/en/v1/Git-Internals-Git-Objects#Commit-Objects).\n\nThe `committer` section is optional and will be filled with the `author` data if omitted. If the `author` section is omitted, it will be filled in with the authenticated user's information and the current date.\n\nBoth the `author` and `committer` parameters have the same keys:\n\n| name  | type   | description                                                                                                             |\n| ----- | ------ | ----------------------------------------------------------------------------------------------------------------------- |\n| name  | string | The name of the author (or committer) of the commit                                                                     |\n| email | string | The email of the author (or committer) of the commit                                                                    |\n| date  | string | Indicates when this commit was authored (or committed). This is a timestamp in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ`. |\n\nYou can also provide an optional string `signature` parameter. This value will be added to the `gpgsig` header of the created commit. For a commit signature to be verifiable by Git or GitHub, it must be an ASCII-armored detached PGP signature over the string commit as it would be written to the object database.\n\n**Note**: To pass a `signature` parameter, you need to first manually create a valid PGP signature, which can be complicated. You may find it easier to [use the command line](https://git-scm.com/book/id/v2/Git-Tools-Signing-Your-Work) to create signed commits.\n\nIn this example, the payload that the signature is over would have been:\n\n\n\nhttps://developer.github.com/v3/git/commits/#create-a-commit",
+      "description": "Creates a new Git [commit object](https://git-scm.com/book/en/v1/Git-Internals-Git-Objects#Commit-Objects).\n\nThe `committer` section is optional and will be filled with the `author` data if omitted. If the `author` section is omitted, it will be filled in with the authenticated user's information and the current date.\n\nBoth the `author` and `committer` parameters have the same keys:\n\n| name  | type   | description                                                                                                                                                       |\n| ----- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |\n| name  | string | The name of the author (or committer) of the commit                                                                                                               |\n| email | string | The email of the author (or committer) of the commit                                                                                                              |\n| date  | string | Indicates when this commit was authored (or committed). This is a timestamp in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format: `YYYY-MM-DDTHH:MM:SSZ`. |\n\nYou can also provide an optional string `signature` parameter. This value will be added to the `gpgsig` header of the created commit. For a commit signature to be verifiable by Git or GitHub, it must be an ASCII-armored detached PGP signature over the string commit as it would be written to the object database.\n\n**Note**: To pass a `signature` parameter, you need to first manually create a valid PGP signature, which can be complicated. You may find it easier to [use the command line](https://git-scm.com/book/id/v2/Git-Tools-Signing-Your-Work) to create signed commits.\n\nIn this example, the payload that the signature is over would have been:\n\n\n\nhttps://developer.github.com/v3/git/commits/#create-a-commit",
       "headers": [],
       "authentication": {
         "token": "{{ github_token  }}",
@@ -3493,8 +3493,8 @@
       "parentId": "__FLD_14__",
       "_id": "__REQ_187__",
       "_type": "request",
-      "name": "List all licenses",
-      "description": "\n\nhttps://developer.github.com/v3/licenses/#list-all-licenses",
+      "name": "List commonly used licenses",
+      "description": "\n\nhttps://developer.github.com/v3/licenses/#list-commonly-used-licenses",
       "headers": [],
       "authentication": {
         "token": "{{ github_token  }}",
