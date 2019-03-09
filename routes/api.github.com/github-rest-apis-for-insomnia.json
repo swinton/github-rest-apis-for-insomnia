@@ -1,7 +1,7 @@
 {
   "_type": "export",
   "__export_format": 3,
-  "__export_date": "2019-03-07T04:56:09.986Z",
+  "__export_date": "2019-03-09T15:26:01.291Z",
   "__export_source": "github-rest-apis-for-insomnia:0.1.0",
   "resources": [
     {
@@ -5107,7 +5107,7 @@
       "_id": "__REQ_280__",
       "_type": "request",
       "name": "Get your current rate limit status",
-      "description": "**Note:** Accessing this endpoint does not count against your REST API rate limit.\n\n**Understanding your rate limit status**\n\nThe Search API has a [custom rate limit](https://developer.github.com/v3/search/#rate-limit), separate from the rate limit governing the rest of the REST API. The GraphQL API also has a [custom rate limit](/v4/guides/resource-limitations/#rate-limit) that is separate from and calculated differently than rate limits in the REST API.\n\nFor these reasons, the Rate Limit API response categorizes your rate limit. Under `resources`, you'll see three objects:\n\n*   The `core` object provides your rate limit status for all non-search-related resources in the REST API.\n*   The `search` object provides your rate limit status for the [Search API](https://developer.github.com/v3/search/).\n*   The `graphql` object provides your rate limit status for the [GraphQL API](/v4/).\n\nFor more information on the headers and values in the rate limit response, see \"[Rate limiting](https://developer.github.com/v3/#rate-limiting).\"\n\nThe `rate` object (shown at the bottom of the response above) is deprecated.\n\nIf you're writing new API client code or updating existing code, you should use the `core` object instead of the `rate` object. The `core` object contains the same information that is present in the `rate` object.\n\nhttps://developer.github.com/v3/rate_limit/#get-your-current-rate-limit-status",
+      "description": "**Note:** Accessing this endpoint does not count against your REST API rate limit.\n\n**Understanding your rate limit status**\n\nThe Search API has a [custom rate limit](https://developer.github.com/v3/search/#rate-limit), separate from the rate limit governing the rest of the REST API. The GraphQL API also has a [custom rate limit](/v4/guides/resource-limitations/#rate-limit) that is separate from and calculated differently than rate limits in the REST API.\n\nFor these reasons, the Rate Limit API response categorizes your rate limit. Under `resources`, you'll see four objects:\n\n*   The `core` object provides your rate limit status for all non-search-related resources in the REST API.\n*   The `search` object provides your rate limit status for the [Search API](https://developer.github.com/v3/search/).\n*   The `graphql` object provides your rate limit status for the [GraphQL API](/v4/).\n*   The `integration_manifest` object provides your rate limit status for the [GitHub App Manifest code conversion](https://developer.github.com/apps/building-github-apps/creating-github-apps-from-a-manifest/#3-you-exchange-the-temporary-code-to-retrieve-the-app-configuration) endpoint.\n\nFor more information on the headers and values in the rate limit response, see \"[Rate limiting](https://developer.github.com/v3/#rate-limiting).\"\n\nThe `rate` object (shown at the bottom of the response above) is deprecated.\n\nIf you're writing new API client code or updating existing code, you should use the `core` object instead of the `rate` object. The `core` object contains the same information that is present in the `rate` object.\n\nhttps://developer.github.com/v3/rate_limit/#get-your-current-rate-limit-status",
       "headers": [],
       "authentication": {
         "token": "{{ github_token  }}",
@@ -7480,12 +7480,7 @@
       "_type": "request",
       "name": "Get a list of provisioned identities",
       "description": "If you want to filter by a specific email address, you'd use the `email` query parameter and the `eq` operator:\n\n```\nGET /scim/v2/organizations/:org/Users?filter=emails\n```\n\nYour filter might look like this using cURL:\n\nRetrieves users that match the filter. In the example, we searched only for [octocat@github.com](mailto:octocat@github.com).\n\nRetrieves a paginated list of all provisioned organization members, including pending invitations.\n\nhttps://developer.github.com/v3/scim/#get-a-list-of-provisioned-identities",
-      "headers": [
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.cloud-9-preview+json"
-        }
-      ],
+      "headers": [],
       "authentication": {
         "token": "{{ github_token  }}",
         "type": "bearer"
@@ -7501,12 +7496,7 @@
       "_type": "request",
       "name": "Get provisioning details for a single user",
       "description": "\n\nhttps://developer.github.com/v3/scim/#get-provisioning-details-for-a-single-user",
-      "headers": [
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.cloud-9-preview+json"
-        }
-      ],
+      "headers": [],
       "authentication": {
         "token": "{{ github_token  }}",
         "type": "bearer"
@@ -7522,12 +7512,7 @@
       "_type": "request",
       "name": "Provision and invite users",
       "description": "Provision organization membership for and send activation emails to a list of email addresses.\n\nhttps://developer.github.com/v3/scim/#provision-and-invite-users",
-      "headers": [
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.cloud-9-preview+json"
-        }
-      ],
+      "headers": [],
       "authentication": {
         "token": "{{ github_token  }}",
         "type": "bearer"
@@ -7543,12 +7528,7 @@
       "_type": "request",
       "name": "Provision and invite users",
       "description": "Provision organization membership for and send activation emails to a list of email addresses.\n\nhttps://developer.github.com/v3/scim/#provision-and-invite-users",
-      "headers": [
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.cloud-9-preview+json"
-        }
-      ],
+      "headers": [],
       "authentication": {
         "token": "{{ github_token  }}",
         "type": "bearer"
@@ -7564,12 +7544,7 @@
       "_type": "request",
       "name": "Update a provisioned organization membership",
       "description": "**Warning:** Setting `active: false` removes the user from the organization, deletes the external identity, and deletes the associated `:user_id`.\n\nhttps://developer.github.com/v3/scim/#update-a-provisioned-organization-membership",
-      "headers": [
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.cloud-9-preview+json"
-        }
-      ],
+      "headers": [],
       "authentication": {
         "token": "{{ github_token  }}",
         "type": "bearer"
@@ -7585,12 +7560,7 @@
       "_type": "request",
       "name": "Update a user attribute",
       "description": "**Warning:** If you set `active:false` using the `replace` operation (as shown in the JSON example below), it removes the user from the organization, deletes the external identity, and deletes the associated `:user_id`.\n\n```\n{\n  \"Operations\":[{\n    \"op\":\"replace\",\n    \"value\":{\n      \"active\":false\n    }\n  }]\n}\n\n```\n\nhttps://developer.github.com/v3/scim/#update-a-user-attribute",
-      "headers": [
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.cloud-9-preview+json"
-        }
-      ],
+      "headers": [],
       "authentication": {
         "token": "{{ github_token  }}",
         "type": "bearer"
@@ -7606,12 +7576,7 @@
       "_type": "request",
       "name": "Remove a user from the organization",
       "description": "\n\nhttps://developer.github.com/v3/scim/#remove-a-user-from-the-organization",
-      "headers": [
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.cloud-9-preview+json"
-        }
-      ],
+      "headers": [],
       "authentication": {
         "token": "{{ github_token  }}",
         "type": "bearer"
