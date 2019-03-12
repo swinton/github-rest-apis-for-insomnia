@@ -1,7 +1,7 @@
 {
   "_type": "export",
   "__export_format": 3,
-  "__export_date": "2019-03-09T15:26:01.291Z",
+  "__export_date": "2019-03-12T18:15:45.050Z",
   "__export_source": "github-rest-apis-for-insomnia:0.1.0",
   "resources": [
     {
@@ -865,7 +865,7 @@
       "_id": "__REQ_38__",
       "_type": "request",
       "name": "List installations for user",
-      "description": "Lists installations in a repository that the authenticated user has explicit permission (`:read`, `:write`, or `:admin`) to access.\n\nYou must use a [user-to-server OAuth access token](https://developer.github.com/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#identifying-users-on-your-site), created for a user who has authorized your GitHub App, to access this endpoint.\n\nThe authenticated user has explicit permission to access repositories they own, repositories where they are a collaborator, and repositories that they can access through an organization membership.\n\nThe permissions the installation has are included under the `permissions` key.\n\nhttps://developer.github.com/v3/apps/#list-installations-for-user",
+      "description": "Lists installations of your GitHub App that the authenticated user has explicit permission (`:read`, `:write`, or `:admin`) to access.\n\nYou must use a [user-to-server OAuth access token](https://developer.github.com/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#identifying-users-on-your-site), created for a user who has authorized your GitHub App, to access this endpoint.\n\nThe authenticated user has explicit permission to access repositories they own, repositories where they are a collaborator, and repositories that they can access through an organization membership.\n\nThe permissions the installation has are included under the `permissions` key.\n\nhttps://developer.github.com/v3/apps/#list-installations-for-user",
       "headers": [
         {
           "name": "Accept",
