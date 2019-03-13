@@ -1,7 +1,7 @@
 {
   "_type": "export",
   "__export_format": 3,
-  "__export_date": "2019-03-12T18:15:45.050Z",
+  "__export_date": "2019-03-13T17:29:27.826Z",
   "__export_source": "github-rest-apis-for-insomnia:0.1.0",
   "resources": [
     {
@@ -787,7 +787,12 @@
       "_type": "request",
       "name": "Get a single GitHub App",
       "description": "**Note**: The `:app_slug` is just the URL-friendly name of your GitHub App. You can find this on the settings page for your GitHub App (e.g., `https://github.com/settings/apps/:app_slug`).\n\nIf the GitHub App you specify is public, you can access this endpoint without authenticating. If the GitHub App you specify is private, you must authenticate with a [personal access token](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/) or an [installation access token](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation) to access this endpoint.\n\nhttps://developer.github.com/v3/apps/#get-a-single-github-app",
-      "headers": [],
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/vnd.github.machine-man-preview+json"
+        }
+      ],
       "authentication": {
         "token": "{{ github_token  }}",
         "type": "bearer"
@@ -1013,7 +1018,12 @@
       "_type": "request",
       "name": "List repositories",
       "description": "List repositories that an installation can access.\n\nYou must use an [installation access token](https://developer.github.com/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation) to access this endpoint.\n\nhttps://developer.github.com/v3/apps/installations/#list-repositories",
-      "headers": [],
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/vnd.github.machine-man-preview+json"
+        }
+      ],
       "authentication": {
         "token": "{{ github_token  }}",
         "type": "bearer"
