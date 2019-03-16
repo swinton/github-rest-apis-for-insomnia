@@ -1,7 +1,7 @@
 {
   "_type": "export",
   "__export_format": 3,
-  "__export_date": "2019-03-13T17:29:27.826Z",
+  "__export_date": "2019-03-16T01:39:05.563Z",
   "__export_source": "github-rest-apis-for-insomnia:0.1.0",
   "resources": [
     {
@@ -1987,7 +1987,7 @@
       "_id": "__REQ_100__",
       "_type": "request",
       "name": "Delete a reference",
-      "description": "Example: Deleting a branch:\n\n```\nDELETE /repos/octocat/Hello-World/git/refs/heads/feature-a\n```\n\nExample: Deleting a tag:\n\n```\nDELETE /repos/octocat/Hello-World/git/refs/tags/v1.0\n```\n\nhttps://developer.github.com/v3/git/refs/#delete-a-reference",
+      "description": "```\nDELETE /repos/octocat/Hello-World/git/refs/heads/feature-a\n```\n\n```\nDELETE /repos/octocat/Hello-World/git/refs/tags/v1.0\n```\n\nhttps://developer.github.com/v3/git/refs/#delete-a-reference",
       "headers": [],
       "authentication": {
         "token": "{{ github_token  }}",
@@ -6562,7 +6562,7 @@
       "_id": "__REQ_365__",
       "_type": "request",
       "name": "Create a deployment",
-      "description": "Deployments offer a few configurable parameters with sane defaults.\n\nThe `ref` parameter can be any named branch, tag, or SHA. At GitHub we often deploy branches and verify them before we merge a pull request.\n\nThe `environment` parameter allows deployments to be issued to different runtime environments. Teams often have multiple environments for verifying their applications, such as `production`, `staging`, and `qa`. This parameter makes it easier to track which environments have requested deployments. The default environment is `production`.\n\nThe `auto_merge` parameter is used to ensure that the requested ref is not behind the repository's default branch. If the ref _is_ behind the default branch for the repository, we will attempt to merge it for you. If the merge succeeds, the API will return a successful merge commit. If merge conflicts prevent the merge from succeeding, the API will return a failure response.\n\nBy default, [commit statuses](https://developer.github.com/v3/repos/statuses) for every submitted context must be in a `success` state. The `required_contexts` parameter allows you to specify a subset of contexts that must be `success`, or to specify contexts that have not yet been submitted. You are not required to use commit statuses to deploy. If you do not require any contexts or create any commit statuses, the deployment will always succeed.\n\nThe `payload` parameter is available for any extra information that a deployment system might need. It is a JSON text field that will be passed on when a deployment event is dispatched.\n\nThe `task` parameter is used by the deployment system to allow different execution paths. In the web world this might be `deploy:migrations` to run schema changes on the system. In the compiled world this could be a flag to compile an application with debugging enabled.\n\nUsers with `repo` or `repo_deployment` scopes can create a deployment for a given ref:\n\nA simple example putting the user and room into the payload to notify back to chat networks.\n\nA more advanced example specifying required commit statuses and bypassing auto-merging.\n\nThis error happens when the `auto_merge` option is enabled and when the default branch (in this case `master`), can't be merged into the branch that's being deployed (in this case `topic-branch`), due to merge conflicts.\n\nThis error happens when the `required_contexts` parameter indicates that one or more contexts need to have a `success` status for the commit to be deployed, but one or more of the required contexts do not have a state of `success`.\n\nhttps://developer.github.com/v3/repos/deployments/#create-a-deployment",
+      "description": "Deployments offer a few configurable parameters with sane defaults.\n\nThe `ref` parameter can be any named branch, tag, or SHA. At GitHub we often deploy branches and verify them before we merge a pull request.\n\nThe `environment` parameter allows deployments to be issued to different runtime environments. Teams often have multiple environments for verifying their applications, such as `production`, `staging`, and `qa`. This parameter makes it easier to track which environments have requested deployments. The default environment is `production`.\n\nThe `auto_merge` parameter is used to ensure that the requested ref is not behind the repository's default branch. If the ref _is_ behind the default branch for the repository, we will attempt to merge it for you. If the merge succeeds, the API will return a successful merge commit. If merge conflicts prevent the merge from succeeding, the API will return a failure response.\n\nBy default, [commit statuses](https://developer.github.com/v3/repos/statuses) for every submitted context must be in a `success` state. The `required_contexts` parameter allows you to specify a subset of contexts that must be `success`, or to specify contexts that have not yet been submitted. You are not required to use commit statuses to deploy. If you do not require any contexts or create any commit statuses, the deployment will always succeed.\n\nThe `payload` parameter is available for any extra information that a deployment system might need. It is a JSON text field that will be passed on when a deployment event is dispatched.\n\nThe `task` parameter is used by the deployment system to allow different execution paths. In the web world this might be `deploy:migrations` to run schema changes on the system. In the compiled world this could be a flag to compile an application with debugging enabled.\n\nUsers with `repo` or `repo_deployment` scopes can create a deployment for a given ref:\n\nA simple example putting the user and room into the payload to notify back to chat networks.\n\nA more advanced example specifying required commit statuses and bypassing auto-merging.\n\nYou will see this response when GitHub automatically merges the base branch into the topic branch instead of creating a deployment. This auto-merge happens when:\n\n*   Auto-merge option is enabled in the repository\n*   Topic branch does not include the latest changes on the base branch, which is `master`in the response example\n*   There are no merge conflicts\n\nIf there are no new commits in the base branch, a new request to create a deployment should give a successful response.\n\nThis error happens when the `auto_merge` option is enabled and when the default branch (in this case `master`), can't be merged into the branch that's being deployed (in this case `topic-branch`), due to merge conflicts.\n\nThis error happens when the `required_contexts` parameter indicates that one or more contexts need to have a `success` status for the commit to be deployed, but one or more of the required contexts do not have a state of `success`.\n\nhttps://developer.github.com/v3/repos/deployments/#create-a-deployment",
       "headers": [],
       "authentication": {
         "token": "{{ github_token  }}",
@@ -6994,13 +6994,8 @@
       "_id": "__REQ_392__",
       "_type": "request",
       "name": "Get information about a Pages site",
-      "description": "Responses during the preview period contain two additional fields:\n\n*   `html_url`: The absolute URL (with scheme) to the rendered site. For example, `https://username.github.io`.\n*   `source`: Information about the source branch and directory for the rendered site. The source field includes:\n    *   `branch`: The repo branch for [site source files](https://help.github.com/articles/configuring-a-publishing-source-for-github-pages/) For example, _master_ or _gh-pages_.\n    *   `path`: The repo directory from which the site publishes. Can be either `/` or `/docs`.\n\nhttps://developer.github.com/v3/repos/pages/#get-information-about-a-pages-site",
-      "headers": [
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.mister-fantastic-preview+json"
-        }
-      ],
+      "description": "\n\nhttps://developer.github.com/v3/repos/pages/#get-information-about-a-pages-site",
+      "headers": [],
       "authentication": {
         "token": "{{ github_token  }}",
         "type": "bearer"
@@ -7014,14 +7009,51 @@
       "parentId": "__FLD_22__",
       "_id": "__REQ_393__",
       "_type": "request",
-      "name": "Update information about a Pages site",
-      "description": "\n\nhttps://developer.github.com/v3/repos/pages/#update-information-about-a-pages-site",
+      "name": "Enable a Pages site",
+      "description": "\n\nhttps://developer.github.com/v3/repos/pages/#enable-a-pages-site",
       "headers": [
         {
           "name": "Accept",
-          "value": "application/vnd.github.mister-fantastic-preview+json"
+          "value": "application/vnd.github.switcheroo-preview+json"
         }
       ],
+      "authentication": {
+        "token": "{{ github_token  }}",
+        "type": "bearer"
+      },
+      "method": "POST",
+      "url": "{{ github_api_root  }}/repos/{{ owner }}/{{ repo }}/pages",
+      "body": {},
+      "parameters": []
+    },
+    {
+      "parentId": "__FLD_22__",
+      "_id": "__REQ_394__",
+      "_type": "request",
+      "name": "Disable a Pages site",
+      "description": "\n\nhttps://developer.github.com/v3/repos/pages/#disable-a-pages-site",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/vnd.github.switcheroo-preview+json"
+        }
+      ],
+      "authentication": {
+        "token": "{{ github_token  }}",
+        "type": "bearer"
+      },
+      "method": "DELETE",
+      "url": "{{ github_api_root  }}/repos/{{ owner }}/{{ repo }}/pages",
+      "body": {},
+      "parameters": []
+    },
+    {
+      "parentId": "__FLD_22__",
+      "_id": "__REQ_395__",
+      "_type": "request",
+      "name": "Update information about a Pages site",
+      "description": "\n\nhttps://developer.github.com/v3/repos/pages/#update-information-about-a-pages-site",
+      "headers": [],
       "authentication": {
         "token": "{{ github_token  }}",
         "type": "bearer"
@@ -7033,7 +7065,7 @@
     },
     {
       "parentId": "__FLD_22__",
-      "_id": "__REQ_394__",
+      "_id": "__REQ_396__",
       "_type": "request",
       "name": "Request a page build",
       "description": "You can request that your site be built from the latest revision on the default branch. This has the same effect as pushing a commit to your default branch, but does not require an additional commit. Manually triggering page builds can be helpful when diagnosing build warnings and failures.\n\nBuild requests are limited to one concurrent build per repository and one concurrent build per requester. If you request a build while another is still in progress, the second request will be queued until the first completes.\n\nhttps://developer.github.com/v3/repos/pages/#request-a-page-build",
@@ -7054,7 +7086,7 @@
     },
     {
       "parentId": "__FLD_22__",
-      "_id": "__REQ_395__",
+      "_id": "__REQ_397__",
       "_type": "request",
       "name": "List Pages builds",
       "description": "\n\nhttps://developer.github.com/v3/repos/pages/#list-pages-builds",
@@ -7070,7 +7102,7 @@
     },
     {
       "parentId": "__FLD_22__",
-      "_id": "__REQ_396__",
+      "_id": "__REQ_398__",
       "_type": "request",
       "name": "Get latest Pages build",
       "description": "\n\nhttps://developer.github.com/v3/repos/pages/#get-latest-pages-build",
@@ -7086,7 +7118,7 @@
     },
     {
       "parentId": "__FLD_22__",
-      "_id": "__REQ_397__",
+      "_id": "__REQ_399__",
       "_type": "request",
       "name": "Get a specific Pages build",
       "description": "\n\nhttps://developer.github.com/v3/repos/pages/#get-a-specific-pages-build",
@@ -7102,7 +7134,7 @@
     },
     {
       "parentId": "__FLD_22__",
-      "_id": "__REQ_398__",
+      "_id": "__REQ_400__",
       "_type": "request",
       "name": "List releases for a repository",
       "description": "This returns a list of releases, which does not include regular Git tags that have not been associated with a release. To get a list of Git tags, use the [Repository Tags API](https://developer.github.com/v3/repos/#list-tags).\n\nInformation about published releases are available to everyone. Only users with push access will receive listings for draft releases.\n\nhttps://developer.github.com/v3/repos/releases/#list-releases-for-a-repository",
@@ -7118,7 +7150,7 @@
     },
     {
       "parentId": "__FLD_22__",
-      "_id": "__REQ_399__",
+      "_id": "__REQ_401__",
       "_type": "request",
       "name": "Get a single release",
       "description": "**Note:** This returns an `upload_url` key corresponding to the endpoint for uploading release assets. This key is a [hypermedia resource](https://developer.github.com/v3/#hypermedia).\n\nhttps://developer.github.com/v3/repos/releases/#get-a-single-release",
@@ -7134,7 +7166,7 @@
     },
     {
       "parentId": "__FLD_22__",
-      "_id": "__REQ_400__",
+      "_id": "__REQ_402__",
       "_type": "request",
       "name": "Get the latest release",
       "description": "View the latest published full release for the repository.\n\nThe latest release is the most recent non-prerelease, non-draft release, sorted by the `created_at` attribute. The `created_at` attribute is the date of the commit used for the release, and not the date when the release was drafted or published.\n\nhttps://developer.github.com/v3/repos/releases/#get-the-latest-release",
@@ -7150,7 +7182,7 @@
     },
     {
       "parentId": "__FLD_22__",
-      "_id": "__REQ_401__",
+      "_id": "__REQ_403__",
       "_type": "request",
       "name": "Get a release by tag name",
       "description": "Get a published release with the specified tag.\n\nhttps://developer.github.com/v3/repos/releases/#get-a-release-by-tag-name",
@@ -7166,7 +7198,7 @@
     },
     {
       "parentId": "__FLD_22__",
-      "_id": "__REQ_402__",
+      "_id": "__REQ_404__",
       "_type": "request",
       "name": "Create a release",
       "description": "Users with push access to the repository can create a release.\n\nThis endpoint triggers [notifications](https://help.github.com/articles/about-notifications/). Creating content too quickly using this endpoint may result in abuse rate limiting. See \"[Abuse rate limits](https://developer.github.com/v3/#abuse-rate-limits)\" and \"[Dealing with abuse rate limits](https://developer.github.com/v3/guides/best-practices-for-integrators/#dealing-with-abuse-rate-limits)\" for details.\n\nhttps://developer.github.com/v3/repos/releases/#create-a-release",
@@ -7182,7 +7214,7 @@
     },
     {
       "parentId": "__FLD_22__",
-      "_id": "__REQ_403__",
+      "_id": "__REQ_405__",
       "_type": "request",
       "name": "Edit a release",
       "description": "Users with push access to the repository can edit a release.\n\nhttps://developer.github.com/v3/repos/releases/#edit-a-release",
@@ -7198,7 +7230,7 @@
     },
     {
       "parentId": "__FLD_22__",
-      "_id": "__REQ_404__",
+      "_id": "__REQ_406__",
       "_type": "request",
       "name": "Delete a release",
       "description": "Users with push access to the repository can delete a release.\n\nhttps://developer.github.com/v3/repos/releases/#delete-a-release",
@@ -7214,7 +7246,7 @@
     },
     {
       "parentId": "__FLD_22__",
-      "_id": "__REQ_405__",
+      "_id": "__REQ_407__",
       "_type": "request",
       "name": "List assets for a release",
       "description": "\n\nhttps://developer.github.com/v3/repos/releases/#list-assets-for-a-release",
@@ -7230,7 +7262,7 @@
     },
     {
       "parentId": "__FLD_22__",
-      "_id": "__REQ_406__",
+      "_id": "__REQ_408__",
       "_type": "request",
       "name": "Upload a release asset",
       "description": "This endpoint makes use of [a Hypermedia relation](https://developer.github.com/v3/#hypermedia) to determine which URL to access. This endpoint is provided by a URI template in [the release's API response](#get-a-single-release). You need to use an HTTP client which supports [SNI](http://en.wikipedia.org/wiki/Server_Name_Indication) to make calls to this endpoint.\n\nThe asset data is expected in its raw binary form, rather than JSON. Everything else about the endpoint is the same as the rest of the API. For example, you'll still need to pass your authentication to be able to upload an asset.\n\nSend the raw binary content of the asset as the request body.\n\nThis may leave an empty asset with a state of `\"new\"`. It can be safely deleted.\n\nhttps://developer.github.com/v3/repos/releases/#upload-a-release-asset",
@@ -7246,7 +7278,7 @@
     },
     {
       "parentId": "__FLD_22__",
-      "_id": "__REQ_407__",
+      "_id": "__REQ_409__",
       "_type": "request",
       "name": "Get a single release asset",
       "description": "To download the asset's binary content, set the `Accept` header of the request to [`application/octet-stream`](https://developer.github.com/v3/media/#media-types). The API will either redirect the client to the location, or stream it directly if possible. API clients should handle both a `200` or `302` response.\n\nhttps://developer.github.com/v3/repos/releases/#get-a-single-release-asset",
@@ -7262,7 +7294,7 @@
     },
     {
       "parentId": "__FLD_22__",
-      "_id": "__REQ_408__",
+      "_id": "__REQ_410__",
       "_type": "request",
       "name": "Edit a release asset",
       "description": "Users with push access to the repository can edit a release asset.\n\nhttps://developer.github.com/v3/repos/releases/#edit-a-release-asset",
@@ -7278,7 +7310,7 @@
     },
     {
       "parentId": "__FLD_22__",
-      "_id": "__REQ_409__",
+      "_id": "__REQ_411__",
       "_type": "request",
       "name": "Delete a release asset",
       "description": "\n\nhttps://developer.github.com/v3/repos/releases/#delete-a-release-asset",
@@ -7294,7 +7326,7 @@
     },
     {
       "parentId": "__FLD_22__",
-      "_id": "__REQ_410__",
+      "_id": "__REQ_412__",
       "_type": "request",
       "name": "Get contributors list with additions, deletions, and commit counts",
       "description": "*   `total` - The Total number of commits authored by the contributor.\n\nWeekly Hash (`weeks` array):\n\n*   `w` - Start of the week, given as a [Unix timestamp](http://en.wikipedia.org/wiki/Unix_time).\n*   `a` - Number of additions\n*   `d` - Number of deletions\n*   `c` - Number of commits\n\n\n\nhttps://developer.github.com/v3/repos/statistics/#get-contributors-list-with-additions-deletions-and-commit-counts",
@@ -7310,7 +7342,7 @@
     },
     {
       "parentId": "__FLD_22__",
-      "_id": "__REQ_411__",
+      "_id": "__REQ_413__",
       "_type": "request",
       "name": "Get the last year of commit activity data",
       "description": "Returns the last year of commit activity grouped by week. The `days` array is a group of commits per day, starting on `Sunday`.\n\n\n\nhttps://developer.github.com/v3/repos/statistics/#get-the-last-year-of-commit-activity-data",
@@ -7326,7 +7358,7 @@
     },
     {
       "parentId": "__FLD_22__",
-      "_id": "__REQ_412__",
+      "_id": "__REQ_414__",
       "_type": "request",
       "name": "Get the number of additions and deletions per week",
       "description": "Returns a weekly aggregate of the number of additions and deletions pushed to a repository.\n\n\n\nhttps://developer.github.com/v3/repos/statistics/#get-the-number-of-additions-and-deletions-per-week",
@@ -7342,7 +7374,7 @@
     },
     {
       "parentId": "__FLD_22__",
-      "_id": "__REQ_413__",
+      "_id": "__REQ_415__",
       "_type": "request",
       "name": "Get the weekly commit count for the repository owner and everyone else",
       "description": "Returns the total commit counts for the `owner` and total commit counts in `all`. `all` is everyone combined, including the `owner` in the last 52 weeks. If you'd like to get the commit counts for non-owners, you can subtract `owner` from `all`.\n\nThe array order is oldest week (index 0) to most recent week.\n\n\n\nhttps://developer.github.com/v3/repos/statistics/#get-the-weekly-commit-count-for-the-repository-owner-and-everyone-else",
@@ -7358,7 +7390,7 @@
     },
     {
       "parentId": "__FLD_22__",
-      "_id": "__REQ_414__",
+      "_id": "__REQ_416__",
       "_type": "request",
       "name": "Get the number of commits per hour in each day",
       "description": "Each array contains the day number, hour number, and number of commits:\n\n*   `0-6`: Sunday - Saturday\n*   `0-23`: Hour of day\n*   Number of commits\n\nFor example, `[2, 14, 25]` indicates that there were 25 total commits, during the 2:00pm hour on Tuesdays. All times are based on the time zone of individual commits.\n\nhttps://developer.github.com/v3/repos/statistics/#get-the-number-of-commits-per-hour-in-each-day",
@@ -7374,7 +7406,7 @@
     },
     {
       "parentId": "__FLD_22__",
-      "_id": "__REQ_415__",
+      "_id": "__REQ_417__",
       "_type": "request",
       "name": "Create a status",
       "description": "Users with push access in a repository can create commit statuses for a given SHA.\n\nNote: there is a limit of 1000 statuses per `sha` and `context` within a repository. Attempts to create more than 1000 statuses will result in a validation error.\n\nhttps://developer.github.com/v3/repos/statuses/#create-a-status",
@@ -7390,7 +7422,7 @@
     },
     {
       "parentId": "__FLD_22__",
-      "_id": "__REQ_416__",
+      "_id": "__REQ_418__",
       "_type": "request",
       "name": "List statuses for a specific ref",
       "description": "Users with pull access in a repository can view commit statuses for a given ref. The ref can be a SHA, a branch name, or a tag name. Statuses are returned in reverse chronological order. The first status in the list will be the latest one.\n\nThis resource is also available via a legacy route: `GET /repos/:owner/:repo/statuses/:ref`.\n\nhttps://developer.github.com/v3/repos/statuses/#list-statuses-for-a-specific-ref",
@@ -7406,7 +7438,7 @@
     },
     {
       "parentId": "__FLD_22__",
-      "_id": "__REQ_417__",
+      "_id": "__REQ_419__",
       "_type": "request",
       "name": "Get the combined status for a specific ref",
       "description": "Users with pull access in a repository can access a combined view of commit statuses for a given ref. The ref can be a SHA, a branch name, or a tag name.\n\nThe most recent status for each context is returned, up to 100. This field [paginates](https://developer.github.com/v3/#pagination) if there are over 100 contexts.\n\nAdditionally, a combined `state` is returned. The `state` is one of:\n\n*   **failure** if any of the contexts report as `error` or `failure`\n*   **pending** if there are no statuses or a context is `pending`\n*   **success** if the latest status for all contexts is `success`\n\nhttps://developer.github.com/v3/repos/statuses/#get-the-combined-status-for-a-specific-ref",
@@ -7422,7 +7454,7 @@
     },
     {
       "parentId": "__FLD_22__",
-      "_id": "__REQ_418__",
+      "_id": "__REQ_420__",
       "_type": "request",
       "name": "List referrers",
       "description": "Get the top 10 referrers over the last 14 days.\n\nhttps://developer.github.com/v3/repos/traffic/#list-referrers",
@@ -7438,7 +7470,7 @@
     },
     {
       "parentId": "__FLD_22__",
-      "_id": "__REQ_419__",
+      "_id": "__REQ_421__",
       "_type": "request",
       "name": "List paths",
       "description": "Get the top 10 popular contents over the last 14 days.\n\nhttps://developer.github.com/v3/repos/traffic/#list-paths",
@@ -7454,7 +7486,7 @@
     },
     {
       "parentId": "__FLD_22__",
-      "_id": "__REQ_420__",
+      "_id": "__REQ_422__",
       "_type": "request",
       "name": "Views",
       "description": "Get the total number of views and breakdown per day or week for the last 14 days. Timestamps are aligned to UTC midnight of the beginning of the day or week. Week begins on Monday.\n\nhttps://developer.github.com/v3/repos/traffic/#views",
@@ -7470,7 +7502,7 @@
     },
     {
       "parentId": "__FLD_22__",
-      "_id": "__REQ_421__",
+      "_id": "__REQ_423__",
       "_type": "request",
       "name": "Clones",
       "description": "Get the total number of clones and breakdown per day or week for the last 14 days. Timestamps are aligned to UTC midnight of the beginning of the day or week. Week begins on Monday.\n\nhttps://developer.github.com/v3/repos/traffic/#clones",
@@ -7486,7 +7518,7 @@
     },
     {
       "parentId": "__FLD_23__",
-      "_id": "__REQ_422__",
+      "_id": "__REQ_424__",
       "_type": "request",
       "name": "Get a list of provisioned identities",
       "description": "If you want to filter by a specific email address, you'd use the `email` query parameter and the `eq` operator:\n\n```\nGET /scim/v2/organizations/:org/Users?filter=emails\n```\n\nYour filter might look like this using cURL:\n\nRetrieves users that match the filter. In the example, we searched only for [octocat@github.com](mailto:octocat@github.com).\n\nRetrieves a paginated list of all provisioned organization members, including pending invitations.\n\nhttps://developer.github.com/v3/scim/#get-a-list-of-provisioned-identities",
@@ -7502,7 +7534,7 @@
     },
     {
       "parentId": "__FLD_23__",
-      "_id": "__REQ_423__",
+      "_id": "__REQ_425__",
       "_type": "request",
       "name": "Get provisioning details for a single user",
       "description": "\n\nhttps://developer.github.com/v3/scim/#get-provisioning-details-for-a-single-user",
@@ -7518,39 +7550,39 @@
     },
     {
       "parentId": "__FLD_23__",
-      "_id": "__REQ_424__",
-      "_type": "request",
-      "name": "Provision and invite users",
-      "description": "Provision organization membership for and send activation emails to a list of email addresses.\n\nhttps://developer.github.com/v3/scim/#provision-and-invite-users",
-      "headers": [],
-      "authentication": {
-        "token": "{{ github_token  }}",
-        "type": "bearer"
-      },
-      "method": "POST",
-      "url": "{{ github_api_root  }}/scim/v2/organizations/{{ org }}/Users",
-      "body": {},
-      "parameters": []
-    },
-    {
-      "parentId": "__FLD_23__",
-      "_id": "__REQ_425__",
-      "_type": "request",
-      "name": "Provision and invite users",
-      "description": "Provision organization membership for and send activation emails to a list of email addresses.\n\nhttps://developer.github.com/v3/scim/#provision-and-invite-users",
-      "headers": [],
-      "authentication": {
-        "token": "{{ github_token  }}",
-        "type": "bearer"
-      },
-      "method": "POST",
-      "url": "{{ github_api_root  }}/scim/v2/organizations/{{ org }}/Users",
-      "body": {},
-      "parameters": []
-    },
-    {
-      "parentId": "__FLD_23__",
       "_id": "__REQ_426__",
+      "_type": "request",
+      "name": "Provision and invite users",
+      "description": "Provision organization membership for and send activation emails to a list of email addresses.\n\nhttps://developer.github.com/v3/scim/#provision-and-invite-users",
+      "headers": [],
+      "authentication": {
+        "token": "{{ github_token  }}",
+        "type": "bearer"
+      },
+      "method": "POST",
+      "url": "{{ github_api_root  }}/scim/v2/organizations/{{ org }}/Users",
+      "body": {},
+      "parameters": []
+    },
+    {
+      "parentId": "__FLD_23__",
+      "_id": "__REQ_427__",
+      "_type": "request",
+      "name": "Provision and invite users",
+      "description": "Provision organization membership for and send activation emails to a list of email addresses.\n\nhttps://developer.github.com/v3/scim/#provision-and-invite-users",
+      "headers": [],
+      "authentication": {
+        "token": "{{ github_token  }}",
+        "type": "bearer"
+      },
+      "method": "POST",
+      "url": "{{ github_api_root  }}/scim/v2/organizations/{{ org }}/Users",
+      "body": {},
+      "parameters": []
+    },
+    {
+      "parentId": "__FLD_23__",
+      "_id": "__REQ_428__",
       "_type": "request",
       "name": "Update a provisioned organization membership",
       "description": "**Warning:** Setting `active: false` removes the user from the organization, deletes the external identity, and deletes the associated `:user_id`.\n\nhttps://developer.github.com/v3/scim/#update-a-provisioned-organization-membership",
@@ -7566,7 +7598,7 @@
     },
     {
       "parentId": "__FLD_23__",
-      "_id": "__REQ_427__",
+      "_id": "__REQ_429__",
       "_type": "request",
       "name": "Update a user attribute",
       "description": "**Warning:** If you set `active:false` using the `replace` operation (as shown in the JSON example below), it removes the user from the organization, deletes the external identity, and deletes the associated `:user_id`.\n\n```\n{\n  \"Operations\":[{\n    \"op\":\"replace\",\n    \"value\":{\n      \"active\":false\n    }\n  }]\n}\n\n```\n\nhttps://developer.github.com/v3/scim/#update-a-user-attribute",
@@ -7582,7 +7614,7 @@
     },
     {
       "parentId": "__FLD_23__",
-      "_id": "__REQ_428__",
+      "_id": "__REQ_430__",
       "_type": "request",
       "name": "Remove a user from the organization",
       "description": "\n\nhttps://developer.github.com/v3/scim/#remove-a-user-from-the-organization",
@@ -7598,7 +7630,7 @@
     },
     {
       "parentId": "__FLD_24__",
-      "_id": "__REQ_429__",
+      "_id": "__REQ_431__",
       "_type": "request",
       "name": "Search repositories",
       "description": "Find repositories via various criteria. This method returns up to 100 results [per page](https://developer.github.com/v3/#pagination).\n\nWhen searching for repositories, you can get text match metadata for the **name** and **description** fields when you pass the `text-match` media type. For more details about how to receive highlighted search results, see [Text match metadata](#text-match-metadata).\n\nSuppose you want to search for popular Tetris repositories written in Assembly. Your query might look like this.\n\nYou can search for multiple topics by adding more `topic:` instances, and including the `mercy-preview` header. For example:\n\nIn this request, we're searching for repositories with the word `tetris` in the name, the description, or the README. We're limiting the results to only find repositories where the primary language is Assembly. We're sorting by stars in descending order, so that the most popular repositories appear first in the search results.\n\nhttps://developer.github.com/v3/search/#search-repositories",
@@ -7614,7 +7646,7 @@
     },
     {
       "parentId": "__FLD_24__",
-      "_id": "__REQ_430__",
+      "_id": "__REQ_432__",
       "_type": "request",
       "name": "Search commits",
       "description": "Find commits via various criteria. This method returns up to 100 results [per page](https://developer.github.com/v3/#pagination).\n\nWhen searching for commits, you can get text match metadata for the **message** field when you provide the `text-match` media type. For more details about how to receive highlighted search results, see [Text match metadata](#text-match-metadata).\n\n**Considerations for commit search**\n\nOnly the _default branch_ is considered. In most cases, this will be the `master` branch.\n\nSuppose you want to find commits related to CSS in the [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) repository. Your query would look something like this:\n\nhttps://developer.github.com/v3/search/#search-commits",
@@ -7635,7 +7667,7 @@
     },
     {
       "parentId": "__FLD_24__",
-      "_id": "__REQ_431__",
+      "_id": "__REQ_433__",
       "_type": "request",
       "name": "Search code",
       "description": "Find file contents via various criteria. This method returns up to 100 results [per page](https://developer.github.com/v3/#pagination).\n\nWhen searching for code, you can get text match metadata for the file **content** and file **path** fields when you pass the `text-match` media type. For more details about how to receive highlighted search results, see [Text match metadata](#text-match-metadata).\n\n**Note:** You must [authenticate](https://developer.github.com/v3/#authentication) to search for code across all public repositories.\n\n**Considerations for code search**\n\nDue to the complexity of searching code, there are a few restrictions on how searches are performed:\n\n*   Only the _default branch_ is considered. In most cases, this will be the `master` branch.\n*   Only files smaller than 384 KB are searchable.\n*   You must always include at least one search term when searching source code. For example, searching for [`language:go`](https://github.com/search?utf8=%E2%9C%93&q=language%3Ago&type=Code) is not valid, while [`amazing language:go`](https://github.com/search?utf8=%E2%9C%93&q=amazing+language%3Ago&type=Code) is.\n\nSuppose you want to find the definition of the `addClass` function inside [jQuery](https://github.com/jquery/jquery). Your query would look something like this:\n\nHere, we're searching for the keyword `addClass` within a file's contents. We're making sure that we're only looking in files where the language is JavaScript. And we're scoping the search to the `repo:jquery/jquery` repository.\n\nhttps://developer.github.com/v3/search/#search-code",
@@ -7651,7 +7683,7 @@
     },
     {
       "parentId": "__FLD_24__",
-      "_id": "__REQ_432__",
+      "_id": "__REQ_434__",
       "_type": "request",
       "name": "Search issues and pull requests",
       "description": "Find issues by state and keyword. This method returns up to 100 results [per page](https://developer.github.com/v3/#pagination).\n\nWhen searching for issues, you can get text match metadata for the issue **title**, issue **body**, and issue **comment body** fields when you pass the `text-match` media type. For more details about how to receive highlighted search results, see [Text match metadata](#text-match-metadata).\n\nLet's say you want to find the oldest unresolved Python bugs on Windows. Your query might look something like this.\n\nIn this query, we're searching for the keyword `windows`, within any open issue that's labeled as `bug`. The search runs across repositories whose primary language is Python. We’re sorting by creation date in ascending order, so that the oldest issues appear first in the search results.\n\nhttps://developer.github.com/v3/search/#search-issues-and-pull-requests",
@@ -7667,7 +7699,7 @@
     },
     {
       "parentId": "__FLD_24__",
-      "_id": "__REQ_433__",
+      "_id": "__REQ_435__",
       "_type": "request",
       "name": "Search issues",
       "description": "Find issues by state and keyword. This method returns up to 100 results [per page](https://developer.github.com/v3/#pagination).\n\nWhen searching for issues, you can get text match metadata for the issue **title**, issue **body**, and issue **comment body** fields when you pass the `text-match` media type. For more details about how to receive highlighted search results, see [Text match metadata](#text-match-metadata).\n\nLet's say you want to find the oldest unresolved Python bugs on Windows. Your query might look something like this.\n\nIn this query, we're searching for the keyword `windows`, within any open issue that's labeled as `bug`. The search runs across repositories whose primary language is Python. We’re sorting by creation date in ascending order, so that the oldest issues appear first in the search results.\n\nhttps://developer.github.com/v3/search/#search-issues-and-pull-requests",
@@ -7683,7 +7715,7 @@
     },
     {
       "parentId": "__FLD_24__",
-      "_id": "__REQ_434__",
+      "_id": "__REQ_436__",
       "_type": "request",
       "name": "Search users",
       "description": "Find users via various criteria. This method returns up to 100 results [per page](https://developer.github.com/v3/#pagination).\n\nWhen searching for users, you can get text match metadata for the issue **login**, **email**, and **name** fields when you pass the `text-match` media type. For more details about highlighting search results, see [Text match metadata](#text-match-metadata). For more details about how to receive highlighted search results, see [Text match metadata](#text-match-metadata).\n\nImagine you're looking for a list of popular users. You might try out this query:\n\nHere, we're looking at users with the name Tom. We're only interested in those with more than 42 repositories, and only if they have over 1,000 followers.\n\nhttps://developer.github.com/v3/search/#search-users",
@@ -7699,7 +7731,7 @@
     },
     {
       "parentId": "__FLD_24__",
-      "_id": "__REQ_435__",
+      "_id": "__REQ_437__",
       "_type": "request",
       "name": "Search topics",
       "description": "Find topics via various criteria. Results are sorted by best match. This method returns up to 100 results [per page](https://developer.github.com/v3/#pagination).\n\nWhen searching for topics, you can get text match metadata for the topic's **short\\_description**, **description**, **name**, or **display\\_name** field when you pass the `text-match` media type. For more details about how to receive highlighted search results, see [Text match metadata](#text-match-metadata).\n\nSee \"[Searching topics](https://help.github.com/articles/searching-topics/)\" for a detailed list of qualifiers.\n\nSuppose you want to search for topics related to Ruby that are featured on [https://github.com/topics](https://github.com/topics). Your query might look like this:\n\nIn this request, we're searching for topics with the keyword `ruby`, and we're limiting the results to find only topics that are featured. The topics that are the best match for the query appear first in the search results.\n\n**Note:** A search for featured Ruby topics only has 6 total results, so a [Link header](https://developer.github.com/v3/#link-header) indicating pagination is not included in the response.\n\nhttps://developer.github.com/v3/search/#search-topics",
@@ -7715,7 +7747,7 @@
     },
     {
       "parentId": "__FLD_24__",
-      "_id": "__REQ_436__",
+      "_id": "__REQ_438__",
       "_type": "request",
       "name": "Search labels",
       "description": "Find labels in a repository with names or descriptions that match search keywords. Returns up to 100 results [per page](https://developer.github.com/v3/#pagination).\n\nWhen searching for labels, you can get text match metadata for the label **name** and **description** fields when you pass the `text-match` media type. For more details about how to receive highlighted search results, see [Text match metadata](#text-match-metadata).\n\nSuppose you want to find labels in the `linguist` repository that match `bug`, `defect`, or `enhancement`. Your query might look like this:\n\nThe labels that best match for the query appear first in the search results.\n\nhttps://developer.github.com/v3/search/#search-labels",
@@ -7731,7 +7763,7 @@
     },
     {
       "parentId": "__FLD_24__",
-      "_id": "__REQ_437__",
+      "_id": "__REQ_439__",
       "_type": "request",
       "name": "Search issues",
       "description": "Find issues by state and keyword.\n\nhttps://developer.github.com/v3/search/legacy/#search-issues",
@@ -7747,7 +7779,7 @@
     },
     {
       "parentId": "__FLD_24__",
-      "_id": "__REQ_438__",
+      "_id": "__REQ_440__",
       "_type": "request",
       "name": "Search repositories",
       "description": "Find repositories by keyword. Note, this legacy method does not follow the v3 pagination pattern. This method returns up to 100 results per page and pages can be fetched using the `start_page` parameter.\n\nhttps://developer.github.com/v3/search/legacy/#search-repositories",
@@ -7763,7 +7795,7 @@
     },
     {
       "parentId": "__FLD_24__",
-      "_id": "__REQ_439__",
+      "_id": "__REQ_441__",
       "_type": "request",
       "name": "Search users",
       "description": "Find users by keyword.\n\nhttps://developer.github.com/v3/search/legacy/#search-users",
@@ -7779,7 +7811,7 @@
     },
     {
       "parentId": "__FLD_24__",
-      "_id": "__REQ_440__",
+      "_id": "__REQ_442__",
       "_type": "request",
       "name": "Email search",
       "description": "This API call is added for compatibility reasons only. There's no guarantee that full email searches will always be available. The `@` character in the address must be left unencoded. Searches only against public email addresses (as configured on the user's GitHub profile).\n\nhttps://developer.github.com/v3/search/legacy/#email-search",
@@ -7795,7 +7827,7 @@
     },
     {
       "parentId": "__FLD_25__",
-      "_id": "__REQ_441__",
+      "_id": "__REQ_443__",
       "_type": "request",
       "name": "List teams",
       "description": "\n\nhttps://developer.github.com/v3/teams/#list-teams",
@@ -7811,7 +7843,7 @@
     },
     {
       "parentId": "__FLD_25__",
-      "_id": "__REQ_442__",
+      "_id": "__REQ_444__",
       "_type": "request",
       "name": "Get team",
       "description": "\n\nhttps://developer.github.com/v3/teams/#get-team",
@@ -7827,7 +7859,7 @@
     },
     {
       "parentId": "__FLD_25__",
-      "_id": "__REQ_443__",
+      "_id": "__REQ_445__",
       "_type": "request",
       "name": "Create team",
       "description": "To create a team, the authenticated user must be a member of `:org`.\n\nhttps://developer.github.com/v3/teams/#create-team",
@@ -7843,7 +7875,7 @@
     },
     {
       "parentId": "__FLD_25__",
-      "_id": "__REQ_444__",
+      "_id": "__REQ_446__",
       "_type": "request",
       "name": "Edit team",
       "description": "To edit a team, the authenticated user must either be an owner of the org that the team is associated with, or a maintainer of the team.\n\n**Note:** With nested teams, the `privacy` for parent teams cannot be `secret`.\n\nhttps://developer.github.com/v3/teams/#edit-team",
@@ -7859,7 +7891,7 @@
     },
     {
       "parentId": "__FLD_25__",
-      "_id": "__REQ_445__",
+      "_id": "__REQ_447__",
       "_type": "request",
       "name": "Delete team",
       "description": "To delete a team, the authenticated user must be a team maintainer or an owner of the org associated with the team.\n\nIf you are an organization owner and you pass the `hellcat-preview` media type, deleting a parent team will delete all of its child teams as well.\n\nhttps://developer.github.com/v3/teams/#delete-team",
@@ -7875,7 +7907,7 @@
     },
     {
       "parentId": "__FLD_25__",
-      "_id": "__REQ_446__",
+      "_id": "__REQ_448__",
       "_type": "request",
       "name": "List child teams",
       "description": "At this time, the `hellcat-preview` media type is required to use this endpoint.\n\n\n\nhttps://developer.github.com/v3/teams/#list-child-teams",
@@ -7896,7 +7928,7 @@
     },
     {
       "parentId": "__FLD_25__",
-      "_id": "__REQ_447__",
+      "_id": "__REQ_449__",
       "_type": "request",
       "name": "List team repos",
       "description": "**Note**: If you pass the `hellcat-preview` media type, the response will include any repositories inherited through a parent team.\n\nhttps://developer.github.com/v3/teams/#list-team-repos",
@@ -7912,7 +7944,7 @@
     },
     {
       "parentId": "__FLD_25__",
-      "_id": "__REQ_448__",
+      "_id": "__REQ_450__",
       "_type": "request",
       "name": "Check if a team manages a repository",
       "description": "**Note**: If you pass the `hellcat-preview` media type, repositories inherited through a parent team will be checked.\n\nYou can also get information about the specified repository, including what permissions the team grants on it, by passing the following custom [media type](https://developer.github.com/v3/media/) via the `Accept` header:\n\nhttps://developer.github.com/v3/teams/#check-if-a-team-manages-a-repository",
@@ -7928,7 +7960,7 @@
     },
     {
       "parentId": "__FLD_25__",
-      "_id": "__REQ_449__",
+      "_id": "__REQ_451__",
       "_type": "request",
       "name": "Add or update team repository",
       "description": "To add a repository to a team or update the team's permission on a repository, the authenticated user must have admin access to the repository, and must be able to see the team. The repository must be owned by the organization, or a direct fork of a repository owned by the organization.\n\nIf you pass the `hellcat-preview` media type, you can modify repository permissions of child teams.\n\nNote that, if you choose not to pass any parameters, you'll need to set `Content-Length` to zero when calling out to this endpoint. For more information, see \"[HTTP verbs](https://developer.github.com/v3/#http-verbs).\"\n\n\n\nhttps://developer.github.com/v3/teams/#add-or-update-team-repository",
@@ -7944,7 +7976,7 @@
     },
     {
       "parentId": "__FLD_25__",
-      "_id": "__REQ_450__",
+      "_id": "__REQ_452__",
       "_type": "request",
       "name": "Remove team repository",
       "description": "If the authenticated user is an organization owner or a team maintainer, they can remove any repositories from the team. To remove a repository from a team as an organization member, the authenticated user must have admin access to the repository and must be able to see the team. NOTE: This does not delete the repository, it just removes it from the team.\n\nhttps://developer.github.com/v3/teams/#remove-team-repository",
@@ -7960,7 +7992,7 @@
     },
     {
       "parentId": "__FLD_25__",
-      "_id": "__REQ_451__",
+      "_id": "__REQ_453__",
       "_type": "request",
       "name": "List user teams",
       "description": "List all of the teams across all of the organizations to which the authenticated user belongs. This method requires `user`, `repo`, or `read:org` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/) when authenticating via [OAuth](https://developer.github.com/apps/building-oauth-apps/).\n\nhttps://developer.github.com/v3/teams/#list-user-teams",
@@ -7976,7 +8008,7 @@
     },
     {
       "parentId": "__FLD_25__",
-      "_id": "__REQ_452__",
+      "_id": "__REQ_454__",
       "_type": "request",
       "name": "List team projects",
       "description": "Lists the organization projects for a team. If you pass the `hellcat-preview` media type, the response will include projects inherited from a parent team.\n\nhttps://developer.github.com/v3/teams/#list-team-projects",
@@ -7997,7 +8029,7 @@
     },
     {
       "parentId": "__FLD_25__",
-      "_id": "__REQ_453__",
+      "_id": "__REQ_455__",
       "_type": "request",
       "name": "Review a team project",
       "description": "Checks whether a team has `read`, `write`, or `admin` permissions for an organization project. If you pass the `hellcat-preview` media type, the response will include projects inherited from a parent team.\n\nhttps://developer.github.com/v3/teams/#review-a-team-project",
@@ -8018,7 +8050,7 @@
     },
     {
       "parentId": "__FLD_25__",
-      "_id": "__REQ_454__",
+      "_id": "__REQ_456__",
       "_type": "request",
       "name": "Add or update team project",
       "description": "Adds an organization project to a team. To add a project to a team or update the team's permission on a project, the authenticated user must have `admin` permissions for the project. The project and team must be part of the same organization.\n\nhttps://developer.github.com/v3/teams/#add-or-update-team-project",
@@ -8039,7 +8071,7 @@
     },
     {
       "parentId": "__FLD_25__",
-      "_id": "__REQ_455__",
+      "_id": "__REQ_457__",
       "_type": "request",
       "name": "Remove team project",
       "description": "Removes an organization project from a team. An organization owner or a team maintainer can remove any project from the team. To remove a project from a team as an organization member, the authenticated user must have `read` access to both the team and project, or `admin` access to the team or project. **Note:** This endpoint removes the project from the team, but does not delete it.\n\nhttps://developer.github.com/v3/teams/#remove-team-project",
@@ -8055,7 +8087,7 @@
     },
     {
       "parentId": "__FLD_25__",
-      "_id": "__REQ_456__",
+      "_id": "__REQ_458__",
       "_type": "request",
       "name": "List comments",
       "description": "List all comments on a team discussion. OAuth access tokens require the `read:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).\n\nhttps://developer.github.com/v3/teams/discussion_comments/#list-comments",
@@ -8076,7 +8108,7 @@
     },
     {
       "parentId": "__FLD_25__",
-      "_id": "__REQ_457__",
+      "_id": "__REQ_459__",
       "_type": "request",
       "name": "Get a single comment",
       "description": "Get a specific comment on a team discussion. OAuth access tokens require the `read:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).\n\nhttps://developer.github.com/v3/teams/discussion_comments/#get-a-single-comment",
@@ -8097,7 +8129,7 @@
     },
     {
       "parentId": "__FLD_25__",
-      "_id": "__REQ_458__",
+      "_id": "__REQ_460__",
       "_type": "request",
       "name": "Create a comment",
       "description": "Creates a new comment on a team discussion. OAuth access tokens require the `write:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).\n\nThis endpoint triggers [notifications](https://help.github.com/articles/about-notifications/). Creating content too quickly using this endpoint may result in abuse rate limiting. See \"[Abuse rate limits](https://developer.github.com/v3/#abuse-rate-limits)\" and \"[Dealing with abuse rate limits](https://developer.github.com/v3/guides/best-practices-for-integrators/#dealing-with-abuse-rate-limits)\" for details.\n\nhttps://developer.github.com/v3/teams/discussion_comments/#create-a-comment",
@@ -8118,7 +8150,7 @@
     },
     {
       "parentId": "__FLD_25__",
-      "_id": "__REQ_459__",
+      "_id": "__REQ_461__",
       "_type": "request",
       "name": "Edit a comment",
       "description": "Edits the body text of a discussion comment. OAuth access tokens require the `write:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).\n\nhttps://developer.github.com/v3/teams/discussion_comments/#edit-a-comment",
@@ -8139,7 +8171,7 @@
     },
     {
       "parentId": "__FLD_25__",
-      "_id": "__REQ_460__",
+      "_id": "__REQ_462__",
       "_type": "request",
       "name": "Delete a comment",
       "description": "Deletes a comment on a team discussion. OAuth access tokens require the `write:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).\n\nhttps://developer.github.com/v3/teams/discussion_comments/#delete-a-comment",
@@ -8160,7 +8192,7 @@
     },
     {
       "parentId": "__FLD_25__",
-      "_id": "__REQ_461__",
+      "_id": "__REQ_463__",
       "_type": "request",
       "name": "List discussions",
       "description": "List all discussions on a team's page. OAuth access tokens require the `read:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).\n\nhttps://developer.github.com/v3/teams/discussions/#list-discussions",
@@ -8181,7 +8213,7 @@
     },
     {
       "parentId": "__FLD_25__",
-      "_id": "__REQ_462__",
+      "_id": "__REQ_464__",
       "_type": "request",
       "name": "Get a single discussion",
       "description": "Get a specific discussion on a team's page. OAuth access tokens require the `read:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).\n\nhttps://developer.github.com/v3/teams/discussions/#get-a-single-discussion",
@@ -8202,7 +8234,7 @@
     },
     {
       "parentId": "__FLD_25__",
-      "_id": "__REQ_463__",
+      "_id": "__REQ_465__",
       "_type": "request",
       "name": "Create a discussion",
       "description": "Creates a new discussion post on a team's page. OAuth access tokens require the `write:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).\n\nThis endpoint triggers [notifications](https://help.github.com/articles/about-notifications/). Creating content too quickly using this endpoint may result in abuse rate limiting. See \"[Abuse rate limits](https://developer.github.com/v3/#abuse-rate-limits)\" and \"[Dealing with abuse rate limits](https://developer.github.com/v3/guides/best-practices-for-integrators/#dealing-with-abuse-rate-limits)\" for details.\n\nhttps://developer.github.com/v3/teams/discussions/#create-a-discussion",
@@ -8223,7 +8255,7 @@
     },
     {
       "parentId": "__FLD_25__",
-      "_id": "__REQ_464__",
+      "_id": "__REQ_466__",
       "_type": "request",
       "name": "Edit a discussion",
       "description": "Edits the title and body text of a discussion post. Only the parameters you provide are updated. OAuth access tokens require the `write:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).\n\nhttps://developer.github.com/v3/teams/discussions/#edit-a-discussion",
@@ -8244,7 +8276,7 @@
     },
     {
       "parentId": "__FLD_25__",
-      "_id": "__REQ_465__",
+      "_id": "__REQ_467__",
       "_type": "request",
       "name": "Delete a discussion",
       "description": "Delete a discussion from a team's page. OAuth access tokens require the `write:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).\n\nhttps://developer.github.com/v3/teams/discussions/#delete-a-discussion",
@@ -8265,7 +8297,7 @@
     },
     {
       "parentId": "__FLD_25__",
-      "_id": "__REQ_466__",
+      "_id": "__REQ_468__",
       "_type": "request",
       "name": "List team members",
       "description": "If you pass the `hellcat-preview` media type, team members will include the members of child teams.\n\nhttps://developer.github.com/v3/teams/members/#list-team-members",
@@ -8281,7 +8313,7 @@
     },
     {
       "parentId": "__FLD_25__",
-      "_id": "__REQ_467__",
+      "_id": "__REQ_469__",
       "_type": "request",
       "name": "Get team member",
       "description": "The \"Get team member\" API (described below) is deprecated.\n\nWe recommend using the [Get team membership API](https://developer.github.com/v3/teams/members/#get-team-membership) instead. It allows you to get both active and pending memberships.\n\nTo list members in a team, the team must be visible to the authenticated user.\n\nhttps://developer.github.com/v3/teams/members/#get-team-member",
@@ -8297,7 +8329,7 @@
     },
     {
       "parentId": "__FLD_25__",
-      "_id": "__REQ_468__",
+      "_id": "__REQ_470__",
       "_type": "request",
       "name": "Add team member",
       "description": "The \"Add team member\" API (described below) is deprecated.\n\nWe recommend using the [Add team membership API](https://developer.github.com/v3/teams/members/#add-or-update-team-membership) instead. It allows you to invite new organization members to your teams.\n\nTo add a user to a team, the authenticated user must have 'admin' permissions to the team or be an owner of the organization that the team is associated with, and the user being added must already be a member of at least one other team on the same organization.\n\nNote that you'll need to set `Content-Length` to zero when calling out to this endpoint. For more information, see \"[HTTP verbs](https://developer.github.com/v3/#http-verbs).\"\n\nIf you attempt to add an organization to a team, you will get this:\n\nIf you attempt to add a user to a team and that user is not a member of at least one other team on the same organization, you will get this:\n\nhttps://developer.github.com/v3/teams/members/#add-team-member",
@@ -8313,7 +8345,7 @@
     },
     {
       "parentId": "__FLD_25__",
-      "_id": "__REQ_469__",
+      "_id": "__REQ_471__",
       "_type": "request",
       "name": "Remove team member",
       "description": "The \"Remove team member\" API (described below) is deprecated.\n\nWe recommend using the [Remove team membership API](https://developer.github.com/v3/teams/members/#remove-team-membership) instead. It allows you to remove both active and pending memberships.\n\nTo remove a user from a team, the authenticated user must have 'admin' permissions to the team or be an owner of the org that the team is associated with. NOTE: This does not delete the user, it just removes them from the team.\n\nhttps://developer.github.com/v3/teams/members/#remove-team-member",
@@ -8329,7 +8361,7 @@
     },
     {
       "parentId": "__FLD_25__",
-      "_id": "__REQ_470__",
+      "_id": "__REQ_472__",
       "_type": "request",
       "name": "Get team membership",
       "description": "If you pass the `hellcat-preview` media type, team members will include the members of child teams.\n\nTo get a user's membership with a team, the team must be visible to the authenticated user.\n\n**Note:** The `role` for organization owners returns as `maintainer`. For more information about `maintainer` roles, see [Create team](https://developer.github.com/v3/teams#create-team).\n\nhttps://developer.github.com/v3/teams/members/#get-team-membership",
@@ -8345,7 +8377,7 @@
     },
     {
       "parentId": "__FLD_25__",
-      "_id": "__REQ_471__",
+      "_id": "__REQ_473__",
       "_type": "request",
       "name": "Add or update team membership",
       "description": "If the user is already a member of the team's organization, this endpoint will add the user to the team. To add a membership between an organization member and a team, the authenticated user must be an organization owner or a maintainer of the team.\n\nIf the user is unaffiliated with the team's organization, this endpoint will send an invitation to the user via email. This newly-created membership will be in the \"pending\" state until the user accepts the invitation, at which point the membership will transition to the \"active\" state and the user will be added as a member of the team. To add a membership between an unaffiliated user and a team, the authenticated user must be an organization owner.\n\nIf the user is already a member of the team, this endpoint will update the role of the team member's role. To update the membership of a team member, the authenticated user must be an organization owner or a maintainer of the team.\n\nIf you attempt to add an organization to a team, you will get this:\n\nhttps://developer.github.com/v3/teams/members/#add-or-update-team-membership",
@@ -8361,7 +8393,7 @@
     },
     {
       "parentId": "__FLD_25__",
-      "_id": "__REQ_472__",
+      "_id": "__REQ_474__",
       "_type": "request",
       "name": "Remove team membership",
       "description": "To remove a membership between a user and a team, the authenticated user must have 'admin' permissions to the team or be an owner of the organization that the team is associated with. NOTE: This does not delete the user, it just removes their membership from the team.\n\nhttps://developer.github.com/v3/teams/members/#remove-team-membership",
@@ -8377,7 +8409,7 @@
     },
     {
       "parentId": "__FLD_25__",
-      "_id": "__REQ_473__",
+      "_id": "__REQ_475__",
       "_type": "request",
       "name": "List pending team invitations",
       "description": "The return hash contains a `role` field which refers to the Organization Invitation role and will be one of the following values: `direct_member`, `admin`, `billing_manager`, `hiring_manager`, or `reinstate`. If the invitee is not a GitHub member, the `login` field in the return hash will be `null`.\n\nhttps://developer.github.com/v3/teams/members/#list-pending-team-invitations",
@@ -8393,7 +8425,7 @@
     },
     {
       "parentId": "__FLD_26__",
-      "_id": "__REQ_474__",
+      "_id": "__REQ_476__",
       "_type": "request",
       "name": "Get a single user",
       "description": "Provides publicly available information about someone with a GitHub account.\n\nThe `email` key in the following response is the publicly visible email address from your GitHub [profile page](https://github.com/settings/profile). When setting up your profile, you can select a primary email address to be “public” which provides an email entry for this endpoint. If you do not set a public email address for `email`, then it will have a value of `null`. You only see publicly visible email addresses when authenticated with GitHub. For more information, see [Authentication](https://developer.github.com/v3/#authentication).\n\nThe Emails API enables you to list all of your email addresses, and toggle a primary email to be visible publicly. For more information, see \"[Emails API](https://developer.github.com/v3/users/emails/)\".\n\nhttps://developer.github.com/v3/users/#get-a-single-user",
@@ -8409,7 +8441,7 @@
     },
     {
       "parentId": "__FLD_26__",
-      "_id": "__REQ_475__",
+      "_id": "__REQ_477__",
       "_type": "request",
       "name": "Get the authenticated user",
       "description": "Lists public and private profile information when authenticated through basic auth or OAuth with the `user` scope.\n\nLists public profile information when authenticated through OAuth without the `user` scope.\n\nhttps://developer.github.com/v3/users/#get-the-authenticated-user",
@@ -8425,7 +8457,7 @@
     },
     {
       "parentId": "__FLD_26__",
-      "_id": "__REQ_476__",
+      "_id": "__REQ_478__",
       "_type": "request",
       "name": "Update the authenticated user",
       "description": "**Note:** If your email is set to private and you send an `email` parameter as part of this request to update your profile, your privacy settings are still enforced: the email address will not be displayed on your public profile or via the API.\n\nhttps://developer.github.com/v3/users/#update-the-authenticated-user",
@@ -8441,7 +8473,7 @@
     },
     {
       "parentId": "__FLD_26__",
-      "_id": "__REQ_477__",
+      "_id": "__REQ_479__",
       "_type": "request",
       "name": "Get contextual information about a user",
       "description": "Provides hovercard information when authenticated through basic auth or OAuth with the `repo` scope. You can find out more about someone in relation to their pull requests, issues, repositories, and organizations.\n\nThe `subject_type` and `subject_id` parameters provide context for the person's hovercard, which returns more information than without the parameters. For example, if you wanted to find out more about `octocat` who owns the `Spoon-Knife` repository via cURL, it would look like this:\n\nhttps://developer.github.com/v3/users/#get-contextual-information-about-a-user",
@@ -8462,7 +8494,7 @@
     },
     {
       "parentId": "__FLD_26__",
-      "_id": "__REQ_478__",
+      "_id": "__REQ_480__",
       "_type": "request",
       "name": "Get all users",
       "description": "Lists all users, in the order that they signed up on GitHub. This list includes personal user accounts and organization accounts.\n\nNote: Pagination is powered exclusively by the `since` parameter. Use the [Link header](https://developer.github.com/v3/#link-header) to get the URL for the next page of users.\n\nhttps://developer.github.com/v3/users/#get-all-users",
@@ -8478,7 +8510,7 @@
     },
     {
       "parentId": "__FLD_26__",
-      "_id": "__REQ_479__",
+      "_id": "__REQ_481__",
       "_type": "request",
       "name": "List blocked users",
       "description": "List the users you've blocked on your personal account.\n\nhttps://developer.github.com/v3/users/blocking/#list-blocked-users",
@@ -8494,7 +8526,7 @@
     },
     {
       "parentId": "__FLD_26__",
-      "_id": "__REQ_480__",
+      "_id": "__REQ_482__",
       "_type": "request",
       "name": "Check whether you've blocked a user",
       "description": "If the user is blocked:\n\nIf the user is not blocked:\n\nhttps://developer.github.com/v3/users/blocking/#check-whether-youve-blocked-a-user",
@@ -8510,7 +8542,7 @@
     },
     {
       "parentId": "__FLD_26__",
-      "_id": "__REQ_481__",
+      "_id": "__REQ_483__",
       "_type": "request",
       "name": "Block a user",
       "description": "\n\nhttps://developer.github.com/v3/users/blocking/#block-a-user",
@@ -8526,7 +8558,7 @@
     },
     {
       "parentId": "__FLD_26__",
-      "_id": "__REQ_482__",
+      "_id": "__REQ_484__",
       "_type": "request",
       "name": "Unblock a user",
       "description": "\n\nhttps://developer.github.com/v3/users/blocking/#unblock-a-user",
@@ -8542,7 +8574,7 @@
     },
     {
       "parentId": "__FLD_26__",
-      "_id": "__REQ_483__",
+      "_id": "__REQ_485__",
       "_type": "request",
       "name": "List email addresses for a user",
       "description": "Lists all of your email addresses, and specifies which one is visible to the public. This endpoint is accessible with the `user:email` scope.\n\nhttps://developer.github.com/v3/users/emails/#list-email-addresses-for-a-user",
@@ -8558,7 +8590,7 @@
     },
     {
       "parentId": "__FLD_26__",
-      "_id": "__REQ_484__",
+      "_id": "__REQ_486__",
       "_type": "request",
       "name": "List public email addresses for a user",
       "description": "Lists your publicly visible email address, which you can set with the [Toggle primary email visibility](#toggle-primary-email-visibility) endpoint. This endpoint is accessible with the `user:email` scope.\n\nhttps://developer.github.com/v3/users/emails/#list-public-email-addresses-for-a-user",
@@ -8574,7 +8606,7 @@
     },
     {
       "parentId": "__FLD_26__",
-      "_id": "__REQ_485__",
+      "_id": "__REQ_487__",
       "_type": "request",
       "name": "Add email address(es)",
       "description": "This endpoint is accessible with the `user` scope.\n\nhttps://developer.github.com/v3/users/emails/#add-email-addresses",
@@ -8590,7 +8622,7 @@
     },
     {
       "parentId": "__FLD_26__",
-      "_id": "__REQ_486__",
+      "_id": "__REQ_488__",
       "_type": "request",
       "name": "Delete email address(es)",
       "description": "This endpoint is accessible with the `user` scope.\n\nhttps://developer.github.com/v3/users/emails/#delete-email-addresses",
@@ -8606,7 +8638,7 @@
     },
     {
       "parentId": "__FLD_26__",
-      "_id": "__REQ_487__",
+      "_id": "__REQ_489__",
       "_type": "request",
       "name": "Toggle primary email visibility",
       "description": "Sets the visibility for your primary email addresses.\n\nhttps://developer.github.com/v3/users/emails/#toggle-primary-email-visibility",
@@ -8622,7 +8654,7 @@
     },
     {
       "parentId": "__FLD_26__",
-      "_id": "__REQ_488__",
+      "_id": "__REQ_490__",
       "_type": "request",
       "name": "List a user's followers",
       "description": "\n\nhttps://developer.github.com/v3/users/followers/#list-followers-of-a-user",
@@ -8638,7 +8670,7 @@
     },
     {
       "parentId": "__FLD_26__",
-      "_id": "__REQ_489__",
+      "_id": "__REQ_491__",
       "_type": "request",
       "name": "List the authenticated user's followers",
       "description": "\n\nhttps://developer.github.com/v3/users/followers/#list-followers-of-a-user",
@@ -8654,7 +8686,7 @@
     },
     {
       "parentId": "__FLD_26__",
-      "_id": "__REQ_490__",
+      "_id": "__REQ_492__",
       "_type": "request",
       "name": "List who a user is following",
       "description": "\n\nhttps://developer.github.com/v3/users/followers/#list-users-followed-by-another-user",
@@ -8670,7 +8702,7 @@
     },
     {
       "parentId": "__FLD_26__",
-      "_id": "__REQ_491__",
+      "_id": "__REQ_493__",
       "_type": "request",
       "name": "List who the authenticated user is following",
       "description": "\n\nhttps://developer.github.com/v3/users/followers/#list-users-followed-by-another-user",
@@ -8686,7 +8718,7 @@
     },
     {
       "parentId": "__FLD_26__",
-      "_id": "__REQ_492__",
+      "_id": "__REQ_494__",
       "_type": "request",
       "name": "Check if you are following a user",
       "description": "\n\nhttps://developer.github.com/v3/users/followers/#check-if-you-are-following-a-user",
@@ -8702,7 +8734,7 @@
     },
     {
       "parentId": "__FLD_26__",
-      "_id": "__REQ_493__",
+      "_id": "__REQ_495__",
       "_type": "request",
       "name": "Check if one user follows another",
       "description": "\n\nhttps://developer.github.com/v3/users/followers/#check-if-one-user-follows-another",
@@ -8718,7 +8750,7 @@
     },
     {
       "parentId": "__FLD_26__",
-      "_id": "__REQ_494__",
+      "_id": "__REQ_496__",
       "_type": "request",
       "name": "Follow a user",
       "description": "Note that you'll need to set `Content-Length` to zero when calling out to this endpoint. For more information, see \"[HTTP verbs](https://developer.github.com/v3/#http-verbs).\"\n\nFollowing a user requires the user to be logged in and authenticated with basic auth or OAuth with the `user:follow` scope.\n\nhttps://developer.github.com/v3/users/followers/#follow-a-user",
@@ -8734,7 +8766,7 @@
     },
     {
       "parentId": "__FLD_26__",
-      "_id": "__REQ_495__",
+      "_id": "__REQ_497__",
       "_type": "request",
       "name": "Unfollow a user",
       "description": "Unfollowing a user requires the user to be logged in and authenticated with basic auth or OAuth with the `user:follow` scope.\n\nhttps://developer.github.com/v3/users/followers/#unfollow-a-user",
@@ -8750,7 +8782,7 @@
     },
     {
       "parentId": "__FLD_26__",
-      "_id": "__REQ_496__",
+      "_id": "__REQ_498__",
       "_type": "request",
       "name": "List GPG keys for a user",
       "description": "Lists the GPG keys for a user. This information is accessible by anyone.\n\nhttps://developer.github.com/v3/users/gpg_keys/#list-gpg-keys-for-a-user",
@@ -8766,7 +8798,7 @@
     },
     {
       "parentId": "__FLD_26__",
-      "_id": "__REQ_497__",
+      "_id": "__REQ_499__",
       "_type": "request",
       "name": "List your GPG keys",
       "description": "Lists the current user's GPG keys. Requires that you are authenticated via Basic Auth or via OAuth with at least `read:gpg_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).\n\nhttps://developer.github.com/v3/users/gpg_keys/#list-your-gpg-keys",
@@ -8782,7 +8814,7 @@
     },
     {
       "parentId": "__FLD_26__",
-      "_id": "__REQ_498__",
+      "_id": "__REQ_500__",
       "_type": "request",
       "name": "Get a single GPG key",
       "description": "View extended details for a single GPG key. Requires that you are authenticated via Basic Auth or via OAuth with at least `read:gpg_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).\n\nhttps://developer.github.com/v3/users/gpg_keys/#get-a-single-gpg-key",
@@ -8798,7 +8830,7 @@
     },
     {
       "parentId": "__FLD_26__",
-      "_id": "__REQ_499__",
+      "_id": "__REQ_501__",
       "_type": "request",
       "name": "Create a GPG key",
       "description": "Adds a GPG key to the authenticated user's GitHub account. Requires that you are authenticated via Basic Auth, or OAuth with at least `write:gpg_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).\n\nhttps://developer.github.com/v3/users/gpg_keys/#create-a-gpg-key",
@@ -8814,7 +8846,7 @@
     },
     {
       "parentId": "__FLD_26__",
-      "_id": "__REQ_500__",
+      "_id": "__REQ_502__",
       "_type": "request",
       "name": "Delete a GPG key",
       "description": "Removes a GPG key from the authenticated user's GitHub account. Requires that you are authenticated via Basic Auth or via OAuth with at least `admin:gpg_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).\n\nhttps://developer.github.com/v3/users/gpg_keys/#delete-a-gpg-key",
@@ -8830,7 +8862,7 @@
     },
     {
       "parentId": "__FLD_26__",
-      "_id": "__REQ_501__",
+      "_id": "__REQ_503__",
       "_type": "request",
       "name": "List public keys for a user",
       "description": "Lists the _verified_ public SSH keys for a user. This is accessible by anyone.\n\nhttps://developer.github.com/v3/users/keys/#list-public-keys-for-a-user",
@@ -8846,7 +8878,7 @@
     },
     {
       "parentId": "__FLD_26__",
-      "_id": "__REQ_502__",
+      "_id": "__REQ_504__",
       "_type": "request",
       "name": "List your public keys",
       "description": "Lists the public SSH keys for the authenticated user's GitHub account. Requires that you are authenticated via Basic Auth or via OAuth with at least `read:public_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).\n\nhttps://developer.github.com/v3/users/keys/#list-your-public-keys",
@@ -8862,7 +8894,7 @@
     },
     {
       "parentId": "__FLD_26__",
-      "_id": "__REQ_503__",
+      "_id": "__REQ_505__",
       "_type": "request",
       "name": "Get a single public key",
       "description": "View extended details for a single public SSH key. Requires that you are authenticated via Basic Auth or via OAuth with at least `read:public_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).\n\nhttps://developer.github.com/v3/users/keys/#get-a-single-public-key",
@@ -8878,7 +8910,7 @@
     },
     {
       "parentId": "__FLD_26__",
-      "_id": "__REQ_504__",
+      "_id": "__REQ_506__",
       "_type": "request",
       "name": "Create a public key",
       "description": "Adds a public SSH key to the authenticated user's GitHub account. Requires that you are authenticated via Basic Auth, or OAuth with at least `write:public_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).\n\nhttps://developer.github.com/v3/users/keys/#create-a-public-key",
@@ -8894,7 +8926,7 @@
     },
     {
       "parentId": "__FLD_26__",
-      "_id": "__REQ_505__",
+      "_id": "__REQ_507__",
       "_type": "request",
       "name": "Delete a public key",
       "description": "Removes a public SSH key from the authenticated user's GitHub account. Requires that you are authenticated via Basic Auth or via OAuth with at least `admin:public_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).\n\nhttps://developer.github.com/v3/users/keys/#delete-a-public-key",
