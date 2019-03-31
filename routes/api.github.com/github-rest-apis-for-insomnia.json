@@ -1,7 +1,7 @@
 {
   "_type": "export",
   "__export_format": 3,
-  "__export_date": "2019-03-27T07:52:23.378Z",
+  "__export_date": "2019-03-29T23:19:41.361Z",
   "__export_source": "github-rest-apis-for-insomnia:0.1.0",
   "resources": [
     {
@@ -83,6 +83,7 @@
         "state": "state",
         "keyword": "keyword",
         "email": "email",
+        "team_slug": "team_slug",
         "target_user": "target_user",
         "gpg_key_id": "gpg_key_id"
       }
@@ -434,7 +435,7 @@
       "_id": "__REQ_12__",
       "_type": "request",
       "name": "Mark as read",
-      "description": "Marking a notification as \"read\" removes it from the [default view on GitHub](https://github.com/notifications).\n\nhttps://developer.github.com/v3/activity/notifications/#mark-as-read",
+      "description": "Marking a notification as \"read\" removes it from the [default view on GitHub](https://github.com/notifications). If the number of notifications is too large to complete in one request, you will receive a `202 Accepted` status and GitHub will run an asynchronous process to mark notifications as \"read.\" To check whether any \"unread\" notifications remain, you can use the [List your notifications](https://developer.github.com/v3/activity/notifications/#list-your-notifications) endpoint and pass the query parameter `all=false`.\n\nhttps://developer.github.com/v3/activity/notifications/#mark-as-read",
       "headers": [],
       "authentication": {
         "token": "{{ github_token  }}",
@@ -450,7 +451,7 @@
       "_id": "__REQ_13__",
       "_type": "request",
       "name": "Mark notifications as read in a repository",
-      "description": "Marking all notifications in a repository as \"read\" removes them from the [default view on GitHub](https://github.com/notifications).\n\nhttps://developer.github.com/v3/activity/notifications/#mark-notifications-as-read-in-a-repository",
+      "description": "Marking all notifications in a repository as \"read\" removes them from the [default view on GitHub](https://github.com/notifications). If the number of notifications is too large to complete in one request, you will receive a `202 Accepted` status and GitHub will run an asynchronous process to mark notifications as \"read.\" To check whether any \"unread\" notifications remain, you can use the [List your notifications in a repository](https://developer.github.com/v3/activity/notifications/#list-your-notifications-in-a-repository) endpoint and pass the query parameter `all=false`.\n\nhttps://developer.github.com/v3/activity/notifications/#mark-notifications-as-read-in-a-repository",
       "headers": [],
       "authentication": {
         "token": "{{ github_token  }}",
@@ -1229,7 +1230,7 @@
       "_id": "__REQ_57__",
       "_type": "request",
       "name": "Create a check run",
-      "description": "Creates a new check run for a specific commit in a repository. Your GitHub App must have the `checks:write` permission to create check runs.\n\nhttps://developer.github.com/v3/checks/runs/#create-a-check-run",
+      "description": "**Note:** The Checks API only looks for pushes in the repository where the check suite or check run were created. Pushes to a branch in a forked repository are not detected and return an empty `pull_requests` array.\n\nCreates a new check run for a specific commit in a repository. Your GitHub App must have the `checks:write` permission to create check runs.\n\nhttps://developer.github.com/v3/checks/runs/#create-a-check-run",
       "headers": [
         {
           "name": "Accept",
@@ -1250,7 +1251,7 @@
       "_id": "__REQ_58__",
       "_type": "request",
       "name": "Update a check run",
-      "description": "Updates a check run for a specific commit in a repository. Your GitHub App must have the `checks:write` permission to edit check runs.\n\nhttps://developer.github.com/v3/checks/runs/#update-a-check-run",
+      "description": "**Note:** The Checks API only looks for pushes in the repository where the check suite or check run were created. Pushes to a branch in a forked repository are not detected and return an empty `pull_requests` array.\n\nUpdates a check run for a specific commit in a repository. Your GitHub App must have the `checks:write` permission to edit check runs.\n\nhttps://developer.github.com/v3/checks/runs/#update-a-check-run",
       "headers": [
         {
           "name": "Accept",
@@ -1271,7 +1272,7 @@
       "_id": "__REQ_59__",
       "_type": "request",
       "name": "List check runs for a specific ref",
-      "description": "Lists check runs for a commit ref. The `ref` can be a SHA, branch name, or a tag name. GitHub Apps must have the `checks:read` permission on a private repository or pull access to a public repository to get check runs. OAuth Apps and authenticated users must have the `repo` scope to get check runs in a private repository.\n\nhttps://developer.github.com/v3/checks/runs/#list-check-runs-for-a-specific-ref",
+      "description": "**Note:** The Checks API only looks for pushes in the repository where the check suite or check run were created. Pushes to a branch in a forked repository are not detected and return an empty `pull_requests` array.\n\nLists check runs for a commit ref. The `ref` can be a SHA, branch name, or a tag name. GitHub Apps must have the `checks:read` permission on a private repository or pull access to a public repository to get check runs. OAuth Apps and authenticated users must have the `repo` scope to get check runs in a private repository.\n\nhttps://developer.github.com/v3/checks/runs/#list-check-runs-for-a-specific-ref",
       "headers": [
         {
           "name": "Accept",
@@ -1292,7 +1293,7 @@
       "_id": "__REQ_60__",
       "_type": "request",
       "name": "List check runs in a check suite",
-      "description": "Lists check runs for a check suite using its `id`. GitHub Apps must have the `checks:read` permission on a private repository or pull access to a public repository to get check runs. OAuth Apps and authenticated users must have the `repo` scope to get check runs in a private repository.\n\nhttps://developer.github.com/v3/checks/runs/#list-check-runs-in-a-check-suite",
+      "description": "**Note:** The Checks API only looks for pushes in the repository where the check suite or check run were created. Pushes to a branch in a forked repository are not detected and return an empty `pull_requests` array.\n\nLists check runs for a check suite using its `id`. GitHub Apps must have the `checks:read` permission on a private repository or pull access to a public repository to get check runs. OAuth Apps and authenticated users must have the `repo` scope to get check runs in a private repository.\n\nhttps://developer.github.com/v3/checks/runs/#list-check-runs-in-a-check-suite",
       "headers": [
         {
           "name": "Accept",
@@ -1313,7 +1314,7 @@
       "_id": "__REQ_61__",
       "_type": "request",
       "name": "Get a single check run",
-      "description": "Gets a single check run using its `id`. GitHub Apps must have the `checks:read` permission on a private repository or pull access to a public repository to get check runs. OAuth Apps and authenticated users must have the `repo` scope to get check runs in a private repository.\n\nhttps://developer.github.com/v3/checks/runs/#get-a-single-check-run",
+      "description": "**Note:** The Checks API only looks for pushes in the repository where the check suite or check run were created. Pushes to a branch in a forked repository are not detected and return an empty `pull_requests` array.\n\nGets a single check run using its `id`. GitHub Apps must have the `checks:read` permission on a private repository or pull access to a public repository to get check runs. OAuth Apps and authenticated users must have the `repo` scope to get check runs in a private repository.\n\nhttps://developer.github.com/v3/checks/runs/#get-a-single-check-run",
       "headers": [
         {
           "name": "Accept",
@@ -1355,7 +1356,7 @@
       "_id": "__REQ_63__",
       "_type": "request",
       "name": "Get a single check suite",
-      "description": "Gets a single check suite using its `id`. GitHub Apps must have the `checks:read` permission on a private repository or pull access to a public repository to get check suites. OAuth Apps and authenticated users must have the `repo` scope to get check suites in a private repository.\n\nhttps://developer.github.com/v3/checks/suites/#get-a-single-check-suite",
+      "description": "**Note:** The Checks API only looks for pushes in the repository where the check suite or check run were created. Pushes to a branch in a forked repository are not detected and return an empty `pull_requests` array and a `null` value for `head_branch`.\n\nGets a single check suite using its `id`. GitHub Apps must have the `checks:read` permission on a private repository or pull access to a public repository to get check suites. OAuth Apps and authenticated users must have the `repo` scope to get check suites in a private repository.\n\nhttps://developer.github.com/v3/checks/suites/#get-a-single-check-suite",
       "headers": [
         {
           "name": "Accept",
@@ -1376,7 +1377,7 @@
       "_id": "__REQ_64__",
       "_type": "request",
       "name": "List check suites for a specific ref",
-      "description": "Lists check suites for a commit `ref`. The `ref` can be a SHA, branch name, or a tag name. GitHub Apps must have the `checks:read` permission on a private repository or pull access to a public repository to list check suites. OAuth Apps and authenticated users must have the `repo` scope to get check suites in a private repository.\n\nhttps://developer.github.com/v3/checks/suites/#list-check-suites-for-a-specific-ref",
+      "description": "**Note:** The Checks API only looks for pushes in the repository where the check suite or check run were created. Pushes to a branch in a forked repository are not detected and return an empty `pull_requests` array and a `null` value for `head_branch`.\n\nLists check suites for a commit `ref`. The `ref` can be a SHA, branch name, or a tag name. GitHub Apps must have the `checks:read` permission on a private repository or pull access to a public repository to list check suites. OAuth Apps and authenticated users must have the `repo` scope to get check suites in a private repository.\n\nhttps://developer.github.com/v3/checks/suites/#list-check-suites-for-a-specific-ref",
       "headers": [
         {
           "name": "Accept",
@@ -1418,7 +1419,7 @@
       "_id": "__REQ_66__",
       "_type": "request",
       "name": "Create a check suite",
-      "description": "By default, check suites are automatically created when you create a [check run](https://developer.github.com/v3/checks/runs/). You only need to use this endpoint for manually creating check suites when you've disabled automatic creation using \"[Set preferences for check suites on a repository](https://developer.github.com/v3/checks/suites/#set-preferences-for-check-suites-on-a-repository)\". Your GitHub App must have the `checks:write` permission to create check suites.\n\nhttps://developer.github.com/v3/checks/suites/#create-a-check-suite",
+      "description": "**Note:** The Checks API only looks for pushes in the repository where the check suite or check run were created. Pushes to a branch in a forked repository are not detected and return an empty `pull_requests` array and a `null` value for `head_branch`.\n\nBy default, check suites are automatically created when you create a [check run](https://developer.github.com/v3/checks/runs/). You only need to use this endpoint for manually creating check suites when you've disabled automatic creation using \"[Set preferences for check suites on a repository](https://developer.github.com/v3/checks/suites/#set-preferences-for-check-suites-on-a-repository)\". Your GitHub App must have the `checks:write` permission to create check suites.\n\nhttps://developer.github.com/v3/checks/suites/#create-a-check-suite",
       "headers": [
         {
           "name": "Accept",
@@ -7861,6 +7862,22 @@
       "parentId": "__FLD_25__",
       "_id": "__REQ_445__",
       "_type": "request",
+      "name": "Get team by name",
+      "description": "Gets a team using the team's `slug`. GitHub generates the `slug` from the team `name`.\n\nhttps://developer.github.com/v3/teams/#get-team-by-name",
+      "headers": [],
+      "authentication": {
+        "token": "{{ github_token  }}",
+        "type": "bearer"
+      },
+      "method": "GET",
+      "url": "{{ github_api_root  }}/orgs/{{ org }}/teams/{{ team_slug }}",
+      "body": {},
+      "parameters": []
+    },
+    {
+      "parentId": "__FLD_25__",
+      "_id": "__REQ_446__",
+      "_type": "request",
       "name": "Create team",
       "description": "To create a team, the authenticated user must be a member or owner of `:org`. By default, organization members can create teams. Organization owners can limit team creation to organization owners. For more information, see \"[Setting team creation permissions](https://help.github.com/en/articles/setting-team-creation-permissions-in-your-organization).\"\n\nhttps://developer.github.com/v3/teams/#create-team",
       "headers": [],
@@ -7875,7 +7892,7 @@
     },
     {
       "parentId": "__FLD_25__",
-      "_id": "__REQ_446__",
+      "_id": "__REQ_447__",
       "_type": "request",
       "name": "Edit team",
       "description": "To edit a team, the authenticated user must either be an owner of the org that the team is associated with, or a maintainer of the team.\n\n**Note:** With nested teams, the `privacy` for parent teams cannot be `secret`.\n\nhttps://developer.github.com/v3/teams/#edit-team",
@@ -7891,7 +7908,7 @@
     },
     {
       "parentId": "__FLD_25__",
-      "_id": "__REQ_447__",
+      "_id": "__REQ_448__",
       "_type": "request",
       "name": "Delete team",
       "description": "To delete a team, the authenticated user must be a team maintainer or an owner of the org associated with the team.\n\nIf you are an organization owner and you pass the `hellcat-preview` media type, deleting a parent team will delete all of its child teams as well.\n\nhttps://developer.github.com/v3/teams/#delete-team",
@@ -7907,7 +7924,7 @@
     },
     {
       "parentId": "__FLD_25__",
-      "_id": "__REQ_448__",
+      "_id": "__REQ_449__",
       "_type": "request",
       "name": "List child teams",
       "description": "At this time, the `hellcat-preview` media type is required to use this endpoint.\n\n\n\nhttps://developer.github.com/v3/teams/#list-child-teams",
@@ -7928,7 +7945,7 @@
     },
     {
       "parentId": "__FLD_25__",
-      "_id": "__REQ_449__",
+      "_id": "__REQ_450__",
       "_type": "request",
       "name": "List team repos",
       "description": "**Note**: If you pass the `hellcat-preview` media type, the response will include any repositories inherited through a parent team.\n\nhttps://developer.github.com/v3/teams/#list-team-repos",
@@ -7944,7 +7961,7 @@
     },
     {
       "parentId": "__FLD_25__",
-      "_id": "__REQ_450__",
+      "_id": "__REQ_451__",
       "_type": "request",
       "name": "Check if a team manages a repository",
       "description": "**Note**: If you pass the `hellcat-preview` media type, repositories inherited through a parent team will be checked.\n\nYou can also get information about the specified repository, including what permissions the team grants on it, by passing the following custom [media type](https://developer.github.com/v3/media/) via the `Accept` header:\n\nhttps://developer.github.com/v3/teams/#check-if-a-team-manages-a-repository",
@@ -7960,7 +7977,7 @@
     },
     {
       "parentId": "__FLD_25__",
-      "_id": "__REQ_451__",
+      "_id": "__REQ_452__",
       "_type": "request",
       "name": "Add or update team repository",
       "description": "To add a repository to a team or update the team's permission on a repository, the authenticated user must have admin access to the repository, and must be able to see the team. The repository must be owned by the organization, or a direct fork of a repository owned by the organization. You will get a `422 Unprocessable Entity` status if you attempt to add a repository to a team that is not owned by the organization.\n\nIf you pass the `hellcat-preview` media type, you can modify repository permissions of child teams.\n\nNote that, if you choose not to pass any parameters, you'll need to set `Content-Length` to zero when calling out to this endpoint. For more information, see \"[HTTP verbs](https://developer.github.com/v3/#http-verbs).\"\n\nhttps://developer.github.com/v3/teams/#add-or-update-team-repository",
@@ -7976,7 +7993,7 @@
     },
     {
       "parentId": "__FLD_25__",
-      "_id": "__REQ_452__",
+      "_id": "__REQ_453__",
       "_type": "request",
       "name": "Remove team repository",
       "description": "If the authenticated user is an organization owner or a team maintainer, they can remove any repositories from the team. To remove a repository from a team as an organization member, the authenticated user must have admin access to the repository and must be able to see the team. NOTE: This does not delete the repository, it just removes it from the team.\n\nhttps://developer.github.com/v3/teams/#remove-team-repository",
@@ -7992,7 +8009,7 @@
     },
     {
       "parentId": "__FLD_25__",
-      "_id": "__REQ_453__",
+      "_id": "__REQ_454__",
       "_type": "request",
       "name": "List user teams",
       "description": "List all of the teams across all of the organizations to which the authenticated user belongs. This method requires `user`, `repo`, or `read:org` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/) when authenticating via [OAuth](https://developer.github.com/apps/building-oauth-apps/).\n\nhttps://developer.github.com/v3/teams/#list-user-teams",
@@ -8008,7 +8025,7 @@
     },
     {
       "parentId": "__FLD_25__",
-      "_id": "__REQ_454__",
+      "_id": "__REQ_455__",
       "_type": "request",
       "name": "List team projects",
       "description": "Lists the organization projects for a team. If you pass the `hellcat-preview` media type, the response will include projects inherited from a parent team.\n\nhttps://developer.github.com/v3/teams/#list-team-projects",
@@ -8029,7 +8046,7 @@
     },
     {
       "parentId": "__FLD_25__",
-      "_id": "__REQ_455__",
+      "_id": "__REQ_456__",
       "_type": "request",
       "name": "Review a team project",
       "description": "Checks whether a team has `read`, `write`, or `admin` permissions for an organization project. If you pass the `hellcat-preview` media type, the response will include projects inherited from a parent team.\n\nhttps://developer.github.com/v3/teams/#review-a-team-project",
@@ -8050,7 +8067,7 @@
     },
     {
       "parentId": "__FLD_25__",
-      "_id": "__REQ_456__",
+      "_id": "__REQ_457__",
       "_type": "request",
       "name": "Add or update team project",
       "description": "Adds an organization project to a team. To add a project to a team or update the team's permission on a project, the authenticated user must have `admin` permissions for the project. The project and team must be part of the same organization.\n\nhttps://developer.github.com/v3/teams/#add-or-update-team-project",
@@ -8071,7 +8088,7 @@
     },
     {
       "parentId": "__FLD_25__",
-      "_id": "__REQ_457__",
+      "_id": "__REQ_458__",
       "_type": "request",
       "name": "Remove team project",
       "description": "Removes an organization project from a team. An organization owner or a team maintainer can remove any project from the team. To remove a project from a team as an organization member, the authenticated user must have `read` access to both the team and project, or `admin` access to the team or project. **Note:** This endpoint removes the project from the team, but does not delete it.\n\nhttps://developer.github.com/v3/teams/#remove-team-project",
@@ -8087,7 +8104,7 @@
     },
     {
       "parentId": "__FLD_25__",
-      "_id": "__REQ_458__",
+      "_id": "__REQ_459__",
       "_type": "request",
       "name": "List comments",
       "description": "List all comments on a team discussion. OAuth access tokens require the `read:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).\n\nhttps://developer.github.com/v3/teams/discussion_comments/#list-comments",
@@ -8108,7 +8125,7 @@
     },
     {
       "parentId": "__FLD_25__",
-      "_id": "__REQ_459__",
+      "_id": "__REQ_460__",
       "_type": "request",
       "name": "Get a single comment",
       "description": "Get a specific comment on a team discussion. OAuth access tokens require the `read:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).\n\nhttps://developer.github.com/v3/teams/discussion_comments/#get-a-single-comment",
@@ -8129,7 +8146,7 @@
     },
     {
       "parentId": "__FLD_25__",
-      "_id": "__REQ_460__",
+      "_id": "__REQ_461__",
       "_type": "request",
       "name": "Create a comment",
       "description": "Creates a new comment on a team discussion. OAuth access tokens require the `write:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).\n\nThis endpoint triggers [notifications](https://help.github.com/articles/about-notifications/). Creating content too quickly using this endpoint may result in abuse rate limiting. See \"[Abuse rate limits](https://developer.github.com/v3/#abuse-rate-limits)\" and \"[Dealing with abuse rate limits](https://developer.github.com/v3/guides/best-practices-for-integrators/#dealing-with-abuse-rate-limits)\" for details.\n\nhttps://developer.github.com/v3/teams/discussion_comments/#create-a-comment",
@@ -8150,7 +8167,7 @@
     },
     {
       "parentId": "__FLD_25__",
-      "_id": "__REQ_461__",
+      "_id": "__REQ_462__",
       "_type": "request",
       "name": "Edit a comment",
       "description": "Edits the body text of a discussion comment. OAuth access tokens require the `write:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).\n\nhttps://developer.github.com/v3/teams/discussion_comments/#edit-a-comment",
@@ -8171,7 +8188,7 @@
     },
     {
       "parentId": "__FLD_25__",
-      "_id": "__REQ_462__",
+      "_id": "__REQ_463__",
       "_type": "request",
       "name": "Delete a comment",
       "description": "Deletes a comment on a team discussion. OAuth access tokens require the `write:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).\n\nhttps://developer.github.com/v3/teams/discussion_comments/#delete-a-comment",
@@ -8192,7 +8209,7 @@
     },
     {
       "parentId": "__FLD_25__",
-      "_id": "__REQ_463__",
+      "_id": "__REQ_464__",
       "_type": "request",
       "name": "List discussions",
       "description": "List all discussions on a team's page. OAuth access tokens require the `read:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).\n\nhttps://developer.github.com/v3/teams/discussions/#list-discussions",
@@ -8213,7 +8230,7 @@
     },
     {
       "parentId": "__FLD_25__",
-      "_id": "__REQ_464__",
+      "_id": "__REQ_465__",
       "_type": "request",
       "name": "Get a single discussion",
       "description": "Get a specific discussion on a team's page. OAuth access tokens require the `read:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).\n\nhttps://developer.github.com/v3/teams/discussions/#get-a-single-discussion",
@@ -8234,7 +8251,7 @@
     },
     {
       "parentId": "__FLD_25__",
-      "_id": "__REQ_465__",
+      "_id": "__REQ_466__",
       "_type": "request",
       "name": "Create a discussion",
       "description": "Creates a new discussion post on a team's page. OAuth access tokens require the `write:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).\n\nThis endpoint triggers [notifications](https://help.github.com/articles/about-notifications/). Creating content too quickly using this endpoint may result in abuse rate limiting. See \"[Abuse rate limits](https://developer.github.com/v3/#abuse-rate-limits)\" and \"[Dealing with abuse rate limits](https://developer.github.com/v3/guides/best-practices-for-integrators/#dealing-with-abuse-rate-limits)\" for details.\n\nhttps://developer.github.com/v3/teams/discussions/#create-a-discussion",
@@ -8255,7 +8272,7 @@
     },
     {
       "parentId": "__FLD_25__",
-      "_id": "__REQ_466__",
+      "_id": "__REQ_467__",
       "_type": "request",
       "name": "Edit a discussion",
       "description": "Edits the title and body text of a discussion post. Only the parameters you provide are updated. OAuth access tokens require the `write:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).\n\nhttps://developer.github.com/v3/teams/discussions/#edit-a-discussion",
@@ -8276,7 +8293,7 @@
     },
     {
       "parentId": "__FLD_25__",
-      "_id": "__REQ_467__",
+      "_id": "__REQ_468__",
       "_type": "request",
       "name": "Delete a discussion",
       "description": "Delete a discussion from a team's page. OAuth access tokens require the `write:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).\n\nhttps://developer.github.com/v3/teams/discussions/#delete-a-discussion",
@@ -8297,7 +8314,7 @@
     },
     {
       "parentId": "__FLD_25__",
-      "_id": "__REQ_468__",
+      "_id": "__REQ_469__",
       "_type": "request",
       "name": "List team members",
       "description": "If you pass the `hellcat-preview` media type, team members will include the members of child teams.\n\nhttps://developer.github.com/v3/teams/members/#list-team-members",
@@ -8313,7 +8330,7 @@
     },
     {
       "parentId": "__FLD_25__",
-      "_id": "__REQ_469__",
+      "_id": "__REQ_470__",
       "_type": "request",
       "name": "Get team member",
       "description": "The \"Get team member\" API (described below) is deprecated.\n\nWe recommend using the [Get team membership API](https://developer.github.com/v3/teams/members/#get-team-membership) instead. It allows you to get both active and pending memberships.\n\nTo list members in a team, the team must be visible to the authenticated user.\n\nhttps://developer.github.com/v3/teams/members/#get-team-member",
@@ -8329,7 +8346,7 @@
     },
     {
       "parentId": "__FLD_25__",
-      "_id": "__REQ_470__",
+      "_id": "__REQ_471__",
       "_type": "request",
       "name": "Add team member",
       "description": "The \"Add team member\" API (described below) is deprecated.\n\nWe recommend using the [Add team membership API](https://developer.github.com/v3/teams/members/#add-or-update-team-membership) instead. It allows you to invite new organization members to your teams.\n\nTo add a user to a team, the authenticated user must have 'admin' permissions to the team or be an owner of the organization that the team is associated with, and the user being added must already be a member of at least one other team on the same organization.\n\nNote that you'll need to set `Content-Length` to zero when calling out to this endpoint. For more information, see \"[HTTP verbs](https://developer.github.com/v3/#http-verbs).\"\n\nIf you attempt to add an organization to a team, you will get this:\n\nIf you attempt to add a user to a team and that user is not a member of at least one other team on the same organization, you will get this:\n\nhttps://developer.github.com/v3/teams/members/#add-team-member",
@@ -8345,7 +8362,7 @@
     },
     {
       "parentId": "__FLD_25__",
-      "_id": "__REQ_471__",
+      "_id": "__REQ_472__",
       "_type": "request",
       "name": "Remove team member",
       "description": "The \"Remove team member\" API (described below) is deprecated.\n\nWe recommend using the [Remove team membership API](https://developer.github.com/v3/teams/members/#remove-team-membership) instead. It allows you to remove both active and pending memberships.\n\nTo remove a user from a team, the authenticated user must have 'admin' permissions to the team or be an owner of the org that the team is associated with. NOTE: This does not delete the user, it just removes them from the team.\n\nhttps://developer.github.com/v3/teams/members/#remove-team-member",
@@ -8361,7 +8378,7 @@
     },
     {
       "parentId": "__FLD_25__",
-      "_id": "__REQ_472__",
+      "_id": "__REQ_473__",
       "_type": "request",
       "name": "Get team membership",
       "description": "If you pass the `hellcat-preview` media type, team members will include the members of child teams.\n\nTo get a user's membership with a team, the team must be visible to the authenticated user.\n\n**Note:** The `role` for organization owners returns as `maintainer`. For more information about `maintainer` roles, see [Create team](https://developer.github.com/v3/teams#create-team).\n\nhttps://developer.github.com/v3/teams/members/#get-team-membership",
@@ -8377,7 +8394,7 @@
     },
     {
       "parentId": "__FLD_25__",
-      "_id": "__REQ_473__",
+      "_id": "__REQ_474__",
       "_type": "request",
       "name": "Add or update team membership",
       "description": "If the user is already a member of the team's organization, this endpoint will add the user to the team. To add a membership between an organization member and a team, the authenticated user must be an organization owner or a maintainer of the team.\n\nIf the user is unaffiliated with the team's organization, this endpoint will send an invitation to the user via email. This newly-created membership will be in the \"pending\" state until the user accepts the invitation, at which point the membership will transition to the \"active\" state and the user will be added as a member of the team. To add a membership between an unaffiliated user and a team, the authenticated user must be an organization owner.\n\nIf the user is already a member of the team, this endpoint will update the role of the team member's role. To update the membership of a team member, the authenticated user must be an organization owner or a maintainer of the team.\n\nIf you attempt to add an organization to a team, you will get this:\n\nhttps://developer.github.com/v3/teams/members/#add-or-update-team-membership",
@@ -8393,7 +8410,7 @@
     },
     {
       "parentId": "__FLD_25__",
-      "_id": "__REQ_474__",
+      "_id": "__REQ_475__",
       "_type": "request",
       "name": "Remove team membership",
       "description": "To remove a membership between a user and a team, the authenticated user must have 'admin' permissions to the team or be an owner of the organization that the team is associated with. NOTE: This does not delete the user, it just removes their membership from the team.\n\nhttps://developer.github.com/v3/teams/members/#remove-team-membership",
@@ -8409,7 +8426,7 @@
     },
     {
       "parentId": "__FLD_25__",
-      "_id": "__REQ_475__",
+      "_id": "__REQ_476__",
       "_type": "request",
       "name": "List pending team invitations",
       "description": "The return hash contains a `role` field which refers to the Organization Invitation role and will be one of the following values: `direct_member`, `admin`, `billing_manager`, `hiring_manager`, or `reinstate`. If the invitee is not a GitHub member, the `login` field in the return hash will be `null`.\n\nhttps://developer.github.com/v3/teams/members/#list-pending-team-invitations",
@@ -8425,7 +8442,7 @@
     },
     {
       "parentId": "__FLD_26__",
-      "_id": "__REQ_476__",
+      "_id": "__REQ_477__",
       "_type": "request",
       "name": "Get a single user",
       "description": "Provides publicly available information about someone with a GitHub account.\n\nThe `email` key in the following response is the publicly visible email address from your GitHub [profile page](https://github.com/settings/profile). When setting up your profile, you can select a primary email address to be “public” which provides an email entry for this endpoint. If you do not set a public email address for `email`, then it will have a value of `null`. You only see publicly visible email addresses when authenticated with GitHub. For more information, see [Authentication](https://developer.github.com/v3/#authentication).\n\nThe Emails API enables you to list all of your email addresses, and toggle a primary email to be visible publicly. For more information, see \"[Emails API](https://developer.github.com/v3/users/emails/)\".\n\nhttps://developer.github.com/v3/users/#get-a-single-user",
@@ -8441,7 +8458,7 @@
     },
     {
       "parentId": "__FLD_26__",
-      "_id": "__REQ_477__",
+      "_id": "__REQ_478__",
       "_type": "request",
       "name": "Get the authenticated user",
       "description": "Lists public and private profile information when authenticated through basic auth or OAuth with the `user` scope.\n\nLists public profile information when authenticated through OAuth without the `user` scope.\n\nhttps://developer.github.com/v3/users/#get-the-authenticated-user",
@@ -8457,7 +8474,7 @@
     },
     {
       "parentId": "__FLD_26__",
-      "_id": "__REQ_478__",
+      "_id": "__REQ_479__",
       "_type": "request",
       "name": "Update the authenticated user",
       "description": "**Note:** If your email is set to private and you send an `email` parameter as part of this request to update your profile, your privacy settings are still enforced: the email address will not be displayed on your public profile or via the API.\n\nhttps://developer.github.com/v3/users/#update-the-authenticated-user",
@@ -8473,7 +8490,7 @@
     },
     {
       "parentId": "__FLD_26__",
-      "_id": "__REQ_479__",
+      "_id": "__REQ_480__",
       "_type": "request",
       "name": "Get contextual information about a user",
       "description": "Provides hovercard information when authenticated through basic auth or OAuth with the `repo` scope. You can find out more about someone in relation to their pull requests, issues, repositories, and organizations.\n\nThe `subject_type` and `subject_id` parameters provide context for the person's hovercard, which returns more information than without the parameters. For example, if you wanted to find out more about `octocat` who owns the `Spoon-Knife` repository via cURL, it would look like this:\n\nhttps://developer.github.com/v3/users/#get-contextual-information-about-a-user",
@@ -8494,7 +8511,7 @@
     },
     {
       "parentId": "__FLD_26__",
-      "_id": "__REQ_480__",
+      "_id": "__REQ_481__",
       "_type": "request",
       "name": "Get all users",
       "description": "Lists all users, in the order that they signed up on GitHub. This list includes personal user accounts and organization accounts.\n\nNote: Pagination is powered exclusively by the `since` parameter. Use the [Link header](https://developer.github.com/v3/#link-header) to get the URL for the next page of users.\n\nhttps://developer.github.com/v3/users/#get-all-users",
@@ -8510,7 +8527,7 @@
     },
     {
       "parentId": "__FLD_26__",
-      "_id": "__REQ_481__",
+      "_id": "__REQ_482__",
       "_type": "request",
       "name": "List blocked users",
       "description": "List the users you've blocked on your personal account.\n\nhttps://developer.github.com/v3/users/blocking/#list-blocked-users",
@@ -8526,7 +8543,7 @@
     },
     {
       "parentId": "__FLD_26__",
-      "_id": "__REQ_482__",
+      "_id": "__REQ_483__",
       "_type": "request",
       "name": "Check whether you've blocked a user",
       "description": "If the user is blocked:\n\nIf the user is not blocked:\n\nhttps://developer.github.com/v3/users/blocking/#check-whether-youve-blocked-a-user",
@@ -8542,7 +8559,7 @@
     },
     {
       "parentId": "__FLD_26__",
-      "_id": "__REQ_483__",
+      "_id": "__REQ_484__",
       "_type": "request",
       "name": "Block a user",
       "description": "\n\nhttps://developer.github.com/v3/users/blocking/#block-a-user",
@@ -8558,7 +8575,7 @@
     },
     {
       "parentId": "__FLD_26__",
-      "_id": "__REQ_484__",
+      "_id": "__REQ_485__",
       "_type": "request",
       "name": "Unblock a user",
       "description": "\n\nhttps://developer.github.com/v3/users/blocking/#unblock-a-user",
@@ -8574,7 +8591,7 @@
     },
     {
       "parentId": "__FLD_26__",
-      "_id": "__REQ_485__",
+      "_id": "__REQ_486__",
       "_type": "request",
       "name": "List email addresses for a user",
       "description": "Lists all of your email addresses, and specifies which one is visible to the public. This endpoint is accessible with the `user:email` scope.\n\nhttps://developer.github.com/v3/users/emails/#list-email-addresses-for-a-user",
@@ -8590,7 +8607,7 @@
     },
     {
       "parentId": "__FLD_26__",
-      "_id": "__REQ_486__",
+      "_id": "__REQ_487__",
       "_type": "request",
       "name": "List public email addresses for a user",
       "description": "Lists your publicly visible email address, which you can set with the [Toggle primary email visibility](#toggle-primary-email-visibility) endpoint. This endpoint is accessible with the `user:email` scope.\n\nhttps://developer.github.com/v3/users/emails/#list-public-email-addresses-for-a-user",
@@ -8606,7 +8623,7 @@
     },
     {
       "parentId": "__FLD_26__",
-      "_id": "__REQ_487__",
+      "_id": "__REQ_488__",
       "_type": "request",
       "name": "Add email address(es)",
       "description": "This endpoint is accessible with the `user` scope.\n\nhttps://developer.github.com/v3/users/emails/#add-email-addresses",
@@ -8622,7 +8639,7 @@
     },
     {
       "parentId": "__FLD_26__",
-      "_id": "__REQ_488__",
+      "_id": "__REQ_489__",
       "_type": "request",
       "name": "Delete email address(es)",
       "description": "This endpoint is accessible with the `user` scope.\n\nhttps://developer.github.com/v3/users/emails/#delete-email-addresses",
@@ -8638,7 +8655,7 @@
     },
     {
       "parentId": "__FLD_26__",
-      "_id": "__REQ_489__",
+      "_id": "__REQ_490__",
       "_type": "request",
       "name": "Toggle primary email visibility",
       "description": "Sets the visibility for your primary email addresses.\n\nhttps://developer.github.com/v3/users/emails/#toggle-primary-email-visibility",
@@ -8654,7 +8671,7 @@
     },
     {
       "parentId": "__FLD_26__",
-      "_id": "__REQ_490__",
+      "_id": "__REQ_491__",
       "_type": "request",
       "name": "List a user's followers",
       "description": "\n\nhttps://developer.github.com/v3/users/followers/#list-followers-of-a-user",
@@ -8670,7 +8687,7 @@
     },
     {
       "parentId": "__FLD_26__",
-      "_id": "__REQ_491__",
+      "_id": "__REQ_492__",
       "_type": "request",
       "name": "List the authenticated user's followers",
       "description": "\n\nhttps://developer.github.com/v3/users/followers/#list-followers-of-a-user",
@@ -8686,7 +8703,7 @@
     },
     {
       "parentId": "__FLD_26__",
-      "_id": "__REQ_492__",
+      "_id": "__REQ_493__",
       "_type": "request",
       "name": "List who a user is following",
       "description": "\n\nhttps://developer.github.com/v3/users/followers/#list-users-followed-by-another-user",
@@ -8702,7 +8719,7 @@
     },
     {
       "parentId": "__FLD_26__",
-      "_id": "__REQ_493__",
+      "_id": "__REQ_494__",
       "_type": "request",
       "name": "List who the authenticated user is following",
       "description": "\n\nhttps://developer.github.com/v3/users/followers/#list-users-followed-by-another-user",
@@ -8718,7 +8735,7 @@
     },
     {
       "parentId": "__FLD_26__",
-      "_id": "__REQ_494__",
+      "_id": "__REQ_495__",
       "_type": "request",
       "name": "Check if you are following a user",
       "description": "\n\nhttps://developer.github.com/v3/users/followers/#check-if-you-are-following-a-user",
@@ -8734,7 +8751,7 @@
     },
     {
       "parentId": "__FLD_26__",
-      "_id": "__REQ_495__",
+      "_id": "__REQ_496__",
       "_type": "request",
       "name": "Check if one user follows another",
       "description": "\n\nhttps://developer.github.com/v3/users/followers/#check-if-one-user-follows-another",
@@ -8750,7 +8767,7 @@
     },
     {
       "parentId": "__FLD_26__",
-      "_id": "__REQ_496__",
+      "_id": "__REQ_497__",
       "_type": "request",
       "name": "Follow a user",
       "description": "Note that you'll need to set `Content-Length` to zero when calling out to this endpoint. For more information, see \"[HTTP verbs](https://developer.github.com/v3/#http-verbs).\"\n\nFollowing a user requires the user to be logged in and authenticated with basic auth or OAuth with the `user:follow` scope.\n\nhttps://developer.github.com/v3/users/followers/#follow-a-user",
@@ -8766,7 +8783,7 @@
     },
     {
       "parentId": "__FLD_26__",
-      "_id": "__REQ_497__",
+      "_id": "__REQ_498__",
       "_type": "request",
       "name": "Unfollow a user",
       "description": "Unfollowing a user requires the user to be logged in and authenticated with basic auth or OAuth with the `user:follow` scope.\n\nhttps://developer.github.com/v3/users/followers/#unfollow-a-user",
@@ -8782,7 +8799,7 @@
     },
     {
       "parentId": "__FLD_26__",
-      "_id": "__REQ_498__",
+      "_id": "__REQ_499__",
       "_type": "request",
       "name": "List GPG keys for a user",
       "description": "Lists the GPG keys for a user. This information is accessible by anyone.\n\nhttps://developer.github.com/v3/users/gpg_keys/#list-gpg-keys-for-a-user",
@@ -8798,7 +8815,7 @@
     },
     {
       "parentId": "__FLD_26__",
-      "_id": "__REQ_499__",
+      "_id": "__REQ_500__",
       "_type": "request",
       "name": "List your GPG keys",
       "description": "Lists the current user's GPG keys. Requires that you are authenticated via Basic Auth or via OAuth with at least `read:gpg_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).\n\nhttps://developer.github.com/v3/users/gpg_keys/#list-your-gpg-keys",
@@ -8814,7 +8831,7 @@
     },
     {
       "parentId": "__FLD_26__",
-      "_id": "__REQ_500__",
+      "_id": "__REQ_501__",
       "_type": "request",
       "name": "Get a single GPG key",
       "description": "View extended details for a single GPG key. Requires that you are authenticated via Basic Auth or via OAuth with at least `read:gpg_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).\n\nhttps://developer.github.com/v3/users/gpg_keys/#get-a-single-gpg-key",
@@ -8830,7 +8847,7 @@
     },
     {
       "parentId": "__FLD_26__",
-      "_id": "__REQ_501__",
+      "_id": "__REQ_502__",
       "_type": "request",
       "name": "Create a GPG key",
       "description": "Adds a GPG key to the authenticated user's GitHub account. Requires that you are authenticated via Basic Auth, or OAuth with at least `write:gpg_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).\n\nhttps://developer.github.com/v3/users/gpg_keys/#create-a-gpg-key",
@@ -8846,7 +8863,7 @@
     },
     {
       "parentId": "__FLD_26__",
-      "_id": "__REQ_502__",
+      "_id": "__REQ_503__",
       "_type": "request",
       "name": "Delete a GPG key",
       "description": "Removes a GPG key from the authenticated user's GitHub account. Requires that you are authenticated via Basic Auth or via OAuth with at least `admin:gpg_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).\n\nhttps://developer.github.com/v3/users/gpg_keys/#delete-a-gpg-key",
@@ -8862,7 +8879,7 @@
     },
     {
       "parentId": "__FLD_26__",
-      "_id": "__REQ_503__",
+      "_id": "__REQ_504__",
       "_type": "request",
       "name": "List public keys for a user",
       "description": "Lists the _verified_ public SSH keys for a user. This is accessible by anyone.\n\nhttps://developer.github.com/v3/users/keys/#list-public-keys-for-a-user",
@@ -8878,7 +8895,7 @@
     },
     {
       "parentId": "__FLD_26__",
-      "_id": "__REQ_504__",
+      "_id": "__REQ_505__",
       "_type": "request",
       "name": "List your public keys",
       "description": "Lists the public SSH keys for the authenticated user's GitHub account. Requires that you are authenticated via Basic Auth or via OAuth with at least `read:public_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).\n\nhttps://developer.github.com/v3/users/keys/#list-your-public-keys",
@@ -8894,7 +8911,7 @@
     },
     {
       "parentId": "__FLD_26__",
-      "_id": "__REQ_505__",
+      "_id": "__REQ_506__",
       "_type": "request",
       "name": "Get a single public key",
       "description": "View extended details for a single public SSH key. Requires that you are authenticated via Basic Auth or via OAuth with at least `read:public_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).\n\nhttps://developer.github.com/v3/users/keys/#get-a-single-public-key",
@@ -8910,7 +8927,7 @@
     },
     {
       "parentId": "__FLD_26__",
-      "_id": "__REQ_506__",
+      "_id": "__REQ_507__",
       "_type": "request",
       "name": "Create a public key",
       "description": "Adds a public SSH key to the authenticated user's GitHub account. Requires that you are authenticated via Basic Auth, or OAuth with at least `write:public_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).\n\nhttps://developer.github.com/v3/users/keys/#create-a-public-key",
@@ -8926,7 +8943,7 @@
     },
     {
       "parentId": "__FLD_26__",
-      "_id": "__REQ_507__",
+      "_id": "__REQ_508__",
       "_type": "request",
       "name": "Delete a public key",
       "description": "Removes a public SSH key from the authenticated user's GitHub account. Requires that you are authenticated via Basic Auth or via OAuth with at least `admin:public_key` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).\n\nhttps://developer.github.com/v3/users/keys/#delete-a-public-key",
