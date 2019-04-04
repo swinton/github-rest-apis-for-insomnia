@@ -1,7 +1,7 @@
 {
   "_type": "export",
   "__export_format": 3,
-  "__export_date": "2019-03-29T23:19:41.361Z",
+  "__export_date": "2019-04-04T18:22:19.060Z",
   "__export_source": "github-rest-apis-for-insomnia:0.1.0",
   "resources": [
     {
@@ -2690,7 +2690,7 @@
       "_id": "__REQ_142__",
       "_type": "request",
       "name": "Remove a label from an issue",
-      "description": "Removes the specified label from the issue, and returns the remaining labels on the issue.\n\nhttps://developer.github.com/v3/issues/labels/#remove-a-label-from-an-issue",
+      "description": "Removes the specified label from the issue, and returns the remaining labels on the issue. This endpoint returns a `404 Not Found` status if the label does not exist.\n\nhttps://developer.github.com/v3/issues/labels/#remove-a-label-from-an-issue",
       "headers": [],
       "authentication": {
         "token": "{{ github_token  }}",
@@ -3601,7 +3601,7 @@
       "_id": "__REQ_193__",
       "_type": "request",
       "name": "Revoke a grant for an application",
-      "description": "OAuth application owners can revoke a grant for their OAuth application and a specific user. You must use [Basic Authentication](https://developer.github.com/v3/auth#basic-authentication) for this method, where the username is the OAuth application `client_id` and the password is its `client_secret`. You must also provide a valid token as `:token` and the grant for the token's owner will be deleted.\n\nDeleting an OAuth application's grant will also delete all OAuth tokens associated with the application for the user. Once deleted, the application will have no access to the user's account and will no longer be listed on [the application authorizations settings screen within GitHub](https://github.com/settings/applications#authorized).\n\nhttps://developer.github.com/v3/oauth_authorizations/#revoke-a-grant-for-an-application",
+      "description": "OAuth application owners can revoke a grant for their OAuth application and a specific user. You must use [Basic Authentication](https://developer.github.com/v3/auth#basic-authentication) for this method, where the username is the OAuth application `client_id` and the password is its `client_secret`. You must also provide a valid token as `:access_token` and the grant for the token's owner will be deleted.\n\nDeleting an OAuth application's grant will also delete all OAuth tokens associated with the application for the user. Once deleted, the application will have no access to the user's account and will no longer be listed on [the application authorizations settings screen within GitHub](https://github.com/settings/applications#authorized).\n\nhttps://developer.github.com/v3/oauth_authorizations/#revoke-a-grant-for-an-application",
       "headers": [],
       "authentication": {
         "token": "{{ github_token  }}",
@@ -4161,7 +4161,7 @@
       "_id": "__REQ_228__",
       "_type": "request",
       "name": "List repository projects",
-      "description": "**Note**: The status code may also be `401` or `410`, depending on the scope of the authenticating token.\n\nhttps://developer.github.com/v3/projects/#list-repository-projects",
+      "description": "Lists the projects in a repository. Returns a `404 Not Found` status if projects are disabled in the repository. If you do not have sufficient privileges to perform this action, a `401 Unauthorized` or `410 Gone` status is returned.\n\nhttps://developer.github.com/v3/projects/#list-repository-projects",
       "headers": [
         {
           "name": "Accept",
@@ -4182,7 +4182,7 @@
       "_id": "__REQ_229__",
       "_type": "request",
       "name": "List organization projects",
-      "description": "**Note**: The status code may also be `401` or `410`, depending on the scope of the authenticating token.\n\nhttps://developer.github.com/v3/projects/#list-organization-projects",
+      "description": "Lists the projects in an organization. Returns a `404 Not Found` status if projects are disabled in the organization. If you do not have sufficient privileges to perform this action, a `401 Unauthorized` or `410 Gone` status is returned.\n\ns\n\nhttps://developer.github.com/v3/projects/#list-organization-projects",
       "headers": [
         {
           "name": "Accept",
@@ -4224,7 +4224,7 @@
       "_id": "__REQ_231__",
       "_type": "request",
       "name": "Get a project",
-      "description": "**Note**: The status code may also be `401` or `410`, depending on the scope of the authenticating token.\n\nhttps://developer.github.com/v3/projects/#get-a-project",
+      "description": "Gets a project by its `id`. Returns a `404 Not Found` status if projects are disabled. If you do not have sufficient privileges to perform this action, a `401 Unauthorized` or `410 Gone` status is returned.\n\nhttps://developer.github.com/v3/projects/#get-a-project",
       "headers": [
         {
           "name": "Accept",
@@ -4245,7 +4245,7 @@
       "_id": "__REQ_232__",
       "_type": "request",
       "name": "Create a repository project",
-      "description": "**Note**: The status code may also be `401` or `410`, depending on the scope of the authenticating token.\n\nhttps://developer.github.com/v3/projects/#create-a-repository-project",
+      "description": "Creates a repository project board. Returns a `404 Not Found` status if projects are disabled in the repository. If you do not have sufficient privileges to perform this action, a `401 Unauthorized` or `410 Gone` status is returned.\n\nhttps://developer.github.com/v3/projects/#create-a-repository-project",
       "headers": [
         {
           "name": "Accept",
@@ -4266,7 +4266,7 @@
       "_id": "__REQ_233__",
       "_type": "request",
       "name": "Create an organization project",
-      "description": "**Note**: The status code may also be `401` or `410`, depending on the scope of the authenticating token.\n\nhttps://developer.github.com/v3/projects/#create-an-organization-project",
+      "description": "Creates an organization project board. Returns a `404 Not Found` status if projects are disabled in the organization. If you do not have sufficient privileges to perform this action, a `401 Unauthorized` or `410 Gone` status is returned.\n\nhttps://developer.github.com/v3/projects/#create-an-organization-project",
       "headers": [
         {
           "name": "Accept",
@@ -4308,7 +4308,7 @@
       "_id": "__REQ_235__",
       "_type": "request",
       "name": "Update a project",
-      "description": "**Note**: The status code may also be `401` or `410`, depending on the scope of the authenticating token.\n\nhttps://developer.github.com/v3/projects/#update-a-project",
+      "description": "Updates a project board's information. Returns a `404 Not Found` status if projects are disabled. If you do not have sufficient privileges to perform this action, a `401 Unauthorized` or `410 Gone` status is returned.\n\nhttps://developer.github.com/v3/projects/#update-a-project",
       "headers": [
         {
           "name": "Accept",
@@ -4329,7 +4329,7 @@
       "_id": "__REQ_236__",
       "_type": "request",
       "name": "Delete a project",
-      "description": "\n\nhttps://developer.github.com/v3/projects/#delete-a-project",
+      "description": "Deletes a project board. Returns a `404 Not Found` status if projects are disabled.\n\nhttps://developer.github.com/v3/projects/#delete-a-project",
       "headers": [
         {
           "name": "Accept",
