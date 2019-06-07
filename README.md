@@ -1,4 +1,4 @@
-# `github-rest-apis-for-insomnia`
+# `github-rest-apis-for-insomnia` [![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=GitHub%20REST%20API&uri=https%3A%2F%2Fgit.io%2Fgithub-rest-apis-for-insomnia)
 
 > :100: A complete set of [GitHub REST API](https://developer.github.com/v3/) route specifications that can be imported straight into [Insomnia REST Client](https://insomnia.rest/).
 
