@@ -1,11 +1,7 @@
 <h1 align="center">:100:<tt>github-rest-apis-for-insomnia</tt></h1>
 <p align="center">A complete set of <a href="https://developer.github.com/v3/">GitHub REST API</a> route specifications that can be imported straight into <a href="https://insomnia.rest/">Insomnia REST Client</a>.</p>
 
-<a href="https://greenkeeper.io/">
-  <img src="https://badges.greenkeeper.io/swinton/github-rest-apis-for-insomnia.svg" alt="Greenkeeper badge" align="right">
-</a>
-
-[![run-in-insomnia](https://img.shields.io/badge/insomnia-run--in--insomnia-purple.svg?logo=insomnia&style=for-the-badge&color=6a57d5)](https://insomnia.rest/run/?label=GitHub%20REST%20API&uri=https%3A%2F%2Fgit.io%2Fgithub-rest-apis-for-insomnia) [![Greenkeeper enabled](https://img.shields.io/badge/greenkeeper-enabled-green.svg?logo=greenkeeper&style=for-the-badge)](https://greenkeeper.io/)
+[![run-in-insomnia](https://img.shields.io/badge/insomnia-run--in--insomnia-purple.svg?logo=insomnia&style=flat-square&color=6a57d5)](https://insomnia.rest/run/?label=GitHub%20REST%20API&uri=https%3A%2F%2Fgit.io%2Fgithub-rest-apis-for-insomnia) [![Greenkeeper enabled](https://img.shields.io/badge/greenkeeper-enabled-green.svg?logo=greenkeeper&style=flat-square)](https://greenkeeper.io/)
 
 ## Usage
 
