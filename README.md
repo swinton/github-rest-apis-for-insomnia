@@ -1,10 +1,15 @@
-# `github-rest-apis-for-insomnia` [![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=GitHub%20REST%20API&uri=https%3A%2F%2Fgit.io%2Fgithub-rest-apis-for-insomnia)
+# `github-rest-apis-for-insomnia`
 
 > :100: A complete set of [GitHub REST API](https://developer.github.com/v3/) route specifications that can be imported straight into [Insomnia REST Client](https://insomnia.rest/).
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/swinton/github-rest-apis-for-insomnia.svg)](https://greenkeeper.io/)
 
 ## Usage
+
+[![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=GitHub%20REST%20API&uri=https%3A%2F%2Fgit.io%2Fgithub-rest-apis-for-insomnia)
+
+
+### Manual instructions
 
 Import directly into Insomnia, via `Workspace` :arrow_right: `Import/Export` :arrow_right: `Import Data` :arrow_right: `From URL` and entering **`https://git.io/github-rest-apis-for-insomnia`**:
 
