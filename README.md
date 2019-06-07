@@ -1,8 +1,9 @@
-<h1 align="center"><tt>github-rest-apis-for-insomnia</tt></h1>
+<h1 align="center">:100:<tt>github-rest-apis-for-insomnia</tt></h1>
+<p align="center">A complete set of <a href="https://developer.github.com/v3/">GitHub REST API</a> route specifications that can be imported straight into <a href="https://insomnia.rest/">Insomnia REST Client</a>.</p>
 
-> :100: A complete set of [GitHub REST API](https://developer.github.com/v3/) route specifications that can be imported straight into [Insomnia REST Client](https://insomnia.rest/).
-
-[![Greenkeeper badge](https://badges.greenkeeper.io/swinton/github-rest-apis-for-insomnia.svg)](https://greenkeeper.io/)
+<a href="https://greenkeeper.io/">
+  <img src="https://badges.greenkeeper.io/swinton/github-rest-apis-for-insomnia.svg" alt="Greenkeeper badge" align="right">
+</a>
 
 ## Usage
 
