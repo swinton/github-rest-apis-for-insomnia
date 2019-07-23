@@ -1,7 +1,7 @@
 {
   "_type": "export",
   "__export_format": 3,
-  "__export_date": "2019-07-17T19:55:21.199Z",
+  "__export_date": "2019-07-23T04:59:08.050Z",
   "__export_source": "github-rest-apis-for-insomnia:0.1.0",
   "resources": [
     {
@@ -69,6 +69,8 @@
         "discussion_number": "discussion_number",
         "comment_number": "comment_number",
         "reaction_id": "reaction_id",
+        "template_owner": "template_owner",
+        "template_repo": "template_repo",
         "branch": "branch",
         "path": "path",
         "archive_format": "archive_format",
@@ -5655,7 +5657,7 @@
         "type": "bearer"
       },
       "method": "POST",
-      "url": "{{ github_api_root  }}/repos/{{ owner }}/{{ repo }}/generate",
+      "url": "{{ github_api_root  }}/repos/{{ template_owner }}/{{ template_repo }}/generate",
       "body": {},
       "parameters": []
     },
