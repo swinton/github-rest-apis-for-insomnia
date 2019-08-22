@@ -32,7 +32,7 @@ jobs:
         COMMIT_MSG: |
           build: spec
 
-          skip-checks:true
+          skip-checks: true
       run: |
         # Hard-code user config
         git config user.email "bots@wintron.codes"
