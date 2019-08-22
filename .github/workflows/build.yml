@@ -1,5 +1,7 @@
 on: pull_request
+  # branches: greenkeeper/@octokit/routes*
 name: Build
+
 jobs:
   build:
     name: Build
@@ -10,17 +12,23 @@ jobs:
         GITHUB_CONTEXT: ${{ toJson(github) }}
       run: |
         echo "$GITHUB_CONTEXT"
+
     - name: Checkout
       uses: actions/checkout@v1.0.0
+
     - name: Regenerate
       run: |
         npm ci
         npm start
+
     - name: Validate
-      uses: ./.github/actions/validate-json
+      run: |
+        jq --raw-output '.resources[].name' routes/api.github.com/github-rest-apis-for-insomnia.json
+
     - name: Greenkeeper filter
       uses: actions/bin/filter@master
       with:
         args: branch greenkeeper/@octokit/routes\*
+
     - name: Commit, and push changes
       uses: ./.github/actions/commit-and-push
