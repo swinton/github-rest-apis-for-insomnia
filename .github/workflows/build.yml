@@ -1,5 +1,5 @@
 on: pull_request
-  # branches: greenkeeper/@octokit/routes*
+
 name: Build
 
 jobs:
@@ -26,6 +26,7 @@ jobs:
         jq --raw-output '.resources[].name' routes/api.github.com/github-rest-apis-for-insomnia.json
 
     - name: Stage, commit, and push changes
+      if: startsWith(github.head_ref, 'greenkeeper/@octokit/routes')
       env:
         GITHUB_TOKEN: ${{ secrets.github_token }}
         HEAD_REF: ${{ github.head_ref }}
