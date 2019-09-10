@@ -26,7 +26,7 @@
   },
   "homepage": "https://github.com/swinton/github-rest-apis-for-insomnia#readme",
   "dependencies": {
-    "@octokit/routes": "20.9.2"
+    "@octokit/routes": "23.0.0"
   },
   "devDependencies": {
     "eslint": "^5.14.1",
