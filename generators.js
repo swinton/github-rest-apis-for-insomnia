@@ -67,11 +67,11 @@ function generateRequests(api, idGenerator, requestGroups) {
         description: spec.description,
         headers,
         authentication: {
-          token: '{{ github_token  }}',
+          token: '{{ github_token }}',
           type: 'bearer'
         },
         method: method.toUpperCase(),
-        url: `{{ github_api_root  }}${normalizedPath}`,
+        url: `{{ github_api_root }}${normalizedPath}`,
         body: {},
         parameters: []
       });
