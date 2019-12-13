@@ -1,9 +1,13 @@
+function requestGroupNameFromSpec(spec) {
+  return spec.operationId.split('/')[0];
+}
+
 function generateRequestGroups(api, idGenerator, parentId = '__WORKSPACE_ID__') {
   const groups = new Set();
 
   Object.values(api.paths).forEach(methods => {
     Object.values(methods).forEach(spec => {
-      groups.add(...spec.operationId.split('/'));
+      groups.add(requestGroupNameFromSpec(spec));
     });
   });
 
@@ -16,9 +20,17 @@ function generateRequestGroups(api, idGenerator, parentId = '__WORKSPACE_ID__') 
 }
 module.exports.generateRequestGroups = generateRequestGroups;
 
-function generateRequests(api, idGenerator) {
+function generateRequests(api, idGenerator, requestGroups) {
   const environmentVariables = {};
   const requests = [];
+
+  // Generate an index of requestGroups by group
+  const requestGroupsByGroup = {};
+  requestGroups.forEach(requestGroup => {
+    // eslint-disable-next-line no-underscore-dangle
+    requestGroupsByGroup[requestGroup.name] = requestGroup._id;
+  });
+
   Object.entries(api.paths).forEach(([path, methods]) => {
     // Capture environment variables in this path
     path
@@ -36,6 +48,9 @@ function generateRequests(api, idGenerator) {
       .join('/');
 
     Object.entries(methods).forEach(([method, spec]) => {
+      // Use our requestGroups by group index to identify the parent group
+      const parentId = requestGroupsByGroup[requestGroupNameFromSpec(spec)];
+
       // Include preview headers
       const headers = spec['x-github'].previews.map(preview => {
         return {
@@ -45,7 +60,7 @@ function generateRequests(api, idGenerator) {
       });
 
       requests.push({
-        parentId: null, // TODO
+        parentId,
         _id: idGenerator(),
         _type: 'request',
         name: spec.summary,

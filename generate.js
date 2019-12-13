@@ -31,7 +31,7 @@ const environment = {
 
 function generate() {
   const requestGroups = generateRequestGroups(api, fldIdGenerator);
-  const [requests, environmentVariables] = generateRequests(api, reqIdGenerator);
+  const [requests, environmentVariables] = generateRequests(api, reqIdGenerator, requestGroups);
 
   // Update environment variables
   Object.assign(environment.data, environmentVariables);
