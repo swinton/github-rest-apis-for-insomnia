@@ -1,7 +1,9 @@
 #!/usr/bin/env node
 const path = require('path');
 const fs = require('fs');
-const data = require('./lib/generate')();
+const api = require('@octokit/routes/api.github.com');
+const meta = require('./package');
+const data = require('./lib/generate')({ api, meta });
 
 // Destination for output
 const destination = path.normalize(
