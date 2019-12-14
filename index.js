@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 const path = require('path');
 const fs = require('fs');
-const data = require('./generate')();
+const data = require('./lib/generate')();
 
 // Destination for output
 const destination = path.normalize(
