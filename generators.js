@@ -2,6 +2,30 @@ function requestGroupNameFromSpec(spec) {
   return spec.operationId.split('/')[0];
 }
 
+/**
+ * Takes a path like:
+ *
+ *   /repos/{owner}/{repo}/compare/{base}...{head}
+ *
+ * And captures all the variable parts of the path ({owner}, {repo}, ...) etc.
+ *
+ * As well, updates the path so that the variable parts are treated as environment
+ * variables by Insomnia.
+ */
+function captureVariablesFromPath(path) {
+  const capturedVars = {};
+  const re = /{(.*?)}/g;
+
+  return [
+    path.replace(re, (match, captured) => {
+      // Capture this environment variable
+      capturedVars[captured] = captured;
+      return `{{ ${captured} }}`;
+    }),
+    capturedVars
+  ];
+}
+
 function generateRequestGroups(api, idGenerator, parentId) {
   const groups = new Set();
 
@@ -32,20 +56,8 @@ function generateRequests(api, idGenerator, requestGroups) {
   });
 
   Object.entries(api.paths).forEach(([path, methods]) => {
-    // Capture environment variables in this path
-    path
-      .split('/')
-      .filter(component => /^\{.+\}$/.test(component))
-      .map(component => component.replace(/[{}]/g, ''))
-      .forEach(component => {
-        environmentVariables[component] = component;
-      });
-
-    // Replace variable components with their environment variable reference
-    const normalizedPath = path
-      .split('/')
-      .map(component => component.replace(/^{/, '{{ ').replace(/}$/, ' }}'))
-      .join('/');
+    const [normalizedPath, capturedEnvironmentVariables] = captureVariablesFromPath(path);
+    Object.assign(environmentVariables, capturedEnvironmentVariables);
 
     Object.entries(methods).forEach(([method, spec]) => {
       // Use our requestGroups by group index to identify the parent group
