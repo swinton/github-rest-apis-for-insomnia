@@ -30,7 +30,8 @@ const environment = {
 };
 
 function generate() {
-  const requestGroups = generateRequestGroups(api, fldIdGenerator);
+  // eslint-disable-next-line no-underscore-dangle
+  const requestGroups = generateRequestGroups(api, fldIdGenerator, rootRequestGroup._id);
   const [requests, environmentVariables] = generateRequests(api, reqIdGenerator, requestGroups);
 
   // Update environment variables

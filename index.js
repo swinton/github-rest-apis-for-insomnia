@@ -1,9 +1,7 @@
 #!/usr/bin/env node
 const path = require('path');
 const fs = require('fs');
-const generate = require('./generate');
-
-const data = generate();
+const data = require('./generate')();
 
 // Destination for output
 const destination = path.normalize(
@@ -11,5 +9,5 @@ const destination = path.normalize(
 );
 
 // Write output straight to file
-const output = JSON.stringify(data, null, 4);
+const output = JSON.stringify(data, null, 2);
 fs.writeFileSync(destination, output);

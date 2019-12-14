@@ -2,7 +2,7 @@ function requestGroupNameFromSpec(spec) {
   return spec.operationId.split('/')[0];
 }
 
-function generateRequestGroups(api, idGenerator, parentId = '__WORKSPACE_ID__') {
+function generateRequestGroups(api, idGenerator, parentId) {
   const groups = new Set();
 
   Object.values(api.paths).forEach(methods => {
@@ -15,7 +15,7 @@ function generateRequestGroups(api, idGenerator, parentId = '__WORKSPACE_ID__') 
     .concat(...groups.values())
     .sort()
     .map(group => {
-      return { parentId, _id: idGenerator(), name: group, _type: 'request_group' };
+      return { parentId, _id: idGenerator(), _type: 'request_group', name: group };
     });
 }
 module.exports.generateRequestGroups = generateRequestGroups;
