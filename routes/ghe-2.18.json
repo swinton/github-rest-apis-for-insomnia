@@ -1,21 +1,15 @@
 {
   "_type": "export",
   "__export_format": 3,
-  "__export_date": "2019-12-15T16:25:25.989Z",
+  "__export_date": "2019-12-15T17:14:21.683Z",
   "__export_source": "github-rest-apis-for-insomnia:0.3.0",
   "resources": [
     {
       "parentId": "__WORKSPACE_ID__",
       "_id": "__FLD_75__",
       "_type": "request_group",
-      "name": "GitHub Enterprise REST API v3"
-    },
-    {
-      "parentId": "__WORKSPACE_ID__",
-      "_id": "__ENV_4__",
-      "_type": "environment",
-      "name": "Base Environment",
-      "data": {
+      "name": "GitHub Enterprise REST API v3",
+      "environment": {
         "github_api_root": "http://{hostname}",
         "github_token": "",
         "hook_id": "hook_id",
