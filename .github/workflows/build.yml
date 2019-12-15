@@ -23,7 +23,7 @@ jobs:
 
     - name: Validate
       run: |
-        jq --raw-output '.resources[].name' routes/api.github.com/github-rest-apis-for-insomnia.json
+        jq --raw-output '.resources[].name' routes/api.github.com.json
 
     - name: Stage, commit, and push changes
       if: startsWith(github.head_ref, 'greenkeeper/@octokit/routes')
@@ -47,6 +47,6 @@ jobs:
         git checkout $HEAD_REF
 
         # Commit and push _just_ the specs
-        git add routes/api.github.com/github-rest-apis-for-insomnia.json
-        git commit routes/api.github.com/github-rest-apis-for-insomnia.json -m "${COMMIT_MSG}"
+        git add routes/*.json
+        git commit routes/*.json -m "${COMMIT_MSG}"
         git push --set-upstream origin "${HEAD_REF}"
