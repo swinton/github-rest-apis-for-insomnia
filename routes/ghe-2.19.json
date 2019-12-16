@@ -1,7 +1,7 @@
 {
   "_type": "export",
   "__export_format": 4,
-  "__export_date": "2019-12-16T15:56:00.285Z",
+  "__export_date": "2019-12-16T23:43:50.005Z",
   "__export_source": "github-rest-apis-for-insomnia:1.0.0",
   "resources": [
     {
@@ -929,11 +929,7 @@
       "headers": [
         {
           "name": "Accept",
-          "value": "application/vnd.github.gambit-preview+json"
-        },
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.machine-man-preview+json"
+          "value": "application/vnd.github.gambit-preview+json,application/vnd.github.machine-man-preview+json"
         }
       ],
       "authentication": {
@@ -1810,11 +1806,7 @@
       "headers": [
         {
           "name": "Accept",
-          "value": "application/vnd.github.machine-man-preview+json"
-        },
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.mercy-preview+json"
+          "value": "application/vnd.github.machine-man-preview+json,application/vnd.github.mercy-preview+json"
         }
       ],
       "authentication": {
@@ -3562,11 +3554,7 @@
       "headers": [
         {
           "name": "Accept",
-          "value": "application/vnd.github.echo-preview+json"
-        },
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.squirrel-girl-preview+json"
+          "value": "application/vnd.github.echo-preview+json,application/vnd.github.squirrel-girl-preview+json"
         }
       ],
       "authentication": {
@@ -3603,11 +3591,7 @@
       "headers": [
         {
           "name": "Accept",
-          "value": "application/vnd.github.x-ray-preview+json"
-        },
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.baptiste-preview+json"
+          "value": "application/vnd.github.x-ray-preview+json,application/vnd.github.baptiste-preview+json"
         }
       ],
       "authentication": {
@@ -5281,11 +5265,7 @@
       "headers": [
         {
           "name": "Accept",
-          "value": "application/vnd.github.flash-preview+json"
-        },
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.ant-man-preview+json"
+          "value": "application/vnd.github.flash-preview+json,application/vnd.github.ant-man-preview+json"
         }
       ],
       "authentication": {
@@ -5317,11 +5297,7 @@
       "headers": [
         {
           "name": "Accept",
-          "value": "application/vnd.github.flash-preview+json"
-        },
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.ant-man-preview+json"
+          "value": "application/vnd.github.flash-preview+json,application/vnd.github.ant-man-preview+json"
         }
       ],
       "authentication": {
@@ -5342,11 +5318,7 @@
       "headers": [
         {
           "name": "Accept",
-          "value": "application/vnd.github.flash-preview+json"
-        },
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.ant-man-preview+json"
+          "value": "application/vnd.github.flash-preview+json,application/vnd.github.ant-man-preview+json"
         }
       ],
       "authentication": {
@@ -6166,15 +6138,7 @@
       "headers": [
         {
           "name": "Accept",
-          "value": "application/vnd.github.starfox-preview+json"
-        },
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.symmetra-preview+json"
-        },
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.sailor-v-preview+json"
+          "value": "application/vnd.github.starfox-preview+json,application/vnd.github.symmetra-preview+json,application/vnd.github.sailor-v-preview+json"
         }
       ],
       "authentication": {
@@ -6206,15 +6170,7 @@
       "headers": [
         {
           "name": "Accept",
-          "value": "application/vnd.github.starfox-preview+json"
-        },
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.symmetra-preview+json"
-        },
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.sailor-v-preview+json"
+          "value": "application/vnd.github.starfox-preview+json,application/vnd.github.symmetra-preview+json,application/vnd.github.sailor-v-preview+json"
         }
       ],
       "authentication": {
@@ -6366,11 +6322,7 @@
       "headers": [
         {
           "name": "Accept",
-          "value": "application/vnd.github.starfox-preview+json"
-        },
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.sailor-v-preview+json"
+          "value": "application/vnd.github.starfox-preview+json,application/vnd.github.sailor-v-preview+json"
         }
       ],
       "authentication": {
@@ -6607,11 +6559,7 @@
       "headers": [
         {
           "name": "Accept",
-          "value": "application/vnd.github.mockingbird-preview+json"
-        },
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.starfox-preview+json"
+          "value": "application/vnd.github.mockingbird-preview+json,application/vnd.github.starfox-preview+json"
         }
       ],
       "authentication": {
@@ -7358,15 +7306,7 @@
       "headers": [
         {
           "name": "Accept",
-          "value": "application/vnd.github.shadow-cat-preview+json"
-        },
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.symmetra-preview+json"
-        },
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.sailor-v-preview+json"
+          "value": "application/vnd.github.shadow-cat-preview+json,application/vnd.github.symmetra-preview+json,application/vnd.github.sailor-v-preview+json"
         }
       ],
       "authentication": {
@@ -7420,15 +7360,7 @@
       "headers": [
         {
           "name": "Accept",
-          "value": "application/vnd.github.shadow-cat-preview+json"
-        },
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.symmetra-preview+json"
-        },
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.sailor-v-preview+json"
+          "value": "application/vnd.github.shadow-cat-preview+json,application/vnd.github.symmetra-preview+json,application/vnd.github.sailor-v-preview+json"
         }
       ],
       "authentication": {
@@ -7594,15 +7526,7 @@
       "headers": [
         {
           "name": "Accept",
-          "value": "application/vnd.github.shadow-cat-preview+json"
-        },
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.symmetra-preview+json"
-        },
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.sailor-v-preview+json"
+          "value": "application/vnd.github.shadow-cat-preview+json,application/vnd.github.symmetra-preview+json,application/vnd.github.sailor-v-preview+json"
         }
       ],
       "authentication": {
@@ -7623,15 +7547,7 @@
       "headers": [
         {
           "name": "Accept",
-          "value": "application/vnd.github.shadow-cat-preview+json"
-        },
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.symmetra-preview+json"
-        },
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.sailor-v-preview+json"
+          "value": "application/vnd.github.shadow-cat-preview+json,application/vnd.github.symmetra-preview+json,application/vnd.github.sailor-v-preview+json"
         }
       ],
       "authentication": {
@@ -9229,11 +9145,7 @@
       "headers": [
         {
           "name": "Accept",
-          "value": "application/vnd.github.echo-preview+json"
-        },
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.squirrel-girl-preview+json"
+          "value": "application/vnd.github.echo-preview+json,application/vnd.github.squirrel-girl-preview+json"
         }
       ],
       "authentication": {
@@ -9270,11 +9182,7 @@
       "headers": [
         {
           "name": "Accept",
-          "value": "application/vnd.github.echo-preview+json"
-        },
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.squirrel-girl-preview+json"
+          "value": "application/vnd.github.echo-preview+json,application/vnd.github.squirrel-girl-preview+json"
         }
       ],
       "authentication": {
@@ -9295,11 +9203,7 @@
       "headers": [
         {
           "name": "Accept",
-          "value": "application/vnd.github.echo-preview+json"
-        },
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.squirrel-girl-preview+json"
+          "value": "application/vnd.github.echo-preview+json,application/vnd.github.squirrel-girl-preview+json"
         }
       ],
       "authentication": {
@@ -9320,11 +9224,7 @@
       "headers": [
         {
           "name": "Accept",
-          "value": "application/vnd.github.echo-preview+json"
-        },
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.squirrel-girl-preview+json"
+          "value": "application/vnd.github.echo-preview+json,application/vnd.github.squirrel-girl-preview+json"
         }
       ],
       "authentication": {
@@ -9366,11 +9266,7 @@
       "headers": [
         {
           "name": "Accept",
-          "value": "application/vnd.github.echo-preview+json"
-        },
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.squirrel-girl-preview+json"
+          "value": "application/vnd.github.echo-preview+json,application/vnd.github.squirrel-girl-preview+json"
         }
       ],
       "authentication": {
@@ -9407,11 +9303,7 @@
       "headers": [
         {
           "name": "Accept",
-          "value": "application/vnd.github.echo-preview+json"
-        },
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.squirrel-girl-preview+json"
+          "value": "application/vnd.github.echo-preview+json,application/vnd.github.squirrel-girl-preview+json"
         }
       ],
       "authentication": {
@@ -9432,11 +9324,7 @@
       "headers": [
         {
           "name": "Accept",
-          "value": "application/vnd.github.echo-preview+json"
-        },
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.squirrel-girl-preview+json"
+          "value": "application/vnd.github.echo-preview+json,application/vnd.github.squirrel-girl-preview+json"
         }
       ],
       "authentication": {
@@ -9457,11 +9345,7 @@
       "headers": [
         {
           "name": "Accept",
-          "value": "application/vnd.github.echo-preview+json"
-        },
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.squirrel-girl-preview+json"
+          "value": "application/vnd.github.echo-preview+json,application/vnd.github.squirrel-girl-preview+json"
         }
       ],
       "authentication": {
@@ -9503,11 +9387,7 @@
       "headers": [
         {
           "name": "Accept",
-          "value": "application/vnd.github.echo-preview+json"
-        },
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.squirrel-girl-preview+json"
+          "value": "application/vnd.github.echo-preview+json,application/vnd.github.squirrel-girl-preview+json"
         }
       ],
       "authentication": {
@@ -9543,11 +9423,7 @@
       "headers": [
         {
           "name": "Accept",
-          "value": "application/vnd.github.echo-preview+json"
-        },
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.squirrel-girl-preview+json"
+          "value": "application/vnd.github.echo-preview+json,application/vnd.github.squirrel-girl-preview+json"
         }
       ],
       "authentication": {
@@ -9568,11 +9444,7 @@
       "headers": [
         {
           "name": "Accept",
-          "value": "application/vnd.github.echo-preview+json"
-        },
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.squirrel-girl-preview+json"
+          "value": "application/vnd.github.echo-preview+json,application/vnd.github.squirrel-girl-preview+json"
         }
       ],
       "authentication": {
@@ -9608,11 +9480,7 @@
       "headers": [
         {
           "name": "Accept",
-          "value": "application/vnd.github.echo-preview+json"
-        },
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.squirrel-girl-preview+json"
+          "value": "application/vnd.github.echo-preview+json,application/vnd.github.squirrel-girl-preview+json"
         }
       ],
       "authentication": {
@@ -9771,11 +9639,7 @@
       "headers": [
         {
           "name": "Accept",
-          "value": "application/vnd.github.inertia-preview+json"
-        },
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.hellcat-preview+json"
+          "value": "application/vnd.github.inertia-preview+json,application/vnd.github.hellcat-preview+json"
         }
       ],
       "authentication": {
@@ -9807,11 +9671,7 @@
       "headers": [
         {
           "name": "Accept",
-          "value": "application/vnd.github.inertia-preview+json"
-        },
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.hellcat-preview+json"
+          "value": "application/vnd.github.inertia-preview+json,application/vnd.github.hellcat-preview+json"
         }
       ],
       "authentication": {
@@ -9832,11 +9692,7 @@
       "headers": [
         {
           "name": "Accept",
-          "value": "application/vnd.github.inertia-preview+json"
-        },
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.hellcat-preview+json"
+          "value": "application/vnd.github.inertia-preview+json,application/vnd.github.hellcat-preview+json"
         }
       ],
       "authentication": {
@@ -10295,11 +10151,7 @@
       "headers": [
         {
           "name": "Accept",
-          "value": "application/vnd.github.machine-man-preview+json"
-        },
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.mercy-preview+json"
+          "value": "application/vnd.github.machine-man-preview+json,application/vnd.github.mercy-preview+json"
         }
       ],
       "authentication": {
