@@ -1,6 +1,6 @@
-on: pull_request
-
 name: Build
+
+on: [push, pull_request]
 
 jobs:
   build:
@@ -19,6 +19,7 @@ jobs:
     - name: Regenerate
       run: |
         npm ci
+        npm test
         npm start
 
     - name: Validate
