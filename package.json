@@ -1,12 +1,12 @@
 {
   "name": "github-rest-apis-for-insomnia",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A complete set of GitHub REST API route specifications that can be imported straight into Insomnia REST Client",
   "main": "index.js",
   "scripts": {
     "start": "node ./index.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint index.js lib/**.js --fix"
+    "test": "jest",
+    "lint": "eslint index.js lib/**.js"
   },
   "bin": {
     "github-rest-apis-for-insomnia": "./index.js"
@@ -38,7 +38,7 @@
     "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-react": "^7.12.4",
     "insomnia-importers": "^2.1.1",
-    "jest": "^24.1.0",
+    "jest": "^24.9.0",
     "nodemon": "^1.18.10",
     "prettier": "^1.16.4"
   }

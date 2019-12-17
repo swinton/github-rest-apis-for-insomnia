@@ -1,6 +1,12 @@
-on: pull_request
-
 name: Build
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
 
 jobs:
   build:
@@ -19,6 +25,8 @@ jobs:
     - name: Regenerate
       run: |
         npm ci
+        npm run lint
+        npm test
         npm start
 
     - name: Validate
