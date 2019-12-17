@@ -22,11 +22,27 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v1.0.0
 
-    - name: Regenerate
+    - name: Cache node_modules
+      id: cache
+      uses: actions/cache@v1
+      with:
+        path: node_modules
+        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-node-
+
+    - name: Install packages
+      if: steps.cache.outputs.cache-hit != 'true'
       run: |
         npm ci
+
+    - name: Test
+      run: |
         npm run lint
         npm test
+
+    - name: Regenerate
+      run: |
         npm start
 
     - name: Validate
