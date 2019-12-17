@@ -25,6 +25,7 @@ jobs:
     - name: Regenerate
       run: |
         npm ci
+        npm run lint
         npm test
         npm start
 
