@@ -1,8 +1,8 @@
 {
   "_type": "export",
   "__export_format": 4,
-  "__export_date": "2019-12-16T23:43:49.937Z",
-  "__export_source": "github-rest-apis-for-insomnia:1.0.0",
+  "__export_date": "2019-12-19T21:27:47.611Z",
+  "__export_source": "github-rest-apis-for-insomnia:1.1.1",
   "resources": [
     {
       "parentId": "__WORKSPACE_ID__",
@@ -1300,7 +1300,7 @@
       "headers": [
         {
           "name": "Accept",
-          "value": "application/vnd.github.symmetra-preview+json,application/vnd.github.machine-man-preview+json,application/vnd.github.squirrel-girl-preview+json"
+          "value": "application/vnd.github.machine-man-preview+json,application/vnd.github.squirrel-girl-preview+json"
         }
       ],
       "authentication": {
@@ -1930,7 +1930,7 @@
       "_id": "__REQ_80__",
       "_type": "request",
       "name": "Edit an organization",
-      "description": "\n\n**Deprecation Notice:** GitHub will replace and discontinue `members_allowed_repository_creation_type` in favor of more granular permissions. The new input parameters are `members_can_create_public_repositories`, `members_can_create_private_repositories` for all organizations and `members_can_create_internal_repositories` for organizations associated with an enterprise account using GitHub Enterprise Cloud or GitHub Enterprise Server 2.20+. For more information, see the [blog post](https://developer.github.com/changes/2019-12-03-internal-visibility-changes).\n\nEnables an authenticated organization owner with the `admin:org` scope to update the organization's profile and member privileges.\n\nhttps://developer.github.com/v3/orgs/#edit-an-organization",
+      "description": "\n\n**Deprecation Notice:** GitHub will replace and discontinue `members_allowed_repository_creation_type` in favor of more granular permissions. The new input parameters are `members_can_create_public_repositories`, `members_can_create_private_repositories` for all organizations and `members_can_create_internal_repositories` for organizations associated with an enterprise account using GitHub Enterprise Cloud. For more information, see the [blog post](https://developer.github.com/changes/2019-12-03-internal-visibility-changes).\n\nEnables an authenticated organization owner with the `admin:org` scope to update the organization's profile and member privileges.\n\nhttps://developer.github.com/v3/orgs/#edit-an-organization",
       "headers": [
         {
           "name": "Accept",
@@ -2298,12 +2298,7 @@
       "_type": "request",
       "name": "List pending organization invitations",
       "description": "The return hash contains a `role` field which refers to the Organization Invitation role and will be one of the following values: `direct_member`, `admin`, `billing_manager`, `hiring_manager`, or `reinstate`. If the invitee is not a GitHub member, the `login` field in the return hash will be `null`.\n\nhttps://developer.github.com/v3/orgs/members/#list-pending-organization-invitations",
-      "headers": [
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.dazzler-preview+json"
-        }
-      ],
+      "headers": [],
       "authentication": {
         "token": "{{ github_token }}",
         "type": "bearer"
@@ -2330,12 +2325,7 @@
       "_type": "request",
       "name": "Create organization invitation",
       "description": "Invite people to an organization by using their GitHub user ID or their email address. In order to create invitations in an organization, the authenticated user must be an organization owner.\n\nThis endpoint triggers [notifications](https://help.github.com/articles/about-notifications/). Creating content too quickly using this endpoint may result in abuse rate limiting. See \"[Abuse rate limits](https://developer.github.com/v3/#abuse-rate-limits)\" and \"[Dealing with abuse rate limits](https://developer.github.com/v3/guides/best-practices-for-integrators/#dealing-with-abuse-rate-limits)\" for details.\n\nhttps://developer.github.com/v3/orgs/members/#create-organization-invitation",
-      "headers": [
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.dazzler-preview+json"
-        }
-      ],
+      "headers": [],
       "authentication": {
         "token": "{{ github_token }}",
         "type": "bearer"
@@ -2351,12 +2341,7 @@
       "_type": "request",
       "name": "List organization invitation teams",
       "description": "List all teams associated with an invitation. In order to see invitations in an organization, the authenticated user must be an organization owner.\n\nhttps://developer.github.com/v3/orgs/members/#list-organization-invitation-teams",
-      "headers": [
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.dazzler-preview+json"
-        }
-      ],
+      "headers": [],
       "authentication": {
         "token": "{{ github_token }}",
         "type": "bearer"
@@ -2386,7 +2371,7 @@
       "headers": [
         {
           "name": "Accept",
-          "value": "application/vnd.github.symmetra-preview+json,application/vnd.github.machine-man-preview+json,application/vnd.github.squirrel-girl-preview+json"
+          "value": "application/vnd.github.machine-man-preview+json,application/vnd.github.squirrel-girl-preview+json"
         }
       ],
       "authentication": {
@@ -2982,12 +2967,7 @@
       "_type": "request",
       "name": "List teams",
       "description": "\n\nhttps://developer.github.com/v3/teams/#list-teams",
-      "headers": [
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.hellcat-preview+json"
-        }
-      ],
+      "headers": [],
       "authentication": {
         "token": "{{ github_token }}",
         "type": "bearer"
@@ -3014,12 +2994,7 @@
       "_type": "request",
       "name": "Create team",
       "description": "To create a team, the authenticated user must be a member or owner of `:org`. By default, organization members can create teams. Organization owners can limit team creation to organization owners. For more information, see \"[Setting team creation permissions](https://help.github.com/en/articles/setting-team-creation-permissions-in-your-organization).\"\n\nIf you do not specify an array of `maintainers`, then you will automatically become a team maintainer for the new team. For more information, see \"[About teams](https://help.github.com/en/github/setting-up-and-managing-organizations-and-teams/about-teams)\" in the GitHub Help documentation.\n\nhttps://developer.github.com/v3/teams/#create-team",
-      "headers": [
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.hellcat-preview+json"
-        }
-      ],
+      "headers": [],
       "authentication": {
         "token": "{{ github_token }}",
         "type": "bearer"
@@ -3523,7 +3498,7 @@
       "headers": [
         {
           "name": "Accept",
-          "value": "application/vnd.github.echo-preview+json,application/vnd.github.squirrel-girl-preview+json"
+          "value": "application/vnd.github.squirrel-girl-preview+json"
         }
       ],
       "authentication": {
@@ -4165,13 +4140,8 @@
       "_id": "__REQ_185__",
       "_type": "request",
       "name": "Get teams with access to protected branch",
-      "description": "Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.\n\nLists the teams who have push access to this branch. If you pass the `hellcat-preview` media type, the list includes child teams.\n\nhttps://developer.github.com/v3/repos/branches/#list-teams-with-access-to-protected-branch",
-      "headers": [
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.hellcat-preview+json"
-        }
-      ],
+      "description": "Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.\n\nLists the teams who have push access to this branch. The list includes child teams.\n\nhttps://developer.github.com/v3/repos/branches/#list-teams-with-access-to-protected-branch",
+      "headers": [],
       "authentication": {
         "token": "{{ github_token }}",
         "type": "bearer"
@@ -4186,13 +4156,8 @@
       "_id": "__REQ_186__",
       "_type": "request",
       "name": "Replace team restrictions of protected branch",
-      "description": "Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.\n\nReplaces the list of teams that have push access to this branch. This removes all teams that previously had push access and grants push access to the new list of teams. If you pass the `hellcat-preview` media type, you can include child teams.\n\n| Type    | Description                                                                                                                                |\n| ------- | ------------------------------------------------------------------------------------------------------------------------------------------ |\n| `array` | The teams that can have push access. Use the team's `slug`. **Note**: The list of users, apps, and teams in total is limited to 100 items. |\n\nhttps://developer.github.com/v3/repos/branches/#replace-team-restrictions-of-protected-branch",
-      "headers": [
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.hellcat-preview+json"
-        }
-      ],
+      "description": "Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.\n\nReplaces the list of teams that have push access to this branch. This removes all teams that previously had push access and grants push access to the new list of teams. Team restrictions include child teams.\n\n| Type    | Description                                                                                                                                |\n| ------- | ------------------------------------------------------------------------------------------------------------------------------------------ |\n| `array` | The teams that can have push access. Use the team's `slug`. **Note**: The list of users, apps, and teams in total is limited to 100 items. |\n\nhttps://developer.github.com/v3/repos/branches/#replace-team-restrictions-of-protected-branch",
+      "headers": [],
       "authentication": {
         "token": "{{ github_token }}",
         "type": "bearer"
@@ -4207,13 +4172,8 @@
       "_id": "__REQ_187__",
       "_type": "request",
       "name": "Add team restrictions of protected branch",
-      "description": "Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.\n\nGrants the specified teams push access for this branch. If you pass the `hellcat-preview` media type, you can also give push access to child teams.\n\n| Type    | Description                                                                                                                                |\n| ------- | ------------------------------------------------------------------------------------------------------------------------------------------ |\n| `array` | The teams that can have push access. Use the team's `slug`. **Note**: The list of users, apps, and teams in total is limited to 100 items. |\n\nhttps://developer.github.com/v3/repos/branches/#add-team-restrictions-of-protected-branch",
-      "headers": [
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.hellcat-preview+json"
-        }
-      ],
+      "description": "Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.\n\nGrants the specified teams push access for this branch. You can also give push access to child teams.\n\n| Type    | Description                                                                                                                                |\n| ------- | ------------------------------------------------------------------------------------------------------------------------------------------ |\n| `array` | The teams that can have push access. Use the team's `slug`. **Note**: The list of users, apps, and teams in total is limited to 100 items. |\n\nhttps://developer.github.com/v3/repos/branches/#add-team-restrictions-of-protected-branch",
+      "headers": [],
       "authentication": {
         "token": "{{ github_token }}",
         "type": "bearer"
@@ -4228,13 +4188,8 @@
       "_id": "__REQ_188__",
       "_type": "request",
       "name": "Remove team restrictions of protected branch",
-      "description": "Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.\n\nRemoves the ability of a team to push to this branch. If you pass the `hellcat-preview` media type, you can include child teams.\n\n| Type    | Description                                                                                                                                         |\n| ------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |\n| `array` | Teams that should no longer have push access. Use the team's `slug`. **Note**: The list of users, apps, and teams in total is limited to 100 items. |\n\nhttps://developer.github.com/v3/repos/branches/#remove-team-restrictions-of-protected-branch",
-      "headers": [
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.hellcat-preview+json"
-        }
-      ],
+      "description": "Protected branches are available in public repositories with GitHub Free, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud. For more information, see [GitHub's billing plans](https://help.github.com/articles/github-s-billing-plans) in the GitHub Help documentation.\n\nRemoves the ability of a team to push to this branch. You can also remove push access for child teams.\n\n| Type    | Description                                                                                                                                         |\n| ------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |\n| `array` | Teams that should no longer have push access. Use the team's `slug`. **Note**: The list of users, apps, and teams in total is limited to 100 items. |\n\nhttps://developer.github.com/v3/repos/branches/#remove-team-restrictions-of-protected-branch",
+      "headers": [],
       "authentication": {
         "token": "{{ github_token }}",
         "type": "bearer"
@@ -4537,13 +4492,8 @@
       "_id": "__REQ_202__",
       "_type": "request",
       "name": "List collaborators",
-      "description": "For organization-owned repositories, the list of collaborators includes outside collaborators, organization members that are direct collaborators, organization members with access through team memberships, organization members with access through default organization permissions, and organization owners.\n\nIf you pass the `hellcat-preview` media type, team members will include the members of child teams.\n\nhttps://developer.github.com/v3/repos/collaborators/#list-collaborators",
-      "headers": [
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.hellcat-preview+json"
-        }
-      ],
+      "description": "For organization-owned repositories, the list of collaborators includes outside collaborators, organization members that are direct collaborators, organization members with access through team memberships, organization members with access through default organization permissions, and organization owners.\n\nTeam members will include the members of child teams.\n\nhttps://developer.github.com/v3/repos/collaborators/#list-collaborators",
+      "headers": [],
       "authentication": {
         "token": "{{ github_token }}",
         "type": "bearer"
@@ -4574,13 +4524,8 @@
       "_id": "__REQ_203__",
       "_type": "request",
       "name": "Check if a user is a collaborator",
-      "description": "For organization-owned repositories, the list of collaborators includes outside collaborators, organization members that are direct collaborators, organization members with access through team memberships, organization members with access through default organization permissions, and organization owners.\n\nIf you pass the `hellcat-preview` media type, team members will include the members of child teams.\n\nhttps://developer.github.com/v3/repos/collaborators/#check-if-a-user-is-a-collaborator",
-      "headers": [
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.hellcat-preview+json"
-        }
-      ],
+      "description": "For organization-owned repositories, the list of collaborators includes outside collaborators, organization members that are direct collaborators, organization members with access through team memberships, organization members with access through default organization permissions, and organization owners.\n\nTeam members will include the members of child teams.\n\nhttps://developer.github.com/v3/repos/collaborators/#check-if-a-user-is-a-collaborator",
+      "headers": [],
       "authentication": {
         "token": "{{ github_token }}",
         "type": "bearer"
@@ -6204,7 +6149,7 @@
       "headers": [
         {
           "name": "Accept",
-          "value": "application/vnd.github.symmetra-preview+json,application/vnd.github.machine-man-preview+json,application/vnd.github.squirrel-girl-preview+json"
+          "value": "application/vnd.github.machine-man-preview+json,application/vnd.github.squirrel-girl-preview+json"
         }
       ],
       "authentication": {
@@ -6272,12 +6217,7 @@
       "_type": "request",
       "name": "Create an issue",
       "description": "Any user with pull access to a repository can create an issue. If [issues are disabled in the repository](https://help.github.com/articles/disabling-issues/), the API returns a `410 Gone` status.\n\nThis endpoint triggers [notifications](https://help.github.com/articles/about-notifications/). Creating content too quickly using this endpoint may result in abuse rate limiting. See \"[Abuse rate limits](https://developer.github.com/v3/#abuse-rate-limits)\" and \"[Dealing with abuse rate limits](https://developer.github.com/v3/guides/best-practices-for-integrators/#dealing-with-abuse-rate-limits)\" for details.\n\nhttps://developer.github.com/v3/issues/#create-an-issue",
-      "headers": [
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.symmetra-preview+json"
-        }
-      ],
+      "headers": [],
       "authentication": {
         "token": "{{ github_token }}",
         "type": "bearer"
@@ -6452,7 +6392,7 @@
       "headers": [
         {
           "name": "Accept",
-          "value": "application/vnd.github.starfox-preview+json,application/vnd.github.symmetra-preview+json,application/vnd.github.sailor-v-preview+json"
+          "value": "application/vnd.github.starfox-preview+json,application/vnd.github.sailor-v-preview+json"
         }
       ],
       "authentication": {
@@ -6484,7 +6424,7 @@
       "headers": [
         {
           "name": "Accept",
-          "value": "application/vnd.github.starfox-preview+json,application/vnd.github.machine-man-preview+json,application/vnd.github.symmetra-preview+json,application/vnd.github.sailor-v-preview+json"
+          "value": "application/vnd.github.starfox-preview+json,application/vnd.github.machine-man-preview+json,application/vnd.github.sailor-v-preview+json"
         }
       ],
       "authentication": {
@@ -6505,7 +6445,7 @@
       "headers": [
         {
           "name": "Accept",
-          "value": "application/vnd.github.symmetra-preview+json,application/vnd.github.squirrel-girl-preview+json"
+          "value": "application/vnd.github.squirrel-girl-preview+json"
         }
       ],
       "authentication": {
@@ -6523,12 +6463,7 @@
       "_type": "request",
       "name": "Edit an issue",
       "description": "Issue owners and users with push access can edit an issue.\n\nhttps://developer.github.com/v3/issues/#edit-an-issue",
-      "headers": [
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.symmetra-preview+json"
-        }
-      ],
+      "headers": [],
       "authentication": {
         "token": "{{ github_token }}",
         "type": "bearer"
@@ -6544,12 +6479,7 @@
       "_type": "request",
       "name": "Add assignees to an issue",
       "description": "Adds up to 10 assignees to an issue. Users already assigned to an issue are not replaced.\n\nThis example adds two assignees to the existing `octocat` assignee.\n\nhttps://developer.github.com/v3/issues/assignees/#add-assignees-to-an-issue",
-      "headers": [
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.symmetra-preview+json"
-        }
-      ],
+      "headers": [],
       "authentication": {
         "token": "{{ github_token }}",
         "type": "bearer"
@@ -6565,12 +6495,7 @@
       "_type": "request",
       "name": "Remove assignees from an issue",
       "description": "Removes one or more assignees from an issue.\n\nThis example removes two of three assignees, leaving the `octocat` assignee.\n\nhttps://developer.github.com/v3/issues/assignees/#remove-assignees-from-an-issue",
-      "headers": [
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.symmetra-preview+json"
-        }
-      ],
+      "headers": [],
       "authentication": {
         "token": "{{ github_token }}",
         "type": "bearer"
@@ -6670,12 +6595,7 @@
       "_type": "request",
       "name": "List labels on an issue",
       "description": "\n\nhttps://developer.github.com/v3/issues/labels/#list-labels-on-an-issue",
-      "headers": [
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.symmetra-preview+json"
-        }
-      ],
+      "headers": [],
       "authentication": {
         "token": "{{ github_token }}",
         "type": "bearer"
@@ -6702,12 +6622,7 @@
       "_type": "request",
       "name": "Add labels to an issue",
       "description": "\n\nhttps://developer.github.com/v3/issues/labels/#add-labels-to-an-issue",
-      "headers": [
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.symmetra-preview+json"
-        }
-      ],
+      "headers": [],
       "authentication": {
         "token": "{{ github_token }}",
         "type": "bearer"
@@ -6723,12 +6638,7 @@
       "_type": "request",
       "name": "Replace all labels for an issue",
       "description": "\n\nhttps://developer.github.com/v3/issues/labels/#replace-all-labels-for-an-issue",
-      "headers": [
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.symmetra-preview+json"
-        }
-      ],
+      "headers": [],
       "authentication": {
         "token": "{{ github_token }}",
         "type": "bearer"
@@ -6760,12 +6670,7 @@
       "_type": "request",
       "name": "Remove a label from an issue",
       "description": "Removes the specified label from the issue, and returns the remaining labels on the issue. This endpoint returns a `404 Not Found` status if the label does not exist.\n\nhttps://developer.github.com/v3/issues/labels/#remove-a-label-from-an-issue",
-      "headers": [
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.symmetra-preview+json"
-        }
-      ],
+      "headers": [],
       "authentication": {
         "token": "{{ github_token }}",
         "type": "bearer"
@@ -6982,12 +6887,7 @@
       "_type": "request",
       "name": "List all labels for this repository",
       "description": "\n\nhttps://developer.github.com/v3/issues/labels/#list-all-labels-for-this-repository",
-      "headers": [
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.symmetra-preview+json"
-        }
-      ],
+      "headers": [],
       "authentication": {
         "token": "{{ github_token }}",
         "type": "bearer"
@@ -7014,12 +6914,7 @@
       "_type": "request",
       "name": "Create a label",
       "description": "\n\nhttps://developer.github.com/v3/issues/labels/#create-a-label",
-      "headers": [
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.symmetra-preview+json"
-        }
-      ],
+      "headers": [],
       "authentication": {
         "token": "{{ github_token }}",
         "type": "bearer"
@@ -7035,12 +6930,7 @@
       "_type": "request",
       "name": "Get a single label",
       "description": "\n\nhttps://developer.github.com/v3/issues/labels/#get-a-single-label",
-      "headers": [
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.symmetra-preview+json"
-        }
-      ],
+      "headers": [],
       "authentication": {
         "token": "{{ github_token }}",
         "type": "bearer"
@@ -7056,12 +6946,7 @@
       "_type": "request",
       "name": "Update a label",
       "description": "\n\nhttps://developer.github.com/v3/issues/labels/#update-a-label",
-      "headers": [
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.symmetra-preview+json"
-        }
-      ],
+      "headers": [],
       "authentication": {
         "token": "{{ github_token }}",
         "type": "bearer"
@@ -7247,12 +7132,7 @@
       "_type": "request",
       "name": "Get labels for every issue in a milestone",
       "description": "\n\nhttps://developer.github.com/v3/issues/labels/#get-labels-for-every-issue-in-a-milestone",
-      "headers": [
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.symmetra-preview+json"
-        }
-      ],
+      "headers": [],
       "authentication": {
         "token": "{{ github_token }}",
         "type": "bearer"
@@ -7550,7 +7430,7 @@
       "headers": [
         {
           "name": "Accept",
-          "value": "application/vnd.github.shadow-cat-preview+json,application/vnd.github.symmetra-preview+json,application/vnd.github.sailor-v-preview+json"
+          "value": "application/vnd.github.shadow-cat-preview+json,application/vnd.github.sailor-v-preview+json"
         }
       ],
       "authentication": {
@@ -7604,7 +7484,7 @@
       "headers": [
         {
           "name": "Accept",
-          "value": "application/vnd.github.shadow-cat-preview+json,application/vnd.github.symmetra-preview+json,application/vnd.github.sailor-v-preview+json"
+          "value": "application/vnd.github.shadow-cat-preview+json,application/vnd.github.sailor-v-preview+json"
         }
       ],
       "authentication": {
@@ -7785,7 +7665,7 @@
       "headers": [
         {
           "name": "Accept",
-          "value": "application/vnd.github.shadow-cat-preview+json,application/vnd.github.symmetra-preview+json,application/vnd.github.sailor-v-preview+json"
+          "value": "application/vnd.github.shadow-cat-preview+json,application/vnd.github.sailor-v-preview+json"
         }
       ],
       "authentication": {
@@ -7806,7 +7686,7 @@
       "headers": [
         {
           "name": "Accept",
-          "value": "application/vnd.github.shadow-cat-preview+json,application/vnd.github.symmetra-preview+json,application/vnd.github.sailor-v-preview+json"
+          "value": "application/vnd.github.shadow-cat-preview+json,application/vnd.github.sailor-v-preview+json"
         }
       ],
       "authentication": {
@@ -8019,12 +7899,7 @@
       "_type": "request",
       "name": "Create a review request",
       "description": "This endpoint triggers [notifications](https://help.github.com/articles/about-notifications/). Creating content too quickly using this endpoint may result in abuse rate limiting. See \"[Abuse rate limits](https://developer.github.com/v3/#abuse-rate-limits)\" and \"[Dealing with abuse rate limits](https://developer.github.com/v3/guides/best-practices-for-integrators/#dealing-with-abuse-rate-limits)\" for details.\n\nhttps://developer.github.com/v3/pulls/review_requests/#create-a-review-request",
-      "headers": [
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.symmetra-preview+json"
-        }
-      ],
+      "headers": [],
       "authentication": {
         "token": "{{ github_token }}",
         "type": "bearer"
@@ -8816,12 +8691,7 @@
       "_type": "request",
       "name": "Transfer a repository",
       "description": "A transfer request will need to be accepted by the new owner when transferring a personal repository to another user. The response will contain the original `owner`, and the transfer will continue asynchronously. For more details on the requirements to transfer personal and organization-owned repositories, see [about repository transfers](https://help.github.com/articles/about-repository-transfers/).\n\nhttps://developer.github.com/v3/repos/#transfer-a-repository",
-      "headers": [
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.nightshade-preview+json"
-        }
-      ],
+      "headers": [],
       "authentication": {
         "token": "{{ github_token }}",
         "type": "bearer"
@@ -9162,12 +9032,7 @@
       "_type": "request",
       "name": "Search issues and pull requests",
       "description": "Find issues by state and keyword. This method returns up to 100 results [per page](https://developer.github.com/v3/#pagination).\n\nWhen searching for issues, you can get text match metadata for the issue **title**, issue **body**, and issue **comment body** fields when you pass the `text-match` media type. For more details about how to receive highlighted search results, see [Text match metadata](https://developer.github.com/v3/search/#text-match-metadata).\n\nLet's say you want to find the oldest unresolved Python bugs on Windows. Your query might look something like this.\n\nIn this query, we're searching for the keyword `windows`, within any open issue that's labeled as `bug`. The search runs across repositories whose primary language is Python. We’re sorting by creation date in ascending order, so that the oldest issues appear first in the search results.\n\nhttps://developer.github.com/v3/search/#search-issues-and-pull-requests",
-      "headers": [
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.symmetra-preview+json"
-        }
-      ],
+      "headers": [],
       "authentication": {
         "token": "{{ github_token }}",
         "type": "bearer"
@@ -9207,12 +9072,7 @@
       "_type": "request",
       "name": "Search labels",
       "description": "Find labels in a repository with names or descriptions that match search keywords. Returns up to 100 results [per page](https://developer.github.com/v3/#pagination).\n\nWhen searching for labels, you can get text match metadata for the label **name** and **description** fields when you pass the `text-match` media type. For more details about how to receive highlighted search results, see [Text match metadata](https://developer.github.com/v3/search/#text-match-metadata).\n\nSuppose you want to find labels in the `linguist` repository that match `bug`, `defect`, or `enhancement`. Your query might look like this:\n\nThe labels that best match for the query appear first in the search results.\n\nhttps://developer.github.com/v3/search/#search-labels",
-      "headers": [
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.symmetra-preview+json"
-        }
-      ],
+      "headers": [],
       "authentication": {
         "token": "{{ github_token }}",
         "type": "bearer"
@@ -9357,12 +9217,7 @@
       "_type": "request",
       "name": "Get team",
       "description": "\n\nhttps://developer.github.com/v3/teams/#get-team",
-      "headers": [
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.hellcat-preview+json"
-        }
-      ],
+      "headers": [],
       "authentication": {
         "token": "{{ github_token }}",
         "type": "bearer"
@@ -9378,12 +9233,7 @@
       "_type": "request",
       "name": "Edit team",
       "description": "To edit a team, the authenticated user must either be an owner of the org that the team is associated with, or a maintainer of the team.\n\n**Note:** With nested teams, the `privacy` for parent teams cannot be `secret`.\n\nhttps://developer.github.com/v3/teams/#edit-team",
-      "headers": [
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.hellcat-preview+json"
-        }
-      ],
+      "headers": [],
       "authentication": {
         "token": "{{ github_token }}",
         "type": "bearer"
@@ -9398,13 +9248,8 @@
       "_id": "__REQ_417__",
       "_type": "request",
       "name": "Delete team",
-      "description": "To delete a team, the authenticated user must be a team maintainer or an owner of the org associated with the team.\n\nIf you are an organization owner and you pass the `hellcat-preview` media type, deleting a parent team will delete all of its child teams as well.\n\nhttps://developer.github.com/v3/teams/#delete-team",
-      "headers": [
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.hellcat-preview+json"
-        }
-      ],
+      "description": "To delete a team, the authenticated user must be a team maintainer or an owner of the org associated with the team.\n\nIf you are an organization owner, deleting a parent team will delete all of its child teams as well.\n\nhttps://developer.github.com/v3/teams/#delete-team",
+      "headers": [],
       "authentication": {
         "token": "{{ github_token }}",
         "type": "bearer"
@@ -9423,7 +9268,7 @@
       "headers": [
         {
           "name": "Accept",
-          "value": "application/vnd.github.echo-preview+json,application/vnd.github.squirrel-girl-preview+json"
+          "value": "application/vnd.github.squirrel-girl-preview+json"
         }
       ],
       "authentication": {
@@ -9460,7 +9305,7 @@
       "headers": [
         {
           "name": "Accept",
-          "value": "application/vnd.github.echo-preview+json,application/vnd.github.squirrel-girl-preview+json"
+          "value": "application/vnd.github.squirrel-girl-preview+json"
         }
       ],
       "authentication": {
@@ -9481,7 +9326,7 @@
       "headers": [
         {
           "name": "Accept",
-          "value": "application/vnd.github.echo-preview+json,application/vnd.github.squirrel-girl-preview+json"
+          "value": "application/vnd.github.squirrel-girl-preview+json"
         }
       ],
       "authentication": {
@@ -9502,7 +9347,7 @@
       "headers": [
         {
           "name": "Accept",
-          "value": "application/vnd.github.echo-preview+json,application/vnd.github.squirrel-girl-preview+json"
+          "value": "application/vnd.github.squirrel-girl-preview+json"
         }
       ],
       "authentication": {
@@ -9520,12 +9365,7 @@
       "_type": "request",
       "name": "Delete a discussion",
       "description": "Delete a discussion from a team's page. OAuth access tokens require the `write:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).\n\nhttps://developer.github.com/v3/teams/discussions/#delete-a-discussion",
-      "headers": [
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.echo-preview+json"
-        }
-      ],
+      "headers": [],
       "authentication": {
         "token": "{{ github_token }}",
         "type": "bearer"
@@ -9544,7 +9384,7 @@
       "headers": [
         {
           "name": "Accept",
-          "value": "application/vnd.github.echo-preview+json,application/vnd.github.squirrel-girl-preview+json"
+          "value": "application/vnd.github.squirrel-girl-preview+json"
         }
       ],
       "authentication": {
@@ -9581,7 +9421,7 @@
       "headers": [
         {
           "name": "Accept",
-          "value": "application/vnd.github.echo-preview+json,application/vnd.github.squirrel-girl-preview+json"
+          "value": "application/vnd.github.squirrel-girl-preview+json"
         }
       ],
       "authentication": {
@@ -9602,7 +9442,7 @@
       "headers": [
         {
           "name": "Accept",
-          "value": "application/vnd.github.echo-preview+json,application/vnd.github.squirrel-girl-preview+json"
+          "value": "application/vnd.github.squirrel-girl-preview+json"
         }
       ],
       "authentication": {
@@ -9623,7 +9463,7 @@
       "headers": [
         {
           "name": "Accept",
-          "value": "application/vnd.github.echo-preview+json,application/vnd.github.squirrel-girl-preview+json"
+          "value": "application/vnd.github.squirrel-girl-preview+json"
         }
       ],
       "authentication": {
@@ -9641,12 +9481,7 @@
       "_type": "request",
       "name": "Delete a comment",
       "description": "Deletes a comment on a team discussion. OAuth access tokens require the `write:discussion` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/).\n\nhttps://developer.github.com/v3/teams/discussion_comments/#delete-a-comment",
-      "headers": [
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.echo-preview+json"
-        }
-      ],
+      "headers": [],
       "authentication": {
         "token": "{{ github_token }}",
         "type": "bearer"
@@ -9665,7 +9500,7 @@
       "headers": [
         {
           "name": "Accept",
-          "value": "application/vnd.github.echo-preview+json,application/vnd.github.squirrel-girl-preview+json"
+          "value": "application/vnd.github.squirrel-girl-preview+json"
         }
       ],
       "authentication": {
@@ -9701,7 +9536,7 @@
       "headers": [
         {
           "name": "Accept",
-          "value": "application/vnd.github.echo-preview+json,application/vnd.github.squirrel-girl-preview+json"
+          "value": "application/vnd.github.squirrel-girl-preview+json"
         }
       ],
       "authentication": {
@@ -9722,7 +9557,7 @@
       "headers": [
         {
           "name": "Accept",
-          "value": "application/vnd.github.echo-preview+json,application/vnd.github.squirrel-girl-preview+json"
+          "value": "application/vnd.github.squirrel-girl-preview+json"
         }
       ],
       "authentication": {
@@ -9758,7 +9593,7 @@
       "headers": [
         {
           "name": "Accept",
-          "value": "application/vnd.github.echo-preview+json,application/vnd.github.squirrel-girl-preview+json"
+          "value": "application/vnd.github.squirrel-girl-preview+json"
         }
       ],
       "authentication": {
@@ -9776,12 +9611,7 @@
       "_type": "request",
       "name": "List pending team invitations",
       "description": "The return hash contains a `role` field which refers to the Organization Invitation role and will be one of the following values: `direct_member`, `admin`, `billing_manager`, `hiring_manager`, or `reinstate`. If the invitee is not a GitHub member, the `login` field in the return hash will be `null`.\n\nhttps://developer.github.com/v3/teams/members/#list-pending-team-invitations",
-      "headers": [
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.dazzler-preview+json"
-        }
-      ],
+      "headers": [],
       "authentication": {
         "token": "{{ github_token }}",
         "type": "bearer"
@@ -9807,13 +9637,8 @@
       "_id": "__REQ_433__",
       "_type": "request",
       "name": "List team members",
-      "description": "If you pass the `hellcat-preview` media type, team members will include the members of child teams.\n\nhttps://developer.github.com/v3/teams/members/#list-team-members",
-      "headers": [
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.hellcat-preview+json"
-        }
-      ],
+      "description": "Team members will include the members of child teams.\n\nhttps://developer.github.com/v3/teams/members/#list-team-members",
+      "headers": [],
       "authentication": {
         "token": "{{ github_token }}",
         "type": "bearer"
@@ -9892,13 +9717,8 @@
       "_id": "__REQ_437__",
       "_type": "request",
       "name": "Get team membership",
-      "description": "If you pass the `hellcat-preview` media type, team members will include the members of child teams.\n\nTo get a user's membership with a team, the team must be visible to the authenticated user.\n\n**Note:** The `role` for organization owners returns as `maintainer`. For more information about `maintainer` roles, see [Create team](https://developer.github.com/v3/teams#create-team).\n\nhttps://developer.github.com/v3/teams/members/#get-team-membership",
-      "headers": [
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.hellcat-preview+json"
-        }
-      ],
+      "description": "Team members will include the members of child teams.\n\nTo get a user's membership with a team, the team must be visible to the authenticated user.\n\n**Note:** The `role` for organization owners returns as `maintainer`. For more information about `maintainer` roles, see [Create team](https://developer.github.com/v3/teams#create-team).\n\nhttps://developer.github.com/v3/teams/members/#get-team-membership",
+      "headers": [],
       "authentication": {
         "token": "{{ github_token }}",
         "type": "bearer"
@@ -9945,11 +9765,11 @@
       "_id": "__REQ_440__",
       "_type": "request",
       "name": "List team projects",
-      "description": "Lists the organization projects for a team. If you pass the `hellcat-preview` media type, the response will include projects inherited from a parent team.\n\nhttps://developer.github.com/v3/teams/#list-team-projects",
+      "description": "Lists the organization projects for a team.\n\nhttps://developer.github.com/v3/teams/#list-team-projects",
       "headers": [
         {
           "name": "Accept",
-          "value": "application/vnd.github.inertia-preview+json,application/vnd.github.hellcat-preview+json"
+          "value": "application/vnd.github.inertia-preview+json"
         }
       ],
       "authentication": {
@@ -9977,11 +9797,11 @@
       "_id": "__REQ_441__",
       "_type": "request",
       "name": "Review a team project",
-      "description": "Checks whether a team has `read`, `write`, or `admin` permissions for an organization project. If you pass the `hellcat-preview` media type, the response will include projects inherited from a parent team.\n\nhttps://developer.github.com/v3/teams/#review-a-team-project",
+      "description": "Checks whether a team has `read`, `write`, or `admin` permissions for an organization project. The response includes projects inherited from a parent team.\n\nhttps://developer.github.com/v3/teams/#review-a-team-project",
       "headers": [
         {
           "name": "Accept",
-          "value": "application/vnd.github.inertia-preview+json,application/vnd.github.hellcat-preview+json"
+          "value": "application/vnd.github.inertia-preview+json"
         }
       ],
       "authentication": {
@@ -10002,7 +9822,7 @@
       "headers": [
         {
           "name": "Accept",
-          "value": "application/vnd.github.inertia-preview+json,application/vnd.github.hellcat-preview+json"
+          "value": "application/vnd.github.inertia-preview+json"
         }
       ],
       "authentication": {
@@ -10035,13 +9855,8 @@
       "_id": "__REQ_444__",
       "_type": "request",
       "name": "List team repos",
-      "description": "**Note**: If you pass the `hellcat-preview` media type, the response will include any repositories inherited through a parent team.\n\nhttps://developer.github.com/v3/teams/#list-team-repos",
-      "headers": [
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.hellcat-preview+json"
-        }
-      ],
+      "description": "\n\nhttps://developer.github.com/v3/teams/#list-team-repos",
+      "headers": [],
       "authentication": {
         "token": "{{ github_token }}",
         "type": "bearer"
@@ -10067,13 +9882,8 @@
       "_id": "__REQ_445__",
       "_type": "request",
       "name": "Check if a team manages a repository",
-      "description": "**Note**: If you pass the `hellcat-preview` media type, repositories inherited through a parent team will be checked.\n\nYou can also get information about the specified repository, including what permissions the team grants on it, by passing the following custom [media type](https://developer.github.com/v3/media/) via the `Accept` header:\n\nhttps://developer.github.com/v3/teams/#check-if-a-team-manages-a-repository",
-      "headers": [
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.hellcat-preview+json"
-        }
-      ],
+      "description": "**Note**: Repositories inherited through a parent team will also be checked.\n\nYou can also get information about the specified repository, including what permissions the team grants on it, by passing the following custom [media type](https://developer.github.com/v3/media/) via the `Accept` header:\n\nhttps://developer.github.com/v3/teams/#check-if-a-team-manages-a-repository",
+      "headers": [],
       "authentication": {
         "token": "{{ github_token }}",
         "type": "bearer"
@@ -10089,12 +9899,7 @@
       "_type": "request",
       "name": "Add or update team repository",
       "description": "To add a repository to a team or update the team's permission on a repository, the authenticated user must have admin access to the repository, and must be able to see the team. The repository must be owned by the organization, or a direct fork of a repository owned by the organization. You will get a `422 Unprocessable Entity` status if you attempt to add a repository to a team that is not owned by the organization.\n\nIf you pass the `hellcat-preview` media type, you can modify repository permissions of child teams.\n\nNote that, if you choose not to pass any parameters, you'll need to set `Content-Length` to zero when calling out to this endpoint. For more information, see \"[HTTP verbs](https://developer.github.com/v3/#http-verbs).\"\n\nhttps://developer.github.com/v3/teams/#add-or-update-team-repository",
-      "headers": [
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.hellcat-preview+json"
-        }
-      ],
+      "headers": [],
       "authentication": {
         "token": "{{ github_token }}",
         "type": "bearer"
@@ -10157,13 +9962,8 @@
       "_id": "__REQ_450__",
       "_type": "request",
       "name": "List child teams",
-      "description": "At this time, the `hellcat-preview` media type is required to use this endpoint.\n\n\n\nhttps://developer.github.com/v3/teams/#list-child-teams",
-      "headers": [
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.hellcat-preview+json"
-        }
-      ],
+      "description": "\n\nhttps://developer.github.com/v3/teams/#list-child-teams",
+      "headers": [],
       "authentication": {
         "token": "{{ github_token }}",
         "type": "bearer"
@@ -10647,7 +10447,7 @@
       "headers": [
         {
           "name": "Accept",
-          "value": "application/vnd.github.symmetra-preview+json,application/vnd.github.machine-man-preview+json,application/vnd.github.squirrel-girl-preview+json"
+          "value": "application/vnd.github.machine-man-preview+json,application/vnd.github.squirrel-girl-preview+json"
         }
       ],
       "authentication": {
@@ -11394,12 +11194,7 @@
       "_type": "request",
       "name": "List user teams",
       "description": "List all of the teams across all of the organizations to which the authenticated user belongs. This method requires `user`, `repo`, or `read:org` [scope](https://developer.github.com/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/) when authenticating via [OAuth](https://developer.github.com/apps/building-oauth-apps/).\n\nhttps://developer.github.com/v3/teams/#list-user-teams",
-      "headers": [
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.hellcat-preview+json"
-        }
-      ],
+      "headers": [],
       "authentication": {
         "token": "{{ github_token }}",
         "type": "bearer"
@@ -11682,12 +11477,7 @@
       "_type": "request",
       "name": "Get contextual information about a user",
       "description": "Provides hovercard information when authenticated through basic auth or OAuth with the `repo` scope. You can find out more about someone in relation to their pull requests, issues, repositories, and organizations.\n\nThe `subject_type` and `subject_id` parameters provide context for the person's hovercard, which returns more information than without the parameters. For example, if you wanted to find out more about `octocat` who owns the `Spoon-Knife` repository via cURL, it would look like this:\n\nhttps://developer.github.com/v3/users/#get-contextual-information-about-a-user",
-      "headers": [
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.hagar-preview+json"
-        }
-      ],
+      "headers": [],
       "authentication": {
         "token": "{{ github_token }}",
         "type": "bearer"
