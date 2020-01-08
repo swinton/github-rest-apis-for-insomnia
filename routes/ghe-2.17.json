@@ -1,7 +1,7 @@
 {
   "_type": "export",
   "__export_format": 4,
-  "__export_date": "2019-12-19T21:27:47.642Z",
+  "__export_date": "2020-01-08T21:30:02.262Z",
   "__export_source": "github-rest-apis-for-insomnia:1.1.1",
   "resources": [
     {
@@ -1834,12 +1834,7 @@
       "_type": "request",
       "name": "List all issues assigned to the authenticated user across all visible repositories including owned repositories, member repositories, and organization repositories",
       "description": "**Note**: GitHub's REST API v3 considers every pull request an issue, but not every issue is a pull request. For this reason, \"Issues\" endpoints may return both issues and pull requests in the response. You can identify pull requests by the `pull_request` key.\n\nBe aware that the `id` of a pull request returned from \"Issues\" endpoints will be an _issue id_. To find out the pull request id, use the \"[List pull requests](https://developer.github.com/enterprise/2.17/v3/pulls/#list-pull-requests)\" endpoint.\n\nhttps://developer.github.com/enterprise/2.17/v3/issues/#list-issues",
-      "headers": [
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.symmetra-preview+json"
-        }
-      ],
+      "headers": [],
       "authentication": {
         "token": "{{ github_token }}",
         "type": "bearer"
@@ -2464,12 +2459,7 @@
       "_type": "request",
       "name": "List all issues for a given organization assigned to the authenticated user",
       "description": "**Note**: GitHub's REST API v3 considers every pull request an issue, but not every issue is a pull request. For this reason, \"Issues\" endpoints may return both issues and pull requests in the response. You can identify pull requests by the `pull_request` key.\n\nBe aware that the `id` of a pull request returned from \"Issues\" endpoints will be an _issue id_. To find out the pull request id, use the \"[List pull requests](https://developer.github.com/enterprise/2.17/v3/pulls/#list-pull-requests)\" endpoint.\n\nhttps://developer.github.com/enterprise/2.17/v3/issues/#list-issues",
-      "headers": [
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.symmetra-preview+json"
-        }
-      ],
+      "headers": [],
       "authentication": {
         "token": "{{ github_token }}",
         "type": "bearer"
@@ -4063,7 +4053,7 @@
       "_id": "__REQ_1205__",
       "_type": "request",
       "name": "Replace team restrictions of protected branch",
-      "description": "Replaces the list of teams that have push access to this branch. This removes all teams that previously had push access and grants push access to the new list of teams. If you pass the `hellcat-preview` media type, you can include child teams.\n\n| Type    | Description                                                                                                                         |\n| ------- | ----------------------------------------------------------------------------------------------------------------------------------- |\n| `array` | The teams that can have push access. Use the team's `slug`. **Note**: The list of users and teams in total is limited to 100 items. |\n\nhttps://developer.github.com/enterprise/2.17/v3/repos/branches/#replace-team-restrictions-of-protected-branch",
+      "description": "Replaces the list of teams that have push access to this branch. This removes all teams that previously had push access and grants push access to the new list of teams. If you pass the `hellcat-preview` media type, team restrictions include child teams.\n\n| Type    | Description                                                                                                                         |\n| ------- | ----------------------------------------------------------------------------------------------------------------------------------- |\n| `array` | The teams that can have push access. Use the team's `slug`. **Note**: The list of users and teams in total is limited to 100 items. |\n\nhttps://developer.github.com/enterprise/2.17/v3/repos/branches/#replace-team-restrictions-of-protected-branch",
       "headers": [
         {
           "name": "Accept",
@@ -4105,7 +4095,7 @@
       "_id": "__REQ_1207__",
       "_type": "request",
       "name": "Remove team restrictions of protected branch",
-      "description": "Removes the ability of a team to push to this branch. If you pass the `hellcat-preview` media type, you can include child teams.\n\n| Type    | Description                                                                                                                                  |\n| ------- | -------------------------------------------------------------------------------------------------------------------------------------------- |\n| `array` | Teams that should no longer have push access. Use the team's `slug`. **Note**: The list of users and teams in total is limited to 100 items. |\n\nhttps://developer.github.com/enterprise/2.17/v3/repos/branches/#remove-team-restrictions-of-protected-branch",
+      "description": "Removes the ability of a team to push to this branch. If you pass the `hellcat-preview` media type, you can also remove push access for child teams.\n\n| Type    | Description                                                                                                                                  |\n| ------- | -------------------------------------------------------------------------------------------------------------------------------------------- |\n| `array` | Teams that should no longer have push access. Use the team's `slug`. **Note**: The list of users and teams in total is limited to 100 items. |\n\nhttps://developer.github.com/enterprise/2.17/v3/repos/branches/#remove-team-restrictions-of-protected-branch",
       "headers": [
         {
           "name": "Accept",
@@ -5763,12 +5753,7 @@
       "_type": "request",
       "name": "List issues for a repository",
       "description": "**Note**: GitHub's REST API v3 considers every pull request an issue, but not every issue is a pull request. For this reason, \"Issues\" endpoints may return both issues and pull requests in the response. You can identify pull requests by the `pull_request` key.\n\nBe aware that the `id` of a pull request returned from \"Issues\" endpoints will be an _issue id_. To find out the pull request id, use the \"[List pull requests](https://developer.github.com/enterprise/2.17/v3/pulls/#list-pull-requests)\" endpoint.\n\nhttps://developer.github.com/enterprise/2.17/v3/issues/#list-issues-for-a-repository",
-      "headers": [
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.symmetra-preview+json"
-        }
-      ],
+      "headers": [],
       "authentication": {
         "token": "{{ github_token }}",
         "type": "bearer"
@@ -5834,12 +5819,7 @@
       "_type": "request",
       "name": "Create an issue",
       "description": "Any user with pull access to a repository can create an issue. If [issues are disabled in the repository](https://help.github.com/articles/disabling-issues/), the API returns a `410 Gone` status.\n\nThis endpoint triggers [notifications](https://help.github.com/articles/about-notifications/). Creating content too quickly using this endpoint may result in abuse rate limiting. See \"[Abuse rate limits](https://developer.github.com/enterprise/2.17/v3/#abuse-rate-limits)\" for details.\n\nhttps://developer.github.com/enterprise/2.17/v3/issues/#create-an-issue",
-      "headers": [
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.symmetra-preview+json"
-        }
-      ],
+      "headers": [],
       "authentication": {
         "token": "{{ github_token }}",
         "type": "bearer"
@@ -6004,7 +5984,7 @@
       "headers": [
         {
           "name": "Accept",
-          "value": "application/vnd.github.starfox-preview+json,application/vnd.github.symmetra-preview+json,application/vnd.github.sailor-v-preview+json"
+          "value": "application/vnd.github.starfox-preview+json,application/vnd.github.sailor-v-preview+json"
         }
       ],
       "authentication": {
@@ -6036,7 +6016,7 @@
       "headers": [
         {
           "name": "Accept",
-          "value": "application/vnd.github.starfox-preview+json,application/vnd.github.symmetra-preview+json,application/vnd.github.sailor-v-preview+json"
+          "value": "application/vnd.github.starfox-preview+json,application/vnd.github.sailor-v-preview+json"
         }
       ],
       "authentication": {
@@ -6054,12 +6034,7 @@
       "_type": "request",
       "name": "Get a single issue",
       "description": "The API returns a [`301 Moved Permanently` status](https://developer.github.com/enterprise/2.17/v3/#http-redirects) if the issue was [transferred](https://help.github.com/articles/transferring-an-issue-to-another-repository/) to another repository. If the issue was transferred to or deleted from a repository where the authenticated user lacks read access, the API returns a `404 Not Found` status. If the issue was deleted from a repository where the authenticated user has read access, the API returns a `410 Gone` status. To receive webhook events for transferred and deleted issues, subscribe to the [`issues`](https://developer.github.com/enterprise/2.17/v3/activity/events/types/#issuesevent) webhook.\n\n**Note**: GitHub's REST API v3 considers every pull request an issue, but not every issue is a pull request. For this reason, \"Issues\" endpoints may return both issues and pull requests in the response. You can identify pull requests by the `pull_request` key.\n\nBe aware that the `id` of a pull request returned from \"Issues\" endpoints will be an _issue id_. To find out the pull request id, use the \"[List pull requests](https://developer.github.com/enterprise/2.17/v3/pulls/#list-pull-requests)\" endpoint.\n\nhttps://developer.github.com/enterprise/2.17/v3/issues/#get-a-single-issue",
-      "headers": [
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.symmetra-preview+json"
-        }
-      ],
+      "headers": [],
       "authentication": {
         "token": "{{ github_token }}",
         "type": "bearer"
@@ -6075,12 +6050,7 @@
       "_type": "request",
       "name": "Edit an issue",
       "description": "Issue owners and users with push access can edit an issue.\n\nhttps://developer.github.com/enterprise/2.17/v3/issues/#edit-an-issue",
-      "headers": [
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.symmetra-preview+json"
-        }
-      ],
+      "headers": [],
       "authentication": {
         "token": "{{ github_token }}",
         "type": "bearer"
@@ -6096,12 +6066,7 @@
       "_type": "request",
       "name": "Add assignees to an issue",
       "description": "Adds up to 10 assignees to an issue. Users already assigned to an issue are not replaced.\n\nThis example adds two assignees to the existing `octocat` assignee.\n\nhttps://developer.github.com/enterprise/2.17/v3/issues/assignees/#add-assignees-to-an-issue",
-      "headers": [
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.symmetra-preview+json"
-        }
-      ],
+      "headers": [],
       "authentication": {
         "token": "{{ github_token }}",
         "type": "bearer"
@@ -6117,12 +6082,7 @@
       "_type": "request",
       "name": "Remove assignees from an issue",
       "description": "Removes one or more assignees from an issue.\n\nThis example removes two of three assignees, leaving the `octocat` assignee.\n\nhttps://developer.github.com/enterprise/2.17/v3/issues/assignees/#remove-assignees-from-an-issue",
-      "headers": [
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.symmetra-preview+json"
-        }
-      ],
+      "headers": [],
       "authentication": {
         "token": "{{ github_token }}",
         "type": "bearer"
@@ -6217,12 +6177,7 @@
       "_type": "request",
       "name": "List labels on an issue",
       "description": "\n\nhttps://developer.github.com/enterprise/2.17/v3/issues/labels/#list-labels-on-an-issue",
-      "headers": [
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.symmetra-preview+json"
-        }
-      ],
+      "headers": [],
       "authentication": {
         "token": "{{ github_token }}",
         "type": "bearer"
@@ -6249,12 +6204,7 @@
       "_type": "request",
       "name": "Add labels to an issue",
       "description": "\n\nhttps://developer.github.com/enterprise/2.17/v3/issues/labels/#add-labels-to-an-issue",
-      "headers": [
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.symmetra-preview+json"
-        }
-      ],
+      "headers": [],
       "authentication": {
         "token": "{{ github_token }}",
         "type": "bearer"
@@ -6270,12 +6220,7 @@
       "_type": "request",
       "name": "Replace all labels for an issue",
       "description": "\n\nhttps://developer.github.com/enterprise/2.17/v3/issues/labels/#replace-all-labels-for-an-issue",
-      "headers": [
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.symmetra-preview+json"
-        }
-      ],
+      "headers": [],
       "authentication": {
         "token": "{{ github_token }}",
         "type": "bearer"
@@ -6307,12 +6252,7 @@
       "_type": "request",
       "name": "Remove a label from an issue",
       "description": "Removes the specified label from the issue, and returns the remaining labels on the issue. This endpoint returns a `404 Not Found` status if the label does not exist.\n\nhttps://developer.github.com/enterprise/2.17/v3/issues/labels/#remove-a-label-from-an-issue",
-      "headers": [
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.symmetra-preview+json"
-        }
-      ],
+      "headers": [],
       "authentication": {
         "token": "{{ github_token }}",
         "type": "bearer"
@@ -6529,12 +6469,7 @@
       "_type": "request",
       "name": "List all labels for this repository",
       "description": "\n\nhttps://developer.github.com/enterprise/2.17/v3/issues/labels/#list-all-labels-for-this-repository",
-      "headers": [
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.symmetra-preview+json"
-        }
-      ],
+      "headers": [],
       "authentication": {
         "token": "{{ github_token }}",
         "type": "bearer"
@@ -6561,12 +6496,7 @@
       "_type": "request",
       "name": "Create a label",
       "description": "\n\nhttps://developer.github.com/enterprise/2.17/v3/issues/labels/#create-a-label",
-      "headers": [
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.symmetra-preview+json"
-        }
-      ],
+      "headers": [],
       "authentication": {
         "token": "{{ github_token }}",
         "type": "bearer"
@@ -6582,12 +6512,7 @@
       "_type": "request",
       "name": "Update a label",
       "description": "\n\nhttps://developer.github.com/enterprise/2.17/v3/issues/labels/#update-a-label",
-      "headers": [
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.symmetra-preview+json"
-        }
-      ],
+      "headers": [],
       "authentication": {
         "token": "{{ github_token }}",
         "type": "bearer"
@@ -6603,12 +6528,7 @@
       "_type": "request",
       "name": "Get a single label",
       "description": "\n\nhttps://developer.github.com/enterprise/2.17/v3/issues/labels/#get-a-single-label",
-      "headers": [
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.symmetra-preview+json"
-        }
-      ],
+      "headers": [],
       "authentication": {
         "token": "{{ github_token }}",
         "type": "bearer"
@@ -6794,12 +6714,7 @@
       "_type": "request",
       "name": "Get labels for every issue in a milestone",
       "description": "\n\nhttps://developer.github.com/enterprise/2.17/v3/issues/labels/#get-labels-for-every-issue-in-a-milestone",
-      "headers": [
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.symmetra-preview+json"
-        }
-      ],
+      "headers": [],
       "authentication": {
         "token": "{{ github_token }}",
         "type": "bearer"
@@ -7187,7 +7102,7 @@
       "headers": [
         {
           "name": "Accept",
-          "value": "application/vnd.github.shadow-cat-preview+json,application/vnd.github.symmetra-preview+json,application/vnd.github.sailor-v-preview+json"
+          "value": "application/vnd.github.shadow-cat-preview+json,application/vnd.github.sailor-v-preview+json"
         }
       ],
       "authentication": {
@@ -7241,7 +7156,7 @@
       "headers": [
         {
           "name": "Accept",
-          "value": "application/vnd.github.shadow-cat-preview+json,application/vnd.github.symmetra-preview+json,application/vnd.github.sailor-v-preview+json"
+          "value": "application/vnd.github.shadow-cat-preview+json,application/vnd.github.sailor-v-preview+json"
         }
       ],
       "authentication": {
@@ -7407,7 +7322,7 @@
       "headers": [
         {
           "name": "Accept",
-          "value": "application/vnd.github.shadow-cat-preview+json,application/vnd.github.symmetra-preview+json,application/vnd.github.sailor-v-preview+json"
+          "value": "application/vnd.github.shadow-cat-preview+json,application/vnd.github.sailor-v-preview+json"
         }
       ],
       "authentication": {
@@ -7428,7 +7343,7 @@
       "headers": [
         {
           "name": "Accept",
-          "value": "application/vnd.github.shadow-cat-preview+json,application/vnd.github.symmetra-preview+json,application/vnd.github.sailor-v-preview+json"
+          "value": "application/vnd.github.shadow-cat-preview+json,application/vnd.github.sailor-v-preview+json"
         }
       ],
       "authentication": {
@@ -7615,12 +7530,7 @@
       "_type": "request",
       "name": "Create a review request",
       "description": "This endpoint triggers [notifications](https://help.github.com/articles/about-notifications/). Creating content too quickly using this endpoint may result in abuse rate limiting. See \"[Abuse rate limits](https://developer.github.com/enterprise/2.17/v3/#abuse-rate-limits)\" for details.\n\nhttps://developer.github.com/enterprise/2.17/v3/pulls/review_requests/#create-a-review-request",
-      "headers": [
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.symmetra-preview+json"
-        }
-      ],
+      "headers": [],
       "authentication": {
         "token": "{{ github_token }}",
         "type": "bearer"
@@ -8473,12 +8383,7 @@
       "_type": "request",
       "name": "Search issues and pull requests",
       "description": "Find issues by state and keyword. This method returns up to 100 results [per page](https://developer.github.com/enterprise/2.17/v3/#pagination).\n\nWhen searching for issues, you can get text match metadata for the issue **title**, issue **body**, and issue **comment body** fields when you pass the `text-match` media type. For more details about how to receive highlighted search results, see [Text match metadata](https://developer.github.com/enterprise/2.17/v3/search/#text-match-metadata).\n\nLet's say you want to find the oldest unresolved Python bugs on Windows. Your query might look something like this.\n\nIn this query, we're searching for the keyword `windows`, within any open issue that's labeled as `bug`. The search runs across repositories whose primary language is Python. We’re sorting by creation date in ascending order, so that the oldest issues appear first in the search results.\n\nhttps://developer.github.com/enterprise/2.17/v3/search/#search-issues-and-pull-requests",
-      "headers": [
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.symmetra-preview+json"
-        }
-      ],
+      "headers": [],
       "authentication": {
         "token": "{{ github_token }}",
         "type": "bearer"
@@ -8518,12 +8423,7 @@
       "_type": "request",
       "name": "Search labels",
       "description": "Find labels in a repository with names or descriptions that match search keywords. Returns up to 100 results [per page](https://developer.github.com/enterprise/2.17/v3/#pagination).\n\nWhen searching for labels, you can get text match metadata for the label **name** and **description** fields when you pass the `text-match` media type. For more details about how to receive highlighted search results, see [Text match metadata](https://developer.github.com/enterprise/2.17/v3/search/#text-match-metadata).\n\nSuppose you want to find labels in the `linguist` repository that match `bug`, `defect`, or `enhancement`. Your query might look like this:\n\nThe labels that best match for the query appear first in the search results.\n\nhttps://developer.github.com/enterprise/2.17/v3/search/#search-labels",
-      "headers": [
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.symmetra-preview+json"
-        }
-      ],
+      "headers": [],
       "authentication": {
         "token": "{{ github_token }}",
         "type": "bearer"
@@ -9559,7 +9459,7 @@
       "_id": "__REQ_1450__",
       "_type": "request",
       "name": "Add or update team repository",
-      "description": "To add a repository to a team or update the team's permission on a repository, the authenticated user must have admin access to the repository, and must be able to see the team. The repository must be owned by the organization, or a direct fork of a repository owned by the organization. You will get a `422 Unprocessable Entity` status if you attempt to add a repository to a team that is not owned by the organization.\n\nIf you pass the `hellcat-preview` media type, you can modify repository permissions of child teams.\n\nNote that, if you choose not to pass any parameters, you'll need to set `Content-Length` to zero when calling out to this endpoint. For more information, see \"[HTTP verbs](https://developer.github.com/enterprise/2.17/v3/#http-verbs).\"\n\nhttps://developer.github.com/enterprise/2.17/v3/teams/#add-or-update-team-repository",
+      "description": "To add a repository to a team or update the team's permission on a repository, the authenticated user must have admin access to the repository, and must be able to see the team. The repository must be owned by the organization, or a direct fork of a repository owned by the organization. You will get a `422 Unprocessable Entity` status if you attempt to add a repository to a team that is not owned by the organization.\n\nNote that, if you choose not to pass any parameters, you'll need to set `Content-Length` to zero when calling out to this endpoint. For more information, see \"[HTTP verbs](https://developer.github.com/enterprise/2.17/v3/#http-verbs).\"\n\nhttps://developer.github.com/enterprise/2.17/v3/teams/#add-or-update-team-repository",
       "headers": [
         {
           "name": "Accept",
@@ -10003,12 +9903,7 @@
       "_type": "request",
       "name": "List all issues across owned and member repositories assigned to the authenticated user",
       "description": "**Note**: GitHub's REST API v3 considers every pull request an issue, but not every issue is a pull request. For this reason, \"Issues\" endpoints may return both issues and pull requests in the response. You can identify pull requests by the `pull_request` key.\n\nBe aware that the `id` of a pull request returned from \"Issues\" endpoints will be an _issue id_. To find out the pull request id, use the \"[List pull requests](https://developer.github.com/enterprise/2.17/v3/pulls/#list-pull-requests)\" endpoint.\n\nhttps://developer.github.com/enterprise/2.17/v3/issues/#list-issues",
-      "headers": [
-        {
-          "name": "Accept",
-          "value": "application/vnd.github.symmetra-preview+json"
-        }
-      ],
+      "headers": [],
       "authentication": {
         "token": "{{ github_token }}",
         "type": "bearer"
