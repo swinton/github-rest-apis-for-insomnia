@@ -1,7 +1,7 @@
 {
   "_type": "export",
   "__export_format": 4,
-  "__export_date": "2020-01-08T21:30:02.227Z",
+  "__export_date": "2020-01-09T01:03:53.934Z",
   "__export_source": "github-rest-apis-for-insomnia:1.1.1",
   "resources": [
     {
@@ -2993,7 +2993,7 @@
       "_id": "__REQ_128__",
       "_type": "request",
       "name": "Create team",
-      "description": "To create a team, the authenticated user must be a member or owner of `:org`. By default, organization members can create teams. Organization owners can limit team creation to organization owners. For more information, see \"[Setting team creation permissions](https://help.github.com/en/articles/setting-team-creation-permissions-in-your-organization).\"\n\nIf you do not specify an array of `maintainers`, then you will automatically become a team maintainer for the new team. For more information, see \"[About teams](https://help.github.com/en/github/setting-up-and-managing-organizations-and-teams/about-teams)\" in the GitHub Help documentation.\n\nhttps://developer.github.com/v3/teams/#create-team",
+      "description": "To create a team, the authenticated user must be a member or owner of `:org`. By default, organization members can create teams. Organization owners can limit team creation to organization owners. For more information, see \"[Setting team creation permissions](https://help.github.com/en/articles/setting-team-creation-permissions-in-your-organization).\"\n\nWhen you create a new team, you automatically become a team maintainer without explicitly adding yourself to the optional array of `maintainers`. For more information, see \"[About teams](https://help.github.com/en/github/setting-up-and-managing-organizations-and-teams/about-teams)\" in the GitHub Help documentation.\n\nhttps://developer.github.com/v3/teams/#create-team",
       "headers": [],
       "authentication": {
         "token": "{{ github_token }}",
@@ -9192,7 +9192,7 @@
       "_id": "__REQ_416__",
       "_type": "request",
       "name": "Edit team",
-      "description": "To edit a team, the authenticated user must either be an owner of the org that the team is associated with, or a maintainer of the team.\n\n**Note:** With nested teams, the `privacy` for parent teams cannot be `secret`.\n\nhttps://developer.github.com/v3/teams/#edit-team",
+      "description": "To edit a team, the authenticated user must either be an organization owner or a team maintainer.\n\n**Note:** With nested teams, the `privacy` for parent teams cannot be `secret`.\n\nhttps://developer.github.com/v3/teams/#edit-team",
       "headers": [],
       "authentication": {
         "token": "{{ github_token }}",
@@ -9208,7 +9208,7 @@
       "_id": "__REQ_417__",
       "_type": "request",
       "name": "Delete team",
-      "description": "To delete a team, the authenticated user must be a team maintainer or an owner of the org associated with the team.\n\nIf you are an organization owner, deleting a parent team will delete all of its child teams as well.\n\nhttps://developer.github.com/v3/teams/#delete-team",
+      "description": "To delete a team, the authenticated user must be an organization owner or team maintainer.\n\nIf you are an organization owner, deleting a parent team will delete all of its child teams as well.\n\nhttps://developer.github.com/v3/teams/#delete-team",
       "headers": [],
       "authentication": {
         "token": "{{ github_token }}",
@@ -9645,7 +9645,7 @@
       "_id": "__REQ_435__",
       "_type": "request",
       "name": "Add team member",
-      "description": "The \"Add team member\" API (described below) is deprecated.\n\nWe recommend using the [Add team membership API](https://developer.github.com/v3/teams/members/#add-or-update-team-membership) instead. It allows you to invite new organization members to your teams.\n\nTeam synchronization is available for organizations using GitHub Enterprise Cloud. For more information, see [GitHub's products](https://help.github.com/articles/github-s-products) in the GitHub Help documentation.\n\nTo add someone to a team, the authenticated user must be a team maintainer in the team they're changing or be an owner of the organization that the team is associated with. The person being added to the team must be a member of the team's organization.\n\n**Note:** When you have team synchronization set up for a team with your organization's identity provider (IdP), you will see an error if you attempt to use the API for making changes to the team's membership. If you have access to manage group membership in your IdP, you can manage GitHub team membership through your identity provider, which automatically adds and removes team members in an organization. For more information, see \"[Synchronizing teams between your identity provider and GitHub](https://help.github.com/articles/synchronizing-teams-between-your-identity-provider-and-github/).\"\n\nNote that you'll need to set `Content-Length` to zero when calling out to this endpoint. For more information, see \"[HTTP verbs](https://developer.github.com/v3/#http-verbs).\"\n\nhttps://developer.github.com/v3/teams/members/#add-team-member",
+      "description": "The \"Add team member\" API (described below) is deprecated.\n\nWe recommend using the [Add team membership API](https://developer.github.com/v3/teams/members/#add-or-update-team-membership) instead. It allows you to invite new organization members to your teams.\n\nTeam synchronization is available for organizations using GitHub Enterprise Cloud. For more information, see [GitHub's products](https://help.github.com/articles/github-s-products) in the GitHub Help documentation.\n\nTo add someone to a team, the authenticated user must be an organization owner or a team maintainer in the team they're changing. The person being added to the team must be a member of the team's organization.\n\n**Note:** When you have team synchronization set up for a team with your organization's identity provider (IdP), you will see an error if you attempt to use the API for making changes to the team's membership. If you have access to manage group membership in your IdP, you can manage GitHub team membership through your identity provider, which automatically adds and removes team members in an organization. For more information, see \"[Synchronizing teams between your identity provider and GitHub](https://help.github.com/articles/synchronizing-teams-between-your-identity-provider-and-github/).\"\n\nNote that you'll need to set `Content-Length` to zero when calling out to this endpoint. For more information, see \"[HTTP verbs](https://developer.github.com/v3/#http-verbs).\"\n\nhttps://developer.github.com/v3/teams/members/#add-team-member",
       "headers": [],
       "authentication": {
         "token": "{{ github_token }}",
@@ -9693,7 +9693,7 @@
       "_id": "__REQ_438__",
       "_type": "request",
       "name": "Add or update team membership",
-      "description": "Team synchronization is available for organizations using GitHub Enterprise Cloud. For more information, see [GitHub's products](https://help.github.com/articles/github-s-products) in the GitHub Help documentation.\n\nIf the user is already a member of the team's organization, this endpoint will add the user to the team. To add a membership between an organization member and a team, the authenticated user must be an organization owner or a maintainer of the team.\n\n**Note:** When you have team synchronization set up for a team with your organization's identity provider (IdP), you will see an error if you attempt to use the API for making changes to the team's membership. If you have access to manage group membership in your IdP, you can manage GitHub team membership through your identity provider, which automatically adds and removes team members in an organization. For more information, see \"[Synchronizing teams between your identity provider and GitHub](https://help.github.com/articles/synchronizing-teams-between-your-identity-provider-and-github/).\"\n\nIf the user is unaffiliated with the team's organization, this endpoint will send an invitation to the user via email. This newly-created membership will be in the \"pending\" state until the user accepts the invitation, at which point the membership will transition to the \"active\" state and the user will be added as a member of the team. To add a membership between an unaffiliated user and a team, the authenticated user must be an organization owner.\n\nIf the user is already a member of the team, this endpoint will update the role of the team member's role. To update the membership of a team member, the authenticated user must be an organization owner or a maintainer of the team.\n\nhttps://developer.github.com/v3/teams/members/#add-or-update-team-membership",
+      "description": "Team synchronization is available for organizations using GitHub Enterprise Cloud. For more information, see [GitHub's products](https://help.github.com/articles/github-s-products) in the GitHub Help documentation.\n\nIf the user is already a member of the team's organization, this endpoint will add the user to the team. To add a membership between an organization member and a team, the authenticated user must be an organization owner or a team maintainer.\n\n**Note:** When you have team synchronization set up for a team with your organization's identity provider (IdP), you will see an error if you attempt to use the API for making changes to the team's membership. If you have access to manage group membership in your IdP, you can manage GitHub team membership through your identity provider, which automatically adds and removes team members in an organization. For more information, see \"[Synchronizing teams between your identity provider and GitHub](https://help.github.com/articles/synchronizing-teams-between-your-identity-provider-and-github/).\"\n\nIf the user is unaffiliated with the team's organization, this endpoint will send an invitation to the user via email. This newly-created membership will be in the \"pending\" state until the user accepts the invitation, at which point the membership will transition to the \"active\" state and the user will be added as a member of the team. To add a membership between an unaffiliated user and a team, the authenticated user must be an organization owner.\n\nIf the user is already a member of the team, this endpoint will update the role of the team member's role. To update the membership of a team member, the authenticated user must be an organization owner or a team maintainer.\n\nhttps://developer.github.com/v3/teams/members/#add-or-update-team-membership",
       "headers": [],
       "authentication": {
         "token": "{{ github_token }}",
