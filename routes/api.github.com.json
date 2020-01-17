@@ -1,7 +1,7 @@
 {
   "_type": "export",
   "__export_format": 4,
-  "__export_date": "2020-01-17T01:14:34.062Z",
+  "__export_date": "2020-01-17T18:44:49.748Z",
   "__export_source": "github-rest-apis-for-insomnia:1.1.1",
   "resources": [
     {
@@ -1951,7 +1951,7 @@
       "_id": "__REQ_81__",
       "_type": "request",
       "name": "Edit an organization",
-      "description": "\n\n**Deprecation Notice:** GitHub will replace and discontinue `members_allowed_repository_creation_type` in favor of more granular permissions. The new input parameters are `members_can_create_public_repositories`, `members_can_create_private_repositories` for all organizations and `members_can_create_internal_repositories` for organizations associated with an enterprise account using GitHub Enterprise Cloud. For more information, see the [blog post](https://developer.github.com/changes/2019-12-03-internal-visibility-changes).\n\nEnables an authenticated organization owner with the `admin:org` scope to update the organization's profile and member privileges.\n\nhttps://developer.github.com/v3/orgs/#edit-an-organization",
+      "description": "\n\n**Parameter Deprecation Notice:** GitHub will replace and discontinue `members_allowed_repository_creation_type` in favor of more granular permissions. The new input parameters are `members_can_create_public_repositories`, `members_can_create_private_repositories` for all organizations and `members_can_create_internal_repositories` for organizations associated with an enterprise account using GitHub Enterprise Cloud. For more information, see the [blog post](https://developer.github.com/changes/2019-12-03-internal-visibility-changes).\n\nEnables an authenticated organization owner with the `admin:org` scope to update the organization's profile and member privileges.\n\nhttps://developer.github.com/v3/orgs/#edit-an-organization",
       "headers": [
         {
           "name": "Accept",
