@@ -1,7 +1,7 @@
 {
   "_type": "export",
   "__export_format": 4,
-  "__export_date": "2020-01-17T18:44:49.781Z",
+  "__export_date": "2020-01-23T05:12:18.672Z",
   "__export_source": "github-rest-apis-for-insomnia:1.1.1",
   "resources": [
     {
@@ -1296,7 +1296,7 @@
       "_id": "__REQ_1109__",
       "_type": "request",
       "name": "Get",
-      "description": "Lists all the emojis available to use on GitHub Enterprise Server.\n\n\n\nhttps://developer.github.com/enterprise/2.17/v3/emojis/#emojis",
+      "description": "Lists all the emojis available to use on GitHub Enterprise.\n\n\n\nhttps://developer.github.com/enterprise/2.17/v3/emojis/#emojis",
       "headers": [],
       "authentication": {
         "token": "{{ github_token }}",
@@ -1371,7 +1371,7 @@
       "_id": "__REQ_1113__",
       "_type": "request",
       "name": "List feeds",
-      "description": "GitHub Enterprise Server provides several timeline resources in [Atom](http://en.wikipedia.org/wiki/Atom_(standard)) format. The Feeds API lists all the feeds available to the authenticated user:\n\n*   **Timeline**: The GitHub Enterprise Server global public timeline\n*   **User**: The public timeline for any user, using [URI template](https://developer.github.com/enterprise/2.17/v3/#hypermedia)\n*   **Current user public**: The public timeline for the authenticated user\n*   **Current user**: The private timeline for the authenticated user\n*   **Current user actor**: The private timeline for activity created by the authenticated user\n*   **Current user organizations**: The private timeline for the organizations the authenticated user is a member of.\n\n**Note**: Private feeds are only returned when [authenticating via Basic Auth](https://developer.github.com/enterprise/2.17/v3/#basic-authentication) since current feed URIs use the older, non revocable auth tokens.\n\nhttps://developer.github.com/enterprise/2.17/v3/activity/feeds/#list-feeds",
+      "description": "GitHub Enterprise provides several timeline resources in [Atom](http://en.wikipedia.org/wiki/Atom_(standard)) format. The Feeds API lists all the feeds available to the authenticated user:\n\n*   **Timeline**: The GitHub Enterprise global public timeline\n*   **User**: The public timeline for any user, using [URI template](https://developer.github.com/enterprise/2.17/v3/#hypermedia)\n*   **Current user public**: The public timeline for the authenticated user\n*   **Current user**: The private timeline for the authenticated user\n*   **Current user actor**: The private timeline for activity created by the authenticated user\n*   **Current user organizations**: The private timeline for the organizations the authenticated user is a member of.\n\n**Note**: Private feeds are only returned when [authenticating via Basic Auth](https://developer.github.com/enterprise/2.17/v3/#basic-authentication) since current feed URIs use the older, non revocable auth tokens.\n\nhttps://developer.github.com/enterprise/2.17/v3/activity/feeds/#list-feeds",
       "headers": [],
       "authentication": {
         "token": "{{ github_token }}",
@@ -1937,7 +1937,7 @@
       "_id": "__REQ_1139__",
       "_type": "request",
       "name": "Email search",
-      "description": "This API call is added for compatibility reasons only. There's no guarantee that full email searches will always be available. The `@` character in the address must be left unencoded. Searches only against public email addresses (as configured on the user's GitHub Enterprise Server profile).\n\nhttps://developer.github.com/enterprise/2.17/v3/search/legacy/#email-search",
+      "description": "This API call is added for compatibility reasons only. There's no guarantee that full email searches will always be available. The `@` character in the address must be left unencoded. Searches only against public email addresses (as configured on the user's GitHub Enterprise profile).\n\nhttps://developer.github.com/enterprise/2.17/v3/search/legacy/#email-search",
       "headers": [],
       "authentication": {
         "token": "{{ github_token }}",
@@ -2134,7 +2134,7 @@
       "_id": "__REQ_1148__",
       "_type": "request",
       "name": "Mark as read",
-      "description": "Marks a notification as \"read\" removes it from the [default view on GitHub Enterprise Server](https://github.com/notifications). If the number of notifications is too large to complete in one request, you will receive a `202 Accepted` status and GitHub will run an asynchronous process to mark notifications as \"read.\" To check whether any \"unread\" notifications remain, you can use the [List your notifications](https://developer.github.com/enterprise/2.17/v3/activity/notifications/#list-your-notifications) endpoint and pass the query parameter `all=false`.\n\nhttps://developer.github.com/enterprise/2.17/v3/activity/notifications/#mark-as-read",
+      "description": "Marks a notification as \"read\" removes it from the [default view on GitHub Enterprise](https://github.com/notifications). If the number of notifications is too large to complete in one request, you will receive a `202 Accepted` status and GitHub will run an asynchronous process to mark notifications as \"read.\" To check whether any \"unread\" notifications remain, you can use the [List your notifications](https://developer.github.com/enterprise/2.17/v3/activity/notifications/#list-your-notifications) endpoint and pass the query parameter `all=false`.\n\nhttps://developer.github.com/enterprise/2.17/v3/activity/notifications/#mark-as-read",
       "headers": [],
       "authentication": {
         "token": "{{ github_token }}",
@@ -2230,7 +2230,7 @@
       "_id": "__REQ_1154__",
       "_type": "request",
       "name": "List all organizations",
-      "description": "Lists all organizations, in the order that they were created on GitHub Enterprise Server.\n\n**Note:** Pagination is powered exclusively by the `since` parameter. Use the [Link header](https://developer.github.com/enterprise/2.17/v3/#link-header) to get the URL for the next page of organizations.\n\nhttps://developer.github.com/enterprise/2.17/v3/orgs/#list-all-organizations",
+      "description": "Lists all organizations, in the order that they were created on GitHub Enterprise.\n\n**Note:** Pagination is powered exclusively by the `since` parameter. Use the [Link header](https://developer.github.com/enterprise/2.17/v3/#link-header) to get the URL for the next page of organizations.\n\nhttps://developer.github.com/enterprise/2.17/v3/orgs/#list-all-organizations",
       "headers": [],
       "authentication": {
         "token": "{{ github_token }}",
@@ -2959,7 +2959,7 @@
       "_id": "__REQ_1187__",
       "_type": "request",
       "name": "List teams",
-      "description": "\n\nhttps://developer.github.com/enterprise/2.17/v3/teams/#list-teams",
+      "description": "Lists all teams in an organization that are visible to the authenticated user.\n\nhttps://developer.github.com/enterprise/2.17/v3/teams/#list-teams",
       "headers": [
         {
           "name": "Accept",
@@ -5336,7 +5336,7 @@
       "_id": "__REQ_1294__",
       "_type": "request",
       "name": "Create a fork",
-      "description": "Create a fork for the authenticated user.\n\n**Note**: Forking a Repository happens asynchronously. You may have to wait a short period of time before you can access the git objects. If this takes longer than 5 minutes, be sure to contact [GitHub Enterprise Support](https://enterprise.github.com/support).\n\nhttps://developer.github.com/enterprise/2.17/v3/repos/forks/#create-a-fork",
+      "description": "Create a fork for the authenticated user.\n\n**Note**: Forking a Repository happens asynchronously. You may have to wait a short period of time before you can access the git objects. If this takes longer than 5 minutes, be sure to contact your GitHub Enterprise site administrator.\n\nhttps://developer.github.com/enterprise/2.17/v3/repos/forks/#create-a-fork",
       "headers": [],
       "authentication": {
         "token": "{{ github_token }}",
@@ -6785,7 +6785,7 @@
       "_id": "__REQ_1364__",
       "_type": "request",
       "name": "Mark notifications as read in a repository",
-      "description": "Marks all notifications in a repository as \"read\" removes them from the [default view on GitHub Enterprise Server](https://github.com/notifications). If the number of notifications is too large to complete in one request, you will receive a `202 Accepted` status and GitHub will run an asynchronous process to mark notifications as \"read.\" To check whether any \"unread\" notifications remain, you can use the [List your notifications in a repository](https://developer.github.com/enterprise/2.17/v3/activity/notifications/#list-your-notifications-in-a-repository) endpoint and pass the query parameter `all=false`.\n\nhttps://developer.github.com/enterprise/2.17/v3/activity/notifications/#mark-notifications-as-read-in-a-repository",
+      "description": "Marks all notifications in a repository as \"read\" removes them from the [default view on GitHub Enterprise](https://github.com/notifications). If the number of notifications is too large to complete in one request, you will receive a `202 Accepted` status and GitHub will run an asynchronous process to mark notifications as \"read.\" To check whether any \"unread\" notifications remain, you can use the [List your notifications in a repository](https://developer.github.com/enterprise/2.17/v3/activity/notifications/#list-your-notifications-in-a-repository) endpoint and pass the query parameter `all=false`.\n\nhttps://developer.github.com/enterprise/2.17/v3/activity/notifications/#mark-notifications-as-read-in-a-repository",
       "headers": [],
       "authentication": {
         "token": "{{ github_token }}",
@@ -8297,7 +8297,7 @@
       "_id": "__REQ_1436__",
       "_type": "request",
       "name": "Search code",
-      "description": "Find file contents via various criteria. This method returns up to 100 results [per page](https://developer.github.com/enterprise/2.17/v3/#pagination).\n\nWhen searching for code, you can get text match metadata for the file **content** and file **path** fields when you pass the `text-match` media type. For more details about how to receive highlighted search results, see [Text match metadata](https://developer.github.com/enterprise/2.17/v3/search/#text-match-metadata).\n\n**Note:** You must [authenticate](https://developer.github.com/enterprise/2.17/v3/#authentication) to search for code across all public repositories.\n\n**Considerations for code search**\n\nDue to the complexity of searching code, there are a few restrictions on how searches are performed:\n\n*   Only the _default branch_ is considered. In most cases, this will be the `master` branch.\n*   Only files smaller than 10 MB are searchable.\n\nSuppose you want to find the definition of the `addClass` function inside [jQuery](https://github.com/jquery/jquery). Your query would look something like this:\n\nHere, we're searching for the keyword `addClass` within a file's contents. We're making sure that we're only looking in files where the language is JavaScript. And we're scoping the search to the `repo:jquery/jquery` repository.\n\nhttps://developer.github.com/enterprise/2.17/v3/search/#search-code",
+      "description": "Find file contents via various criteria. This method returns up to 100 results [per page](https://developer.github.com/enterprise/2.17/v3/#pagination).\n\nWhen searching for code, you can get text match metadata for the file **content** and file **path** fields when you pass the `text-match` media type. For more details about how to receive highlighted search results, see [Text match metadata](https://developer.github.com/enterprise/2.17/v3/search/#text-match-metadata).\n\n**Considerations for code search**\n\nDue to the complexity of searching code, there are a few restrictions on how searches are performed:\n\n*   Only the _default branch_ is considered. In most cases, this will be the `master` branch.\n*   Only files smaller than 10 MB are searchable.\n\nSuppose you want to find the definition of the `addClass` function inside [jQuery](https://github.com/jquery/jquery). Your query would look something like this:\n\nHere, we're searching for the keyword `addClass` within a file's contents. We're making sure that we're only looking in files where the language is JavaScript. And we're scoping the search to the `repo:jquery/jquery` repository.\n\nhttps://developer.github.com/enterprise/2.17/v3/search/#search-code",
       "headers": [],
       "authentication": {
         "token": "{{ github_token }}",
@@ -9214,8 +9214,8 @@
       "parentId": "__FLD_73__",
       "_id": "__REQ_1473__",
       "_type": "request",
-      "name": "Get team member",
-      "description": "The \"Get team member\" API (described below) is deprecated.\n\nWe recommend using the [Get team membership API](https://developer.github.com/enterprise/2.17/v3/teams/members/#get-team-membership) instead. It allows you to get both active and pending memberships.\n\nTo list members in a team, the team must be visible to the authenticated user.\n\nhttps://developer.github.com/enterprise/2.17/v3/teams/members/#get-team-member",
+      "name": "Get team member (Legacy)",
+      "description": "The \"Get team member\" endpoint (described below) is deprecated.\n\nWe recommend using the [Get team membership](https://developer.github.com/enterprise/2.17/v3/teams/members/#get-team-membership) endpoint instead. It allows you to get both active and pending memberships.\n\nTo list members in a team, the team must be visible to the authenticated user.\n\nhttps://developer.github.com/enterprise/2.17/v3/teams/members/#get-team-member-legacy",
       "headers": [],
       "authentication": {
         "token": "{{ github_token }}",
@@ -9230,8 +9230,8 @@
       "parentId": "__FLD_73__",
       "_id": "__REQ_1474__",
       "_type": "request",
-      "name": "Add team member",
-      "description": "The \"Add team member\" API (described below) is deprecated.\n\nWe recommend using the [Add team membership API](https://developer.github.com/enterprise/2.17/v3/teams/members/#add-or-update-team-membership) instead. It allows you to invite new organization members to your teams.\n\nTo add someone to a team, the authenticated user must be an organization owner or a team maintainer in the team they're changing. The person being added to the team must be a member of the team's organization.\n\nNote that you'll need to set `Content-Length` to zero when calling out to this endpoint. For more information, see \"[HTTP verbs](https://developer.github.com/enterprise/2.17/v3/#http-verbs).\"\n\nhttps://developer.github.com/enterprise/2.17/v3/teams/members/#add-team-member",
+      "name": "Add team member (Legacy)",
+      "description": "The \"Add team member\" endpoint (described below) is deprecated.\n\nWe recommend using the [Add team membership](https://developer.github.com/enterprise/2.17/v3/teams/members/#add-or-update-team-membership) endpoint instead. It allows you to invite new organization members to your teams.\n\nTo add someone to a team, the authenticated user must be an organization owner or a team maintainer in the team they're changing. The person being added to the team must be a member of the team's organization.\n\nNote that you'll need to set `Content-Length` to zero when calling out to this endpoint. For more information, see \"[HTTP verbs](https://developer.github.com/enterprise/2.17/v3/#http-verbs).\"\n\nhttps://developer.github.com/enterprise/2.17/v3/teams/members/#add-team-member-legacy",
       "headers": [],
       "authentication": {
         "token": "{{ github_token }}",
@@ -9246,8 +9246,8 @@
       "parentId": "__FLD_73__",
       "_id": "__REQ_1475__",
       "_type": "request",
-      "name": "Remove team member",
-      "description": "The \"Remove team member\" API (described below) is deprecated.\n\nWe recommend using the [Remove team membership endpoint](https://developer.github.com/enterprise/2.17/v3/teams/members/#remove-team-membership) instead. It allows you to remove both active and pending memberships.\n\nTo remove a team member, the authenticated user must have 'admin' permissions to the team or be an owner of the org that the team is associated with. Removing a team member does not delete the user, it just removes them from the team.\n\nhttps://developer.github.com/enterprise/2.17/v3/teams/members/#remove-team-member",
+      "name": "Remove team member (Legacy)",
+      "description": "The \"Remove team member\" endpoint (described below) is deprecated.\n\nWe recommend using the [Remove team membership](https://developer.github.com/enterprise/2.17/v3/teams/members/#remove-team-membership) endpoint instead. It allows you to remove both active and pending memberships.\n\nTo remove a team member, the authenticated user must have 'admin' permissions to the team or be an owner of the org that the team is associated with. Removing a team member does not delete the user, it just removes them from the team.\n\nhttps://developer.github.com/enterprise/2.17/v3/teams/members/#remove-team-member-legacy",
       "headers": [],
       "authentication": {
         "token": "{{ github_token }}",
@@ -9496,7 +9496,7 @@
       "_id": "__REQ_1487__",
       "_type": "request",
       "name": "List child teams",
-      "description": "At this time, the `hellcat-preview` media type is required to use this endpoint.\n\n\n\nhttps://developer.github.com/enterprise/2.17/v3/teams/#list-child-teams",
+      "description": "You must use the `hellcat-preview` media type to use this endpoint.\n\n\n\nhttps://developer.github.com/enterprise/2.17/v3/teams/#list-child-teams",
       "headers": [
         {
           "name": "Accept",
@@ -10488,7 +10488,7 @@
       "_id": "__REQ_1531__",
       "_type": "request",
       "name": "Get all users",
-      "description": "Lists all users, in the order that they signed up on GitHub Enterprise Server. This list includes personal user accounts and organization accounts.\n\nNote: Pagination is powered exclusively by the `since` parameter. Use the [Link header](https://developer.github.com/enterprise/2.17/v3/#link-header) to get the URL for the next page of users.\n\nhttps://developer.github.com/enterprise/2.17/v3/users/#get-all-users",
+      "description": "Lists all users, in the order that they signed up on GitHub Enterprise. This list includes personal user accounts and organization accounts.\n\nNote: Pagination is powered exclusively by the `since` parameter. Use the [Link header](https://developer.github.com/enterprise/2.17/v3/#link-header) to get the URL for the next page of users.\n\nhttps://developer.github.com/enterprise/2.17/v3/users/#get-all-users",
       "headers": [],
       "authentication": {
         "token": "{{ github_token }}",
@@ -10519,7 +10519,7 @@
       "_id": "__REQ_1532__",
       "_type": "request",
       "name": "Get a single user",
-      "description": "Provides publicly available information about someone with a GitHub Enterprise Server account.\n\nThe `email` key in the following response is the publicly visible email address from your GitHub Enterprise Server [profile page](https://github.com/settings/profile). When setting up your profile, you can select a primary email address to be “public” which provides an email entry for this endpoint. If you do not set a public email address for `email`, then it will have a value of `null`. You only see publicly visible email addresses when authenticated with GitHub Enterprise Server. For more information, see [Authentication](https://developer.github.com/enterprise/2.17/v3/#authentication).\n\nThe Emails API enables you to list all of your email addresses, and toggle a primary email to be visible publicly. For more information, see \"[Emails API](https://developer.github.com/enterprise/2.17/v3/users/emails/)\".\n\nhttps://developer.github.com/enterprise/2.17/v3/users/#get-a-single-user",
+      "description": "Provides publicly available information about someone with a GitHub Enterprise account.\n\nThe `email` key in the following response is the publicly visible email address from your GitHub Enterprise [profile page](https://github.com/settings/profile). When setting up your profile, you can select a primary email address to be “public” which provides an email entry for this endpoint. If you do not set a public email address for `email`, then it will have a value of `null`. You only see publicly visible email addresses when authenticated with GitHub Enterprise. For more information, see [Authentication](https://developer.github.com/enterprise/2.17/v3/#authentication).\n\nThe Emails API enables you to list all of your email addresses, and toggle a primary email to be visible publicly. For more information, see \"[Emails API](https://developer.github.com/enterprise/2.17/v3/users/emails/)\".\n\nhttps://developer.github.com/enterprise/2.17/v3/users/#get-a-single-user",
       "headers": [],
       "authentication": {
         "token": "{{ github_token }}",
