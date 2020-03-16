@@ -39,7 +39,6 @@
     "eslint-plugin-react": "^7.12.4",
     "insomnia-importers": "^2.1.1",
     "jest": "^25.1.0",
-    "nodemon": "^1.18.10",
     "prettier": "^1.16.4"
   }
 }
