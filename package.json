@@ -40,6 +40,6 @@
     "insomnia-importers": "^2.1.1",
     "jest": "^24.9.0",
     "nodemon": "^1.18.10",
-    "prettier": "^1.16.4"
+    "prettier": "^2.0.3"
   }
 }
