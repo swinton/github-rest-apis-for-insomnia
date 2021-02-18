@@ -1,4 +1,6 @@
-const generate = require('../lib/generate');
+const { generate, getLatestRoutes } = require('../lib/generate');
+const nock = require('nock');
+const fs = require('fs');
 
 const RealDate = Date;
 
@@ -136,5 +138,44 @@ describe('generate', () => {
         }
       ]
     });
+  });
+
+  it('should retrieve latest description', async() => {
+    global.Date = RealDate;
+
+    const platform = 'api.github.com';
+    const sha = 'abc123'
+
+    nock('https://api.github.com:443', {"encodedQueryParams":true})
+      .get('/repos/github/rest-api-description/contents/descriptions')
+      .reply(200, [
+        {
+          "type": "dir",
+          "name": `${platform}`,
+          "path": `descriptions/${platform}`,
+          "sha": `${sha}`
+        }
+      ])
+      .get(`/repos/github/rest-api-description/contents/descriptions%2F${platform}%2Fdereferenced`)
+      .reply(200, [
+        {
+          "type": `file`,
+          "name": `api.github.com.deref.json`,
+          "path": `descriptions/${platform}/dereferenced`,
+          "sha": `${sha}`,
+        }
+      ])
+      .get(`/repos/github/rest-api-description/git/blobs/${sha}`)
+      .reply(200, {
+          "content": "eyJtc2ciOiAiaGV5In0K",
+          "encoding": "base64",
+          "url": "https://api.github.com/repos/octocat/example/git/blobs/3a0f86fb8db8eea7ccbb9a95f325ddbedfb25e15",
+          "sha": "3a0f86fb8db8eea7ccbb9a95f325ddbedfb25e15",
+          "size": 19,
+          "node_id": "Q29udGVudCBvZiB0aGUgYmxvYg=="
+        }
+      );
+    
+    await getLatestRoutes();
   });
 });
