@@ -17,5 +17,4 @@ const { generate, getLatestRoutes } = require('./lib/generate');
 
     process.exit(0);
   });
-
 })();

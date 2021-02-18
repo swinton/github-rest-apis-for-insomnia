@@ -142,7 +142,7 @@ describe('generate', () => {
 
   it('should retrieve latest description', async() => {
     global.Date = RealDate;
-    
+
     const platform = 'api.github.com';
     const sha = 'abc123'
 
