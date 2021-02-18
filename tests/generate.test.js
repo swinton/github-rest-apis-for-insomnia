@@ -142,12 +142,7 @@ describe('generate', () => {
 
   it('should retrieve latest description', async() => {
     global.Date = RealDate;
-    // const appendLogToFile = content => {
-    //   fs.appendFileSync('record.txt', content)
-    // }
-    // nock.recorder.rec({
-    //   logging: appendLogToFile,
-    // })
+    
     const platform = 'api.github.com';
     const sha = 'abc123'
 
