@@ -15,5 +15,4 @@ const { generate, getLatestRoutes } = require('./lib/generate');
     const output = JSON.stringify(data, null, 2);
     await fs.writeFile(destination, output);
   });
-
 })();
