@@ -37,6 +37,8 @@ jobs:
         npm ci
 
     - name: Test
+      env:
+        GITHUB_TOKEN: 987zyx
       run: |
         npm run lint
         npm test

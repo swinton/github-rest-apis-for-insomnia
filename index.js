@@ -1,17 +1,18 @@
 #!/usr/bin/env node
 const path = require('path');
-const fs = require('fs');
-const routes = require('@octokit/routes');
+const fs = require('fs/promises');
 const meta = require('./package');
-const generate = require('./lib/generate');
+const { generate, getLatestRoutes } = require('./lib/generate');
 
-Object.entries(routes).forEach(([route, api]) => {
-  const data = generate({ api, meta });
-  const destination = path.normalize(path.join(__dirname, 'routes', `${route}.json`));
+(async () => {
+  const routes = await getLatestRoutes();
 
-  // Write output straight to file
-  const output = JSON.stringify(data, null, 2);
-  fs.writeFileSync(destination, output);
-});
+  Object.entries(routes).forEach(async ([route, api]) => {
+    const data = generate({ api, meta });
+    const destination = path.normalize(path.join(__dirname, 'routes', `${route}.json`));
 
-process.exit(0);
+    // Write output straight to file
+    const output = JSON.stringify(data, null, 2);
+    await fs.writeFile(destination, output);
+  });
+})();
